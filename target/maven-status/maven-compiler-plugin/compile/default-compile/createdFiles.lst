@@ -1,2 +1,3 @@
-controller\HomeController.class
-model\Student.class
+model/Student.class
+controller/HomeController.class
+model/Fuck.class
