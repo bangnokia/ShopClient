@@ -23,6 +23,10 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class HomeController {
     
+    public String index() {
+        return "home";
+    }
+    
     //@RequestMapping(value="/fuck", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody Fuck fuck() {
         return new Fuck("dau dau", "19 nguyen trai");
@@ -40,9 +44,9 @@ public class HomeController {
     
     @RequestMapping(value="/test2", method = RequestMethod.GET)
     public String test2(ModelMap mm) {       
-        RestTemplate rt = new RestTemplate();
-        Student s = rt.getForObject("http://localhost:8084/api/home", Student.class);        
-        mm.addAttribute("student", s);
+        //RestTemplate rt = new RestTemplate();
+        //Student s = rt.getForObject("http://localhost:8084/api/home", Student.class);        
+        //mm.addAttribute("student", s);
         return "test2";
     }
     
