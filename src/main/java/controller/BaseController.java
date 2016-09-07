@@ -33,22 +33,46 @@ public class BaseController {
     }
 
     public static void main(String[] args) {
-        Connection con = getDBConnection();
-        if (con != null) {
-            System.out.println("connec ok");
-        }
+        //Connection con = getDBConnection();
+        getSkills();
 
-        Statement stmt;
-        try {
-            stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from image");
+//        if (con != null) {
+//            System.out.println("connec ok");
+//        }
+//
+//        Statement stmt;
+//        try {
+//            stmt = con.createStatement();
+//            ResultSet rs = stmt.executeQuery("select * from image");
+//            while (rs.next()) {
+//                System.out.println(rs.getString(2) + "," + rs.getString(3));
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }
+
+    public static void getSkills() {
+        // 
+        String query = "{ call saveImage(?,?) }";
+        ResultSet rs;
+
+        try (Connection conn = getDBConnection();
+                CallableStatement stmt = conn.prepareCall(query)) {
+
+            stmt.setInt(1, 2);
+            stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+
+            rs = stmt.executeQuery();
+
+            System.out.println("image url:" + stmt.getString("b_name"));
+
             while (rs.next()) {
-                System.out.println(rs.getString(2) + "," + rs.getString(3));
+                System.out.println("image idpro:" + rs.getString("idProduct") + ", image url:" + rs.getString("url"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(BaseController.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-
     }
 
 }
