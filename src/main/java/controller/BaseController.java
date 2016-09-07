@@ -60,8 +60,9 @@ public class BaseController {
         try (Connection conn = getDBConnection();
                 CallableStatement stmt = conn.prepareCall(query)) {
 
-            stmt.setInt(1, 2);
-            stmt.registerOutParameter(2, java.sql.Types.VARCHAR);
+            stmt.setInt(1, 2); // biến truyền vào procedure
+            
+            stmt.registerOutParameter(2, java.sql.Types.VARCHAR); // khai báo kiểu truyền ra
 
             rs = stmt.executeQuery();
 
