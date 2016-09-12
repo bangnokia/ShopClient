@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,7 @@ public class AuthController {
     //process login request
     public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password, ModelMap mm) {
         if (username.equals("daudau") && password.equals("123"))
-            return "redirect:/";
+            return "redirect:/";        
         else {            
             mm.addAttribute("error", "authenticating error");
             return "auth/login";
