@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-
+import dbclass.Users;
 /**
  *
  * @author daudau
@@ -32,5 +32,11 @@ public class AuthController {
             mm.addAttribute("error", "authenticating error");
             return "auth/login";
         }            
+    }
+    
+    public String dau() {
+        Users user = new Users();
+        
+        return "auth/user";
     }
 }

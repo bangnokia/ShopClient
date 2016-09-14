@@ -31,6 +31,7 @@
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <version>1.0.0.Final</version>
         </dependency>
+
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -66,7 +67,7 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
-        </dependency>
+        </dependency> 
         
         <dependency>
             <groupId>org.springframework</groupId>
@@ -86,10 +87,10 @@
             <type>pom</type>
         </dependency>
         <dependency>
-           <groupId>org.springframework</groupId>
-           <artifactId>spring-orm</artifactId>
-           <version>4.1.4.RELEASE</version>
-       </dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>4.1.4.RELEASE</version>
+        </dependency>
         
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -110,16 +111,22 @@
         </dependency>
         
         <dependency>
-           <groupId>org.hibernate</groupId>
-           <artifactId>hibernate-c3p0</artifactId>
-           <version>4.3.8.Final</version>
-       </dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>4.3.8.Final</version>
+        </dependency>
         
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>6.0.3</version>
+            <version>5.1.9</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-taglibs</artifactId>
+            <version>3.1.4.RELEASE</version>
+        </dependency> 
 
         
     </dependencies>

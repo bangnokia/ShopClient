@@ -1,12 +1,10 @@
 <%-- 
-    Document   : home
-    Created on : Aug 15, 2016, 4:42:53 PM
+    Document   : user
+    Created on : Sep 14, 2016, 6:13:03 AM
     Author     : daudau
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%--<%@taglib prefix="route" uri="/springmvc-router" %>--%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>this is home page!</h1>
-        <a href="/auth/login" />loign</a>
-<a href="/admin/category" />category</a>
-
+        <h1>Hello World!</h1>
     </body>
 </html>
