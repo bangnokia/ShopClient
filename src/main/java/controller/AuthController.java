@@ -10,13 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
-import dbclass.Users;
+import entity.User;
+import java.util.Collection;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 /**
  *
  * @author daudau
  */
 @Controller
-public class AuthController {
+public class AuthController implements Authentication{
     
 //    get form login
     public String login() {
@@ -25,18 +28,50 @@ public class AuthController {
     }
     
     //process login request
-    public String postLogin(@RequestParam("username") String username, @RequestParam("password") String password, ModelMap mm) {
-        if (username.equals("daudau") && password.equals("123"))
-            return "redirect:/";        
-        else {            
-            mm.addAttribute("error", "authenticating error");
-            return "auth/login";
-        }            
-    }
-    
-    public String dau() {
-        Users user = new Users();
+    public String postLogin(
+            @RequestParam("usernameLogin") String username,
+            @RequestParam("passwordLogin") String password,
+            ModelMap mm)
+    {
         
-        return "auth/user";
+        System.out.println(username + "|" + password);
+        mm.addAttribute("mess", "login error");
+        return "auth/login";
+    }
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object getCredentials() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object getDetails() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object getPrincipal() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean isAuthenticated() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setAuthenticated(boolean bln) throws IllegalArgumentException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String getName() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

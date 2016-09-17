@@ -5,21 +5,24 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!--setup scope session-->
+<c:set var="root" value="${pageContext.request.contextPath}" scope="session" />
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/assets/lib/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lib/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lib/select2/css/select2.min.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lib/jquery.bxslider/jquery.bxslider.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lib/owl.carousel/owl.carousel.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/lib/jquery-ui/jquery-ui.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/select2/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/jquery.bxslider/jquery.bxslider.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/owl.carousel/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/lib/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="${root}/assets/css/responsive.css" />
     <title>hna shop</title>
 </head>
 
@@ -29,8 +32,8 @@
         <div class="top-header">
             <div class="container">
                 <div class="nav-top-links">
-                    <a class="first-item" href="#"><img alt="phone" src="/assets/images/phone.png" />00-62-658-658</a>
-                    <a href="#"><img alt="email" src="/assets/images/email.png" />Contact us today!</a>
+                    <a class="first-item" href="#"><img alt="phone" src="${root}/assets/images/phone.png" />00-62-658-658</a>
+                    <a href="#"><img alt="email" src="${root}/assets/images/email.png" />Contact us today!</a>
                 </div>
                 <div class="currency ">
                     <div class="dropdown">
@@ -44,11 +47,11 @@
                 <div class="language ">
                     <div class="dropdown">
                         <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                            <img alt="email" src="/assets/images/fr.jpg" />French
+                            <img alt="email" src="${root}/assets/images/fr.jpg" />French
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><img alt="email" src="/assets/images/en.jpg" />English</a></li>
-                            <li><a href="#"><img alt="email" src="/assets/images/fr.jpg" />French</a></li>
+                            <li><a href="#"><img alt="email" src="${root}/assets/images/en.jpg" />English</a></li>
+                            <li><a href="#"><img alt="email" src="${root}/assets/images/fr.jpg" />French</a></li>
                         </ul>
                     </div>
                 </div>
@@ -60,7 +63,7 @@
                     <div class="dropdown">
                         <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span></a>
                         <ul class="dropdown-menu mega_dropdown" role="menu">
-                            <li><a href="/auth/login">Login</a></li>
+                            <li><a href="${root}/auth/login">Login</a></li>
                             <li><a href="#">Compare</a></li>
                             <li><a href="#">Wishlists</a></li>
                         </ul>
@@ -73,7 +76,7 @@
         <div class="container main-header">
             <div class="row">
                 <div class="col-xs-12 col-sm-3 logo">
-                    <a href="/"><img alt="Home page" src="/assets/images/logo.png" /></a>
+                    <a href="${root}"><img alt="Home page" src="${root}/assets/images/logo.png" /></a>
                 </div>
                 <div class="col-xs-7 col-sm-7 header-search-box">
                     <form class="form-inline">
@@ -105,7 +108,7 @@
                                         <div class="p-left">
                                             <a href="#" class="remove_link"></a>
                                             <a href="#">
-                                                <img class="img-responsive" src="/assets/data/product-100x122.jpg" alt="p10">
+                                                <img class="img-responsive" src="${root}/assets/data/product-100x122.jpg" alt="p10">
                                             </a>
                                         </div>
                                         <div class="p-right">
@@ -117,7 +120,7 @@
                                         <div class="p-left">
                                             <a href="#" class="remove_link"></a>
                                             <a href="#">
-                                                <img class="img-responsive" src="/assets/data/product-s5-100x122.jpg" alt="p10">
+                                                <img class="img-responsive" src="${root}/assets/data/product-s5-100x122.jpg" alt="p10">
                                             </a>
                                         </div>
                                         <div class="p-right">
@@ -151,9 +154,9 @@
                             </h4>
                             <div class="vertical-menu-content is-home">
                                 <ul class="vertical-menu-list">
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/1.png">Electronics</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/1.png">Electronics</a></li>
                                     <li>
-                                        <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/2.png">Sports &amp; Outdoors</a>
+                                        <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/2.png">Sports &amp; Outdoors</a>
                                         <div class="vertical-dropdown-menu">
                                             <div class="vertical-groups col-sm-12">
                                                 <div class="mega-group col-sm-4">
@@ -190,16 +193,16 @@
                                                     </ul>
                                                 </div>
                                                 <div class="mega-custom-html col-sm-12">
-                                                    <a href="#"><img src="/assets/data/banner-megamenu.jpg" alt="Banner"></a>
+                                                    <a href="#"><img src="${root}/assets/data/banner-megamenu.jpg" alt="Banner"></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/3.png">Smartphone &amp; Tablets</a></li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/4.png">Health &amp; Beauty Bags</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/3.png">Smartphone &amp; Tablets</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/4.png">Health &amp; Beauty Bags</a></li>
                                     <li>
                                         <a class="parent" href="#">
-                                            <img class="icon-menu" alt="Funky roots" src="/assets/data/5.png">Shoes &amp; Accessories</a>
+                                            <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/5.png">Shoes &amp; Accessories</a>
                                         <div class="vertical-dropdown-menu">
                                             <div class="vertical-groups col-sm-12">
                                                 <div class="mega-group col-sm-12">
@@ -207,7 +210,7 @@
                                                     <div class="row mega-products">
                                                         <div class="col-sm-3 mega-product">
                                                             <div class="product-avatar">
-                                                                <a href="#"><img src="/assets/data/p10.jpg" alt="product1"></a>
+                                                                <a href="#"><img src="${root}/assets/data/p10.jpg" alt="product1"></a>
                                                             </div>
                                                             <div class="product-name">
                                                                 <a href="#">Fashion hand bag</a>
@@ -226,7 +229,7 @@
                                                         </div>
                                                         <div class="col-sm-3 mega-product">
                                                             <div class="product-avatar">
-                                                                <a href="#"><img src="/assets/data/p11.jpg" alt="product1"></a>
+                                                                <a href="#"><img src="${root}/assets/data/p11.jpg" alt="product1"></a>
                                                             </div>
                                                             <div class="product-name">
                                                                 <a href="#">Fashion hand bag</a>
@@ -245,7 +248,7 @@
                                                         </div>
                                                         <div class="col-sm-3 mega-product">
                                                             <div class="product-avatar">
-                                                                <a href="#"><img src="/assets/data/p12.jpg" alt="product1"></a>
+                                                                <a href="#"><img src="${root}/assets/data/p12.jpg" alt="product1"></a>
                                                             </div>
                                                             <div class="product-name">
                                                                 <a href="#">Fashion hand bag</a>
@@ -264,7 +267,7 @@
                                                         </div>
                                                         <div class="col-sm-3 mega-product">
                                                             <div class="product-avatar">
-                                                                <a href="#"><img src="/assets/data/p13.jpg" alt="product1"></a>
+                                                                <a href="#"><img src="${root}/assets/data/p13.jpg" alt="product1"></a>
                                                             </div>
                                                             <div class="product-name">
                                                                 <a href="#">Fashion hand bag</a>
@@ -286,36 +289,36 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/6.png">Toys &amp; Hobbies</a></li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/7.png">Computers &amp; Networking</a></li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/8.png">Laptops &amp; Accessories</a></li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/9.png">Jewelry &amp; Watches</a></li>
-                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/10.png">Flashlights &amp; Lamps</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/6.png">Toys &amp; Hobbies</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/7.png">Computers &amp; Networking</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/8.png">Laptops &amp; Accessories</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/9.png">Jewelry &amp; Watches</a></li>
+                                    <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/10.png">Flashlights &amp; Lamps</a></li>
                                     <li>
                                         <a href="#">
-                                            <img class="icon-menu" alt="Funky roots" src="/assets/data/11.png">
+                                            <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/11.png">
                                             Cameras &amp; Photo
                                         </a>
                                     </li>
                                     <li class="cat-link-orther">
                                         <a href="#">
-                                            <img class="icon-menu" alt="Funky roots" src="/assets/data/5.png">
+                                            <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/5.png">
                                             Television
                                         </a>
                                     </li>
                                     <li class="cat-link-orther">
                                         <a href="#">
-                                            <img class="icon-menu" alt="Funky roots" src="/assets/data/7.png">Computers &amp; Networking
+                                            <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/7.png">Computers &amp; Networking
                                         </a>
                                     </li>
                                     <li class="cat-link-orther">
                                         <a href="#">
-                                            <img class="icon-menu" alt="Funky roots" src="/assets/data/6.png">
+                                            <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/6.png">
                                             Toys &amp; Hobbies
                                         </a>
                                     </li>
                                     <li class="cat-link-orther">
-                                        <a href="#"><img class="icon-menu" alt="Funky roots" src="/assets/data/9.png">Jewelry &amp; Watches</a></li>
+                                        <a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/9.png">Jewelry &amp; Watches</a></li>
                                 </ul>
                                 <div class="all-category"><span class="open-cate">All Categories</span></div>
                             </div>
@@ -340,7 +343,7 @@
                                                     <ul class="block">
                                                         <li class="img_container">
                                                             <a href="#">
-                                                                <img class="img-responsive" src="/assets/data/men.png" alt="sport">
+                                                                <img class="img-responsive" src="${root}/assets/data/men.png" alt="sport">
                                                             </a>
                                                         </li>
                                                         <li class="link_container group_header">
@@ -357,7 +360,7 @@
                                                     <ul class="block">
                                                         <li class="img_container">
                                                             <a href="#">
-                                                                <img class="img-responsive" src="/assets/data/women.png" alt="sport">
+                                                                <img class="img-responsive" src="${root}/assets/data/women.png" alt="sport">
                                                             </a>
                                                         </li>
                                                         <li class="link_container group_header">
@@ -374,7 +377,7 @@
                                                     <ul class="block">
                                                         <li class="img_container">
                                                             <a href="#">
-                                                                <img class="img-responsive" src="/assets/data/kid.png" alt="sport">
+                                                                <img class="img-responsive" src="${root}/assets/data/kid.png" alt="sport">
                                                             </a>
                                                         </li>
                                                         <li class="link_container group_header">
@@ -391,7 +394,7 @@
                                                     <ul class="block">
                                                         <li class="img_container">
                                                             <a href="#">
-                                                                <img class="img-responsive" src="/assets/data/trending.png" alt="sport">
+                                                                <img class="img-responsive" src="${root}/assets/data/trending.png" alt="sport">
                                                             </a>
                                                         </li>
                                                         <li class="link_container group_header">
@@ -505,7 +508,7 @@
                                                 <li class="block-container col-sm-3">
                                                     <ul class="block">
                                                         <li class="img_container">
-                                                            <img src="/assets/data/banner-topmenu.jpg" alt="Banner">
+                                                            <img src="${root}/assets/data/banner-topmenu.jpg" alt="Banner">
                                                         </li>
                                                     </ul>
                                                 </li>

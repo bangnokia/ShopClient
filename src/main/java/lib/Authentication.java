@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
-
-import org.springframework.stereotype.Controller;
+package lib;
 
 /**
  *
  * @author daudau
  */
-@Controller
-public class CategoryController {
+public class Authentication {
     
-    public String index() {
-        return "admin/category";
-    }
 }

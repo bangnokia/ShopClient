@@ -12,7 +12,7 @@
             <div id="introduce-box" class="row">
                 <div class="col-md-3">
                     <div id="address-box">
-                        <a href="#"><img src="/assets/data/introduce-logo.png" alt="" /></a>
+                        <a href="#"><img src="${root}/assets/data/introduce-logo.png" alt="" /></a>
                         <div id="address-list">
                             <div class="tit-name">Address:</div>
                             <div class="tit-contain">Example Street 68, Mahattan, New York, USA.</div>
@@ -83,34 +83,34 @@
                     <ul id="trademark-list">
                         <li id="payment-methods">Accepted Payment Methods</li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-ups.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-ups.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-qiwi.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-qiwi.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-wu.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-wu.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-cn.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-cn.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-visa.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-visa.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-mc.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-mc.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-ems.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-ems.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-dhl.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-dhl.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-fe.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-fe.jpg"  alt="ups"/></a>
                         </li>
                         <li>
-                            <a href="#"><img src="/assets/data/trademark-wm.jpg"  alt="ups"/></a>
+                            <a href="#"><img src="${root}/assets/data/trademark-wm.jpg"  alt="ups"/></a>
                         </li>
                     </ul> 
                 </div>
@@ -259,14 +259,14 @@
 </footer>
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
-<script type="text/javascript" src="/assets/lib/jquery/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/assets/lib/select2/js/select2.min.js"></script>
-<script type="text/javascript" src="/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src="/assets/lib/owl.carousel/owl.carousel.min.js"></script>
-<script type="text/javascript" src="/assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
-<script type="text/javascript" src="/assets/lib/jquery-ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/assets/js/jquery.actual.min.js"></script>
-<script type="text/javascript" src="/assets/js/theme-script.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/select2/js/select2.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/owl.carousel/owl.carousel.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/jquery.countdown/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="${root}/assets/lib/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="${root}/assets/js/jquery.actual.min.js"></script>
+<script type="text/javascript" src="${root}/assets/js/theme-script.js"></script>
 </body>
 </html>

@@ -4,7 +4,6 @@
     Author     : daudau
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <jsp:include page="_partial/_header.jsp" />
 <!-- Home slideder-->
 <div id="home-slider">
@@ -15,14 +14,14 @@
                 <div class="homeslider">
                     <div class="content-slide">
                         <ul id="contenhomeslider">
-                          <li><img alt="Funky roots" src="/assets/data/slide.jpg" title="Funky roots" /></li>
-                          <li><img alt="Funky roots" src="/assets/data/slide.jpg" title="Funky roots" /></li>
-                          <li><img  alt="Funky roots" src="/assets/data/slide.jpg" title="Funky roots" /></li>
+                          <li><img alt="Funky roots" src="${root}/assets/data/slide.jpg" title="Funky roots" /></li>
+                          <li><img alt="Funky roots" src="${root}/assets/data/slide.jpg" title="Funky roots" /></li>
+                          <li><img  alt="Funky roots" src="${root}/assets/data/slide.jpg" title="Funky roots" /></li>
                         </ul>
                     </div>
                 </div>
                 <div class="header-banner banner-opacity">
-                    <a href="#"><img alt="Funky roots" src="/assets/data/ads1.jpg" /></a>
+                    <a href="#"><img alt="Funky roots" src="${root}/assets/data/ads1.jpg" /></a>
                 </div>
             </div>
         </div>
@@ -34,7 +33,7 @@
     <div class="service ">
         <div class="col-xs-6 col-sm-3 service-item">
             <div class="icon">
-                <img alt="services" src="/assets/data/s1.png" />
+                <img alt="services" src="${root}/assets/data/s1.png" />
             </div>
             <div class="info">
                 <a href="#"><h3>Free Shipping</h3></a>
@@ -43,7 +42,7 @@
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
             <div class="icon">
-                <img alt="services" src="/assets/data/s2.png" />
+                <img alt="services" src="${root}/assets/data/s2.png" />
             </div>
             <div class="info">
                 <a href="#"><h3>30-day return</h3></a>
@@ -52,7 +51,7 @@
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
             <div class="icon">
-                <img alt="services" src="/assets/data/s3.png" />
+                <img alt="services" src="${root}/assets/data/s3.png" />
             </div>
             
             <div class="info" >
@@ -62,7 +61,7 @@
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
             <div class="icon">
-                <img alt="services" src="/assets/data/s4.png" />
+                <img alt="services" src="${root}/assets/data/s4.png" />
             </div>
             <div class="info">
                 <a href="#"><h3>SAFE SHOPPING</h3></a>
@@ -89,7 +88,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                                <img class="img-responsive" alt="product" src="/assets/data/bs1.jpg" />
+                                                <img class="img-responsive" alt="product" src="${root}/assets/data/bs1.jpg" />
                                             </a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
@@ -121,7 +120,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/bs2.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/bs2.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -148,7 +147,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/bs3.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/bs3.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -178,7 +177,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/bs4.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/bs4.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -210,7 +209,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/p48.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/p48.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -238,7 +237,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/p49.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/p49.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -265,7 +264,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p50.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p50.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -292,7 +291,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p51.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p51.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -323,7 +322,7 @@
                                 <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p60.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p60.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -350,7 +349,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p61.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p61.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -377,7 +376,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p62.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p62.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -404,7 +403,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p63.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p63.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -442,7 +441,7 @@
                             <li>
                                 <div class="count-down-time" data-countdown="2015/06/27"></div>
                                 <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="/assets/data/ld1.jpg" /></a>
+                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld1.jpg" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -464,7 +463,7 @@
                             <li>
                                 <div class="count-down-time" data-countdown="2015/06/27 9:20:00"></div>
                                 <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="/assets/data/ld2.jpg" /></a>
+                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld2.jpg" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -486,7 +485,7 @@
                             <li>
                                 <div class="count-down-time" data-countdown="2015/06/27 9:20:00"></div>
                                 <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="/assets/data/ld3.jpg" /></a>
+                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld3.jpg" /></a>
                                     <div class="quick-view">
                                             <a title="Add to my wishlist" class="heart" href="#"></a>
                                             <a title="Add to compare" class="compare" href="#"></a>
@@ -520,7 +519,7 @@
             <nav class="navbar nav-menu nav-menu-red show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/fashion.png" />fashion</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/fashion.png" />fashion</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -541,17 +540,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads2.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads2.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads3.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads3.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f1.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f1.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -563,7 +562,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/01_blue-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/01_blue-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -591,7 +590,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/02_yellow-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/02_yellow-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -619,7 +618,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/03_cyan-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/03_cyan-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -647,7 +646,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/04_nice-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/04_nice-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -675,7 +674,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/05_flowers-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/05_flowers-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -703,7 +702,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/06_red-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/06_red-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -736,7 +735,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/04_nice-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/04_nice-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -764,7 +763,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/05_flowers-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/05_flowers-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -792,7 +791,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/06_red-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/06_red-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -820,7 +819,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/01_blue-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/01_blue-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -848,7 +847,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/02_yellow-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/02_yellow-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -876,7 +875,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/03_cyan-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/03_cyan-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -904,7 +903,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/04_nice-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/04_nice-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -932,7 +931,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/05_flowers-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/05_flowers-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -960,7 +959,7 @@
                                     <li>
                                         <div class="left-block">
                                             <a href="#">
-                                            <img class="img-responsive" alt="product" src="/assets/data/06_red-dress.jpg" /></a>
+                                            <img class="img-responsive" alt="product" src="${root}/assets/data/06_red-dress.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -999,7 +998,7 @@
             <nav class="navbar nav-menu nav-menu-green show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/sports.png" />sports</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/sports.png" />sports</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -1020,17 +1019,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads6.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads6.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads7.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads7.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f2.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f2.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -1041,7 +1040,7 @@
                                 <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p14.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p14.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1068,7 +1067,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p15.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p15.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1095,7 +1094,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p16.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p16.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1122,7 +1121,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p14.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p14.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1149,7 +1148,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p17.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p17.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1176,7 +1175,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p14.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p14.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1209,7 +1208,7 @@
 
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p17.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p17.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1236,7 +1235,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p16.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p16.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1263,7 +1262,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p15.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p15.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1290,7 +1289,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p17.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p17.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1317,7 +1316,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p14.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p14.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1344,7 +1343,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p17.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p17.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1383,7 +1382,7 @@
             <nav class="navbar nav-menu nav-menu-orange show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/electronic.png" />electronic</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/electronic.png" />electronic</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -1404,17 +1403,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads8.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads8.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads9.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads9.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f3.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f3.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -1425,7 +1424,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav="true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p18.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p18.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1452,7 +1451,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p19.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p19.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1479,7 +1478,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p20.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p20.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1506,7 +1505,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p18.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p18.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1533,7 +1532,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p21.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p21.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1565,7 +1564,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p21.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p21.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1592,7 +1591,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p21.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p21.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1619,7 +1618,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p20.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p20.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1646,7 +1645,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p19.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p19.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1673,7 +1672,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p18.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p18.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1712,7 +1711,7 @@
             <nav class="navbar nav-menu nav-menu-blue show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/digital.png" />Digital</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/digital.png" />Digital</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -1733,17 +1732,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads10.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads10.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads11.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads11.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f4.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f4.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -1754,7 +1753,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p22.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p22.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1781,7 +1780,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p23.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p23.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1808,7 +1807,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p24.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p24.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1835,7 +1834,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p25.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p25.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1862,7 +1861,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p23.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p23.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1894,7 +1893,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p25.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p25.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1921,7 +1920,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p24.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p24.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1948,7 +1947,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p23.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p23.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -1975,7 +1974,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p23.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p23.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2002,7 +2001,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p22.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p22.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2029,7 +2028,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p23.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p23.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2068,7 +2067,7 @@
             <nav class="navbar nav-menu nav-menu-blue2 show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/furniture.png" />furniture</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/furniture.png" />furniture</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -2089,17 +2088,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads12.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads12.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads13.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads13.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f5.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f5.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -2110,7 +2109,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p26.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p26.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2137,7 +2136,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p27.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p27.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2164,7 +2163,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p28.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p28.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2191,7 +2190,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p29.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p29.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2218,7 +2217,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p28.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p28.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2250,7 +2249,7 @@
                                 <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p29.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p29.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2277,7 +2276,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p28.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p28.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2304,7 +2303,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p28.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p28.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2331,7 +2330,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p27.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p27.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2358,7 +2357,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p26.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p26.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2397,7 +2396,7 @@
             <nav class="navbar nav-menu nav-menu-gray show-brand">
               <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="/assets/data/jewelry.png" />jewelry</a></div>
+                  <div class="navbar-brand"><a href="#"><img alt="fashion" src="${root}/assets/data/jewelry.png" />jewelry</a></div>
                   <span class="toggle-menu"></span>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse">           
@@ -2418,17 +2417,17 @@
             </nav>
             <div class="category-banner">
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads14.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads14.jpg" /></a>
                 </div>
                 <div class="col-sm-6 banner">
-                    <a href="#"><img alt="ads2" class="img-responsive" src="/assets/data/ads15.jpg" /></a>
+                    <a href="#"><img alt="ads2" class="img-responsive" src="${root}/assets/data/ads15.jpg" /></a>
                 </div>
            </div>
            <div class="product-featured clearfix">
                 <div class="banner-featured">
                     <div class="featured-text"><span>featured</span></div>
                     <div class="banner-img">
-                        <a href="#"><img alt="Featurered 1" src="/assets/data/f6.jpg" /></a>
+                        <a href="#"><img alt="Featurered 1" src="${root}/assets/data/f6.jpg" /></a>
                     </div>
                 </div>
                 <div class="product-featured-content">
@@ -2439,7 +2438,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p30.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p30.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2466,7 +2465,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p31.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p31.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2493,7 +2492,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p32.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p32.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2521,7 +2520,7 @@
 
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p33.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p33.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2548,7 +2547,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p31.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p31.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2580,7 +2579,7 @@
                                 <ul class="product-list owl-carousel"  data-dots="false" data-loop="true" data-nav = "true" data-margin = "0" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":4}}'>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p33.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p33.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2607,7 +2606,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p31.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p31.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2634,7 +2633,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p31.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p31.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2661,7 +2660,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p32.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p32.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2688,7 +2687,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p31.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p31.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2715,7 +2714,7 @@
                                     </li>
                                     <li>
                                         <div class="left-block">
-                                            <a href="#"><img class="img-responsive" alt="product" src="/assets/data/p30.jpg" /></a>
+                                            <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/p30.jpg" /></a>
                                             <div class="quick-view">
                                                     <a title="Add to my wishlist" class="heart" href="#"></a>
                                                     <a title="Add to compare" class="compare" href="#"></a>
@@ -2754,12 +2753,12 @@
         <div class="row banner-bottom">
             <div class="col-sm-6">
                 <div class="banner-boder-zoom">
-                    <a href="#"><img alt="ads" class="img-responsive" src="/assets/data/ads17.jpg" /></a>
+                    <a href="#"><img alt="ads" class="img-responsive" src="${root}/assets/data/ads17.jpg" /></a>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="banner-boder-zoom">
-                    <a href="#"><img alt="ads" class="img-responsive" src="/assets/data/ads18.jpg" /></a>
+                    <a href="#"><img alt="ads" class="img-responsive" src="${root}/assets/data/ads18.jpg" /></a>
                 </div>
             </div>
         </div>
@@ -2774,25 +2773,25 @@
         </h2>
         <div class="brand-showcase-box">
             <ul class="brand-showcase-logo owl-carousel" data-loop="true" data-nav = "true" data-dots="false" data-margin = "1" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":2},"600":{"items":5},"1000":{"items":8}}'>
-                <li data-tab="showcase-1" class="item active"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-2" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-3" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-4" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-5" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-6" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-7" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-8" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
-                <li data-tab="showcase-9" class="item"><img src="/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-1" class="item active"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-2" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-3" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-4" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-5" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-6" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-7" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-8" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
+                <li data-tab="showcase-9" class="item"><img src="${root}/assets/data/gucci.png" alt="logo" class="item-img" /></li>
             </ul>
             <div class="brand-showcase-content">
                 <div class="brand-showcase-content-tab active" id="showcase-1">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -2800,7 +2799,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p24.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p24.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2819,7 +2818,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p25.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p25.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2838,7 +2837,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p26.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p26.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2857,7 +2856,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p27.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p27.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2882,10 +2881,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -2893,7 +2892,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p10.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p10.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2912,7 +2911,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p11.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p11.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2931,7 +2930,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p12.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p12.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2950,7 +2949,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p13.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p13.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -2976,10 +2975,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -2987,7 +2986,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p14.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p14.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3006,7 +3005,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p15.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p15.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3025,7 +3024,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p16.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p16.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3044,7 +3043,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p17.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p17.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3069,10 +3068,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3080,7 +3079,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p18.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p18.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3099,7 +3098,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p19.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p19.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3118,7 +3117,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p20.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p20.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3137,7 +3136,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p21.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p21.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3162,10 +3161,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3173,7 +3172,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p22.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p22.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3192,7 +3191,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p23.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p23.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3211,7 +3210,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p24.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p24.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3230,7 +3229,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p25.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p25.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3255,10 +3254,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3266,7 +3265,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p26.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p26.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3285,7 +3284,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p27.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p27.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3304,7 +3303,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p28.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p28.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3323,7 +3322,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p29.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p29.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3348,10 +3347,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3359,7 +3358,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p30.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p30.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3378,7 +3377,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p31.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p31.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3397,7 +3396,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p32.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p32.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3416,7 +3415,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p15.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p15.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3441,10 +3440,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3452,7 +3451,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p25.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p25.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3471,7 +3470,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p21.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p21.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3490,7 +3489,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p10.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p10.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3509,7 +3508,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p23.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p23.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3534,10 +3533,10 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 trademark-info">
                             <div class="trademark-logo">
-                                <a href="#"><img src="/assets/data/trademark.jpg" alt="trademark"></a>
+                                <a href="#"><img src="${root}/assets/data/trademark.jpg" alt="trademark"></a>
                             </div>
                             <div class="trademark-desc">
-                                Whatever the occasion, complete your outfit with one of Hermes Fashion’s stylish women’s bags. Discover our spring collection.
+                                Whatever the occasion, complete your outfit with one of Hermes Fashion?s stylish women?s bags. Discover our spring collection.
                             </div>
                             <a href="#" class="trademark-link">shop this brand</a>
                         </div>
@@ -3545,7 +3544,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-repon" src="/assets/data/p24.jpg" alt=""></a>
+                                        <a href="#"><img class="img-repon" src="${root}/assets/data/p24.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3564,7 +3563,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p14.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p14.jpg" alt=""></a>
                                     </div>
                                     <div class="image-product hover-zoom">
                                         <a href="#">
@@ -3583,7 +3582,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p30.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p30.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3602,7 +3601,7 @@
                                 </div>
                                 <div class="col-xs-12 col-sm-6 product-item">
                                     <div class="image-product hover-zoom">
-                                        <a href="#"><img class="img-responsive" src="/assets/data/p29.jpg" alt=""></a>
+                                        <a href="#"><img class="img-responsive" src="${root}/assets/data/p29.jpg" alt=""></a>
                                     </div>
                                     <div class="info-product">
                                         <a href="#">
@@ -3648,7 +3647,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product1.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product1.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                     
@@ -3673,7 +3672,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product2.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product2.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                 </div>
@@ -3696,7 +3695,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product3.png" alt="Electronics" class="hot-cate-img"/>
+                            <img src="${root}/assets/data/cate-product3.png" alt="Electronics" class="hot-cate-img"/>
                         </a>
                     </div>
                     
@@ -3720,7 +3719,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product4.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product4.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                     
@@ -3744,7 +3743,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product5.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product5.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                 </div>
@@ -3768,7 +3767,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product6.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product6.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                 </div>
@@ -3791,7 +3790,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product7.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product7.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                     
@@ -3815,7 +3814,7 @@
                     </div>
                     <div class="div-2" >
                         <a href="#">
-                            <img src="/assets/data/cate-product8.png" alt="Electronics" class="hot-cate-img" />
+                            <img src="${root}/assets/data/cate-product8.png" alt="Electronics" class="hot-cate-img" />
                         </a>
                     </div>
                 </div>
