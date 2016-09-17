@@ -12,6 +12,7 @@
         <property name="prefix" value="/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    <mvc:resources mapping="/assets/**" location="/assets/" />
     <!-- 
         Choose HandlerMapping.
         RouterHandlerMapping loads routes configuration from a file.
