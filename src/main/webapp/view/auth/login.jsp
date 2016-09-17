@@ -27,9 +27,16 @@
                 <div class="col-sm-6">
                     <div class="box-authentication">
                         <h3>Create an account</h3>
-                        <p>Please enter your email address to create an account.</p>
+                        <p>Please fill fields to create an account.</p>
                         <label for="emmail_register">Email address</label>
-                        <input id="emmail_register" type="text" class="form-control">
+                        <input id="emmail_register" type="text" class="form-control" type="email" required>
+                        
+                        <label for="username_register">Username</label>
+                        <input id="username_register" type="text" class="form-control" required>
+                        
+                        <label for="password_register">Password</label>
+                        <input id="password_register" type="password" class="form-control" required>
+                        
                         <button class="button"><i class="fa fa-user"></i> Create an account</button>
                     </div>
                 </div>

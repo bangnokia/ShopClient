@@ -22,7 +22,8 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css" />
     <title>hna shop</title>
 </head>
-<body class="category-page">
+
+<body class="<% if (request.getServletPath().equals("/view/home.jsp")) out.print("home"); else out.print("category-page"); %>">
     <!-- HEADER -->
     <div id="header" class="header">
         <div class="top-header">
@@ -59,7 +60,7 @@
                     <div class="dropdown">
                         <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span></a>
                         <ul class="dropdown-menu mega_dropdown" role="menu">
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="/auth/login">Login</a></li>
                             <li><a href="#">Compare</a></li>
                             <li><a href="#">Wishlists</a></li>
                         </ul>
