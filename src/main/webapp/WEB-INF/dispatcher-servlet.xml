@@ -7,42 +7,26 @@
  
     <mvc:annotation-driven />
     <context:component-scan base-package="controller" />
+
  
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
+    
     <mvc:resources mapping="/assets/**" location="/assets/" />
-    <!-- 
-        Choose HandlerMapping.
-        RouterHandlerMapping loads routes configuration from a file.
-        Router adapted from Play! Framework.
 
-        @see http://www.playframework.org/documentation/1.2.4/routes#syntax
-        for route configuration syntax.
-        Example:
-        GET    /home          PageController.showPage(id:'home')
-        GET    /page/{id}     PageController.showPage
-    -->      
     <bean id="handlerMapping"
           class="org.resthub.web.springmvc.router.RouterHandlerMapping">
             <property name="routeFiles">
                 <list>
                     <value>routes.conf</value>
-                <!--
-                    Router will *append* routes declared in additional files
-                    <value>addroutes.conf</value>
-                -->
                 </list>
             </property>
-
-            <!-- 
-                Uncomment the following configuration line
-                if you want routes to be dynamically reloaded when
-                route files are modified.
-                Can be a good idea in dev mode, not so much in production!
-            -->
             <property name="autoReloadEnabled" value="true" />
+    </bean>
+    
+    <bean id="UserDAO" class="dao.UserDAO">
     </bean>
  
 </beans>

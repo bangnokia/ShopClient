@@ -5,73 +5,46 @@
  */
 package controller;
 
-import javax.servlet.http.HttpSession;
+import dao.UserDAO;
+import entity.User;
+import lib.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.view.RedirectView;
-import entity.User;
-import java.util.Collection;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
+import model.HibernateUtil;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 /**
  *
  * @author daudau
  */
 @Controller
-public class AuthController implements Authentication{
-    
-//    get form login
-    public String login() {
+public class AuthController {
         
+    
+//    @Autowired
+//    private Authentication auth;
+//    get form login 
+    @Autowired
+    private UserDAO userDAO;
+    
+    public String login() {        
         return "auth/login";
     }
     
     //process login request
-    public String postLogin(
-            @RequestParam("usernameLogin") String username,
-            @RequestParam("passwordLogin") String password,
-            ModelMap mm)
-    {
+    public String postLogin(@RequestParam("usernameLogin") String username, @RequestParam("passwordLogin") String password, ModelMap mm) {
+//        auth = new Authentication();
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
         
-        System.out.println(username + "|" + password);
-        mm.addAttribute("mess", "login error");
+        User user2 = userDAO.findUserByName(username);
+        if (user2.getPassword().equals(password))
+            return "home";        
         return "auth/login";
     }
-
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getCredentials() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getDetails() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getPrincipal() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean isAuthenticated() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void setAuthenticated(boolean bln) throws IllegalArgumentException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }

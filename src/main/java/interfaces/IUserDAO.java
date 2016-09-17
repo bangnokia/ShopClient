@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package lib;
+package interfaces;
 
 import entity.User;
+
 /**
  *
  * @author daudau
  */
-public class Authentication {
+public interface IUserDAO {
     
-    public boolean authenticateUser(User user) {
-        System.out.println("authenticating user fuck: "+user.getUsername() + " | "+user.getPassword());
-        return false;
-    }
+    public User findUser(String username);
+    
+    public boolean authenticateUser(User user);
 }
