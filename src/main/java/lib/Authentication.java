@@ -11,4 +11,7 @@ package lib;
  */
 public class Authentication {
     
+    public boolean login() {
+        return false;
+    }
 }
