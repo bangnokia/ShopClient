@@ -21,7 +21,8 @@ import org.springframework.web.client.RestTemplate;
 @Controller
 public class HomeController {
     
-    public String index() {
+    public String index(ModelMap mm) {
+        mm.addAttribute("title", "Home");
         return "home";
     }
     

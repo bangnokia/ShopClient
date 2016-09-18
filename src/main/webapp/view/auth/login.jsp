@@ -4,9 +4,7 @@
     Author     : daudau
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:include page="../_partial/_header.jsp" />
-
+<%@ include file="../_partial/_header.jsp" %>
 <!-- page wapper-->
 <div class="columns-container">
     <div class="container" id="columns">

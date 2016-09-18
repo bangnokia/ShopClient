@@ -22,6 +22,25 @@ public class User  implements java.io.Serializable {
 
     public User() {
     }
+	
+    public User(String username, String password, String email, byte status) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.status = status;
+    }
+    
+    public User(String username, String password, String email, String address, String district, String state, String country, byte status, String passwordToken) {
+       this.username = username;
+       this.password = password;
+       this.email = email;
+       this.address = address;
+       this.district = district;
+       this.state = state;
+       this.country = country;
+       this.status = status;
+       this.passwordToken = passwordToken;
+    }
    
     public Long getId() {
         return this.id;

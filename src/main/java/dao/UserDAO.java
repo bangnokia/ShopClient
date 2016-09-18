@@ -6,22 +6,16 @@
 package dao;
 
 import entity.User;
-import javax.transaction.Transactional;
 import model.HibernateUtil;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
-import org.springframework.stereotype.Repository;
 /**
  *
  * @author daudau
  */
 public class UserDAO {
     
-    private SessionFactory sf = HibernateUtil.getSessionFactory();
-//    
-    public UserDAO() {
-//        this.sf = HibernateUtil.getSessionFactory();
-    }
+    private final SessionFactory sf = HibernateUtil.getSessionFactory();
     
     public User findUserByName(String username) {        
         sf.getCurrentSession().beginTransaction();

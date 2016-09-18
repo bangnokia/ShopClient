@@ -26,7 +26,6 @@
             <property name="autoReloadEnabled" value="true" />
     </bean>
     
-    <bean id="UserDAO" class="dao.UserDAO">
-    </bean>
+    <bean id="UserDAO" class="dao.UserDAO"></bean>
  
 </beans>
