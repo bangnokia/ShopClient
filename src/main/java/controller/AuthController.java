@@ -17,6 +17,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.servlet.ModelAndView;
 /**
  *
  * @author daudau
@@ -39,12 +40,14 @@ public class AuthController {
     //process login request
     public String postLogin(@RequestParam("usernameLogin") String username, @RequestParam("passwordLogin") String password, ModelMap mm) {        
         User user = userDAO.findUserByName(username);
-        if (user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(password)) {
             session.setAttribute("user", user);
-            return "redirect:/";        
+            return "redirect:/";
         }
-
-        return "auth/login";
+        
+        mm.addAttribute("title", "Login");
+        mm.addAttribute("loginError", "Login fail, please try again or using forgot password!");
+        return "/auth/login";
     }
     
     //logout account

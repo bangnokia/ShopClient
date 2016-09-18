@@ -40,7 +40,7 @@
                         <a class="first-item" href="#"><img alt="phone" src="${root}/assets/images/phone.png" />00-62-658-658</a>
                         <a href="#"><img alt="email" src="${root}/assets/images/email.png" />Contact us today!</a>
                     </div>
-                    <div class="currency ">
+<!--                    <div class="currency ">
                         <div class="dropdown">
                             <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
                             <ul class="dropdown-menu" role="menu">
@@ -48,18 +48,18 @@
                                 <li><a href="#">Euro</a></li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="language ">
+                    </div>-->
+<!--                    <div class="language ">
                         <div class="dropdown">
                             <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                                 <img alt="email" src="${root}/assets/images/fr.jpg" />French
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#"><img alt="email" src="${root}/assets/images/en.jpg" />English</a></li>
-                                <li><a href="#"><img alt="email" src="${root}/assets/images/fr.jpg" />French</a></li>
+                                <li><a href="#"><img alt="email" src="${root}/assets/images/vn.jpg" />VietNamese</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div>-->
                     <div class="support-link">
                         <a href="#">Services</a>
                         <a href="#">Support</a>                                        
@@ -76,6 +76,7 @@
                                 </a>
                                 <ul class="dropdown-menu mega_dropdown" role="menu">
                                     <li><a href="#">Setting</a></li>
+                                    <li><a href="#">Manage Product</a></li>
                                     <li><a href="${root}/auth/logout">Logout</a></li>
                                 </ul>
                                 

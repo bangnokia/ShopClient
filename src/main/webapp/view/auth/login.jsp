@@ -45,14 +45,14 @@
                         <h3>Already registered?</h3>
                         <form action="${root}/auth/login" method="post" name="auth_login">
                             <label for="userLogin">Username</label>
-                            <input id="usernameLogin" type="text" class="form-control" name="usernameLogin">
+                            <input id="usernameLogin" type="text" class="form-control" name="usernameLogin" required>
 
                             <label for="password_login">Password</label>
-                            <input id="passwordLogin" type="password" class="form-control" name="passwordLogin">
+                            <input id="passwordLogin" type="password" class="form-control" name="passwordLogin" required="">
 
                             <p class="forgot-pass"><a href="#">Forgot your password?</a></p>
-                            <button class="button"><i class="fa fa-lock"></i> Sign in</button>
-                            ${mess}
+                            <button class="button" type="submit"><i class="fa fa-lock"></i> Sign in</button>
+                            <p class="text-danger">${loginError}</p>
                         </form>
                     </div>
                 </div>
