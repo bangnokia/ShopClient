@@ -18,4 +18,7 @@ public class AdminHomeController {
         return "admin/home";
     }
     
+    public String category() {
+        return "admin/category";
+    }
 }

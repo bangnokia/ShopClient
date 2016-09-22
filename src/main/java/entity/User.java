@@ -1,5 +1,5 @@
 package entity;
-// Generated Sep 18, 2016 12:30:52 AM by Hibernate Tools 4.3.1
+// Generated Sep 22, 2016 9:17:53 PM by Hibernate Tools 4.3.1
 
 
 
@@ -22,6 +22,7 @@ public class User  implements java.io.Serializable {
 
     public User() {
     }
+
 	
     public User(String username, String password, String email, byte status) {
         this.username = username;
@@ -29,7 +30,6 @@ public class User  implements java.io.Serializable {
         this.email = email;
         this.status = status;
     }
-    
     public User(String username, String password, String email, String address, String district, String state, String country, byte status, String passwordToken) {
        this.username = username;
        this.password = password;
