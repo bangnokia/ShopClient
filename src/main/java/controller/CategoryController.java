@@ -1,5 +1,6 @@
 package controller;
 
+import entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -8,17 +9,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CategoryController {
 
     public String index() {
-        return "admin/category";
+        return "/admin/category";
     }
 
     public String action(
-            // @RequestParam("category_action_catid") String catID,
-            @RequestParam("category_action_parentid") String parentID,
+         //   @RequestParam("idCat") int idCat,
+           // @RequestParam("parentID") int parentID,
+            @RequestParam("name") String name,
+            @RequestParam("icon") String icon,
+            @RequestParam("status") String status,
             ModelMap mm) {
-        String catID = "";
-        System.out.println(catID + "|" + parentID);
-        mm.addAttribute("mess", "login error");
-        return "/category";
-    } 
+        System.out.println("123");
 
+        return "/admin/category";
+    } 
+  
 }

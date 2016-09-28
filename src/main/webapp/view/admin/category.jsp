@@ -34,29 +34,37 @@
                     <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
                 </div>
                 <div class="grid-body no-border"> <br>
-                    <form id="form_iconic_validation" action="#" novalidate="novalidate">
+                    <form id="form_iconic_validation" action="${adminRoot}/admin/category" method="post" name="" novalidate="novalidate">
                         <div class="form-group">
-                            <label class="form-label">ID</label>
+                            <label class="form-label">idCat</label>
                             <span class="help">e.g. "Jonh Smith"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="form1Name" id="form1Name" class="form-control">                                 
+                                <input type="text" name="idCat" id="idCat" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Name</label>
+                            <label class="form-label">name</label>
                             <span class="help">e.g. "john@examp.com"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="form1Email" id="form1Email" class="form-control">                                 
+                                <input type="text" name="name" id="name" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Parent</label>
+                            <label class="form-label">icon</label>
+                            <span class="help">e.g. "john@examp.com"</span>
+                            <div class="input-with-icon  right">                                       
+                                <i class=""></i>
+                                <input type="text" name="icon" id="icon" class="form-control">                                 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">parentID</label>
                             <span class="help">e.g. "http://www.webarc.com"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="form1Url" id="form1Url" class="form-control">                                 
+                                <input type="text" name="parentID" id="parentID" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
@@ -72,7 +80,9 @@
                         </div>                
                         <div class="form-actions">  
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i> Save</button>
+                                <button type="button" class="btn btn-danger btn-cons"><i class="icon-ok"></i>New</button>
+                                <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Save</button>
+                                <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Delete</button>
                                 <button type="button" class="btn btn-white btn-cons">Cancel</button>
                             </div>
                         </div>

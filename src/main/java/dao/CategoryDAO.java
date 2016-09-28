@@ -3,19 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
-
-import org.springframework.stereotype.Controller;
+package dao;
 
 /**
  *
- * @author daudau
+ * @author Hieu
  */
-@Controller
-public class AdminHomeController {
-    
-    public String index() {
-        return "admin/home";
-    }
+public class CategoryDAO {
     
 }
