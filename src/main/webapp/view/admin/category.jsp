@@ -3,6 +3,7 @@
     Created on : Sep 19, 2016, 3:35:24 AM
     Author     : daudau
 --%>
+<%@page import="entity.Category"%>
 <%@include file="_header.jsp" %>
 <!-- BEGIN CONTAINER -->
 <%@include file="_sidebar.jsp" %>
@@ -26,6 +27,7 @@
                 <div id='jqxTreeCategory'>
                 </div>
             </div>
+
         </div>
         <div class="col-md-6">
             <div class="grid simple" style="">
@@ -72,7 +74,7 @@
                             <span class="help">e.g. "Select one"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select>
+                                <select name="status" id="status">
                                     <option value="1">Show</option>
                                     <option value="2">Hide</option>
                                 </select>
@@ -82,7 +84,7 @@
                             <div class="pull-right">
                                 <button type="button" class="btn btn-danger btn-cons"><i class="icon-ok"></i>New</button>
                                 <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Save</button>
-                                <button type="submit" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Delete</button>
+                                <button type="button" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Delete</button>
                                 <button type="button" class="btn btn-white btn-cons">Cancel</button>
                             </div>
                         </div>
@@ -116,5 +118,19 @@
             {icon: "${adminRoot}/assets/admin/assets/img/notification-alert.png", label: "Favorites"}
         ];
         $('#jqxTreeCategory').jqxTree({source: source, width: '100%', height: '100%'});
+
+        $('#button123').click(function () {
+            $.ajax({
+                type: "POST",
+                timeout: 30000,
+                url: "${adminRoot}/admin/category/delete",
+                data: "{ 'name' : '123'}",
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (msg) {
+                    alert('ok');
+                }
+            });
+        });
     });
 </script>
