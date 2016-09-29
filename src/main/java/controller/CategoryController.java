@@ -2,13 +2,7 @@ package controller;
 
 import dao.CategoryDAO;
 import entity.Category;
-import static java.util.Collections.list;
 import java.util.List;
-import javax.jws.WebMethod;
-import model.HibernateUtil;
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,13 +14,25 @@ public class CategoryController {
     // @Autowired
     private CategoryDAO CategoryDAO = new CategoryDAO();
 
-    public String index() {
+    public String index(ModelMap cate) {
+        // cate.addAttribute("abbbb", "12345");
+
+        // List<Category> catlist = CategoryDAO.getlistCAT();
+        //cate.addAttribute("bbbbbbbbbbb", catlist);
+        // cate.addAllAttributes(catlist);
+        //cate.addAllAttributes(List<Category> CategoryDAO.getlistCAT());
         return "/admin/category";
+
     }
 
-    @WebMethod(operationName = "fillall")
-    public List<Category> getlistCAT() {
-        return CategoryDAO.getlistCAT();
+    //  @WebMethod(operationName = "fillall")
+    public String getlistCAT(ModelMap cate) {
+
+        List<Category> catlist = CategoryDAO.getlistCAT();
+        cate.addAttribute("listCAT", catlist);
+        //  cate.addAllAttributes(catlist);
+
+        return "/admin/category";
     }
 
     public String insertCAT(
@@ -35,18 +41,25 @@ public class CategoryController {
             @RequestParam("name") String name,
             @RequestParam("icon") String icon,
             @RequestParam("status") String status,
-            ModelMap mm) {
+            ModelMap cate) {
 
         if (CategoryDAO.insertCat(idCat, parentID, name, icon, status)) {
             return "/admin/category";
         }
+
         return "/admin/category";
     }
 
-    public void deleteCAT(String name) {
-        System.out.println(name);
-       // return "/admin/category";
+    public String deleteCAT(@RequestParam("id") String id) {
+
+        System.out.println(id);
+        return id;
+        // return "/admin/category";
     }
+
+//    public void getlistCat(){
+//        return (Category) CategoryDAO.getlistCAT();
+//    }
 //
 //    public List<Category> getlistCat() {
 //        
@@ -65,5 +78,4 @@ public class CategoryController {
 //            System.out.println(category.getName());
 //        }
 //    }
-
 }

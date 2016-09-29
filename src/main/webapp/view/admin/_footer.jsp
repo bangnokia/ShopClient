@@ -276,6 +276,7 @@
 
 <script src="${adminRoot}/assets/js/demos.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxcore.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxdata.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxbuttons.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxscrollbar.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxpanel.js" type="text/javascript"></script>
