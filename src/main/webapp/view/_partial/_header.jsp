@@ -180,7 +180,10 @@
                                     <ul class="vertical-menu-list">
                                         <% CategoryDAO categoryDAO = new CategoryDAO();%>
                                         <c:forEach var="current" items="<%=categoryDAO.getlistCAT()%>" > 
+                                            <c:set var="show" value="${current.status}"/>
+                                            <c:if test="${show  == '1'}">
                                             <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/${current.icon}">${current.name}</a></li>    
+                                            </c:if>
                                         </c:forEach>
                                         </ul>
                                         <div class="all-category"><span class="open-cate">All Categories</span></div>
