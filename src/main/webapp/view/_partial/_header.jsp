@@ -4,6 +4,7 @@
     Author     : daudau
 --%>
 
+<%@page import="dao.CategoryDAO"%>
 <%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,10 +29,10 @@
     </head>
 
     <body class="<% if (request.getServletPath().equals("/view/home.jsp")) {
-        out.print("home");
-    } else {
-        out.print("category-page");
-    } %>">
+            out.print("home");
+        } else {
+            out.print("category-page");
+        } %>">
         <!-- HEADER -->
         <div id="header" class="header">
             <div class="top-header">
@@ -40,26 +41,26 @@
                         <a class="first-item" href="#"><img alt="phone" src="${root}/assets/images/phone.png" />00-62-658-658</a>
                         <a href="#"><img alt="email" src="${root}/assets/images/email.png" />Contact us today!</a>
                     </div>
-<!--                    <div class="currency ">
-                        <div class="dropdown">
-                            <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Dollar</a></li>
-                                <li><a href="#">Euro</a></li>
-                            </ul>
-                        </div>
-                    </div>-->
-<!--                    <div class="language ">
-                        <div class="dropdown">
-                            <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                <img alt="email" src="${root}/assets/images/fr.jpg" />French
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><img alt="email" src="${root}/assets/images/en.jpg" />English</a></li>
-                                <li><a href="#"><img alt="email" src="${root}/assets/images/vn.jpg" />VietNamese</a></li>
-                            </ul>
-                        </div>
-                    </div>-->
+                    <!--                    <div class="currency ">
+                                            <div class="dropdown">
+                                                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">USD</a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Dollar</a></li>
+                                                    <li><a href="#">Euro</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>-->
+                    <!--                    <div class="language ">
+                                            <div class="dropdown">
+                                                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                                                    <img alt="email" src="${root}/assets/images/fr.jpg" />French
+                                                </a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#"><img alt="email" src="${root}/assets/images/en.jpg" />English</a></li>
+                                                    <li><a href="#"><img alt="email" src="${root}/assets/images/vn.jpg" />VietNamese</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>-->
                     <div class="support-link">
                         <a href="#">Services</a>
                         <a href="#">Support</a>                                        
@@ -67,26 +68,26 @@
                     <div id="user-info-top" class="user-info pull-right">
                         <div class="dropdown">
                             <%
-                            User currentUser = (User) session.getAttribute("user");
-                            if (currentUser != null) {%>                                
-                                <c:set var="currentUser" value="${currentUser}" scope="session" />
-                                
-                                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                    <span><%=currentUser.getUsername()%></span>
-                                </a>
-                                <ul class="dropdown-menu mega_dropdown" role="menu">
-                                    <li><a href="#">Setting</a></li>
-                                    <li><a href="#">Manage Product</a></li>
-                                    <li><a href="${root}/auth/logout">Logout</a></li>
-                                </ul>
-                                
+                                User currentUser = (User) session.getAttribute("user");
+                                if (currentUser != null) {%>                                
+                            <c:set var="currentUser" value="${currentUser}" scope="session" />
+
+                            <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                                <span><%=currentUser.getUsername()%></span>
+                            </a>
+                            <ul class="dropdown-menu mega_dropdown" role="menu">
+                                <li><a href="#">Setting</a></li>
+                                <li><a href="#">Manage Product</a></li>
+                                <li><a href="${root}/auth/logout">Logout</a></li>
+                            </ul>
+
                             <% } else { %>
-                                <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span></a>
-                                <ul class="dropdown-menu mega_dropdown" role="menu">
-                                    <li><a href="${root}/auth/login">Login</a></li>
-                                    <li><a href="#">Compare</a></li>
-                                    <li><a href="#">Wishlists</a></li>
-                                </ul>
+                            <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span></a>
+                            <ul class="dropdown-menu mega_dropdown" role="menu">
+                                <li><a href="${root}/auth/login">Login</a></li>
+                                <li><a href="#">Compare</a></li>
+                                <li><a href="#">Wishlists</a></li>
+                            </ul>
                             <% }
                             %>
                         </div>
@@ -164,188 +165,28 @@
                     </div>
                 </div>
             </div>
+
             <!-- END MANIN HEADER -->
             <div id="nav-top-menu" class="nav-top-menu">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3" id="box-vertical-megamenus">
                             <div class="box-vertical-megamenus">
-                                <h4 class="title">
-                                    <span class="title-menu">Categories</span>
+                                <h4 class="title">      
+                                    <span class="title-menu">Category</span>
                                     <span class="btn-open-mobile pull-right"><i class="fa fa-bars"></i></span>
                                 </h4>
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/1.png">Electronics</a></li>
-                                        <li>
-                                            <a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/2.png">Sports &amp; Outdoors</a>
-                                            <div class="vertical-dropdown-menu">
-                                                <div class="vertical-groups col-sm-12">
-                                                    <div class="mega-group col-sm-4">
-                                                        <h4 class="mega-group-header"><span>Tennis</span></h4>
-                                                        <ul class="group-link-default">
-                                                            <li><a href="#">Tennis</a></li>
-                                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                                            <li><a href="#">Intimates</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="mega-group col-sm-4">
-                                                        <h4 class="mega-group-header"><span>Swimming</span></h4>
-                                                        <ul class="group-link-default">
-                                                            <li><a href="#">Dresses</a></li>
-                                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                                            <li><a href="#">Intimates</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="mega-group col-sm-4">
-                                                        <h4 class="mega-group-header"><span>Shoes</span></h4>
-                                                        <ul class="group-link-default">
-                                                            <li><a href="#">Dresses</a></li>
-                                                            <li><a href="#">Coats &amp; Jackets</a></li>
-                                                            <li><a href="#">Blouses &amp; Shirts</a></li>
-                                                            <li><a href="#">Tops &amp; Tees</a></li>
-                                                            <li><a href="#">Hoodies &amp; Sweatshirts</a></li>
-                                                            <li><a href="#">Intimates</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="mega-custom-html col-sm-12">
-                                                        <a href="#"><img src="${root}/assets/data/banner-megamenu.jpg" alt="Banner"></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/3.png">Smartphone &amp; Tablets</a></li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/4.png">Health &amp; Beauty Bags</a></li>
-                                        <li>
-                                            <a class="parent" href="#">
-                                                <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/5.png">Shoes &amp; Accessories</a>
-                                            <div class="vertical-dropdown-menu">
-                                                <div class="vertical-groups col-sm-12">
-                                                    <div class="mega-group col-sm-12">
-                                                        <h4 class="mega-group-header"><span>Special products</span></h4>
-                                                        <div class="row mega-products">
-                                                            <div class="col-sm-3 mega-product">
-                                                                <div class="product-avatar">
-                                                                    <a href="#"><img src="${root}/assets/data/p10.jpg" alt="product1"></a>
-                                                                </div>
-                                                                <div class="product-name">
-                                                                    <a href="#">Fashion hand bag</a>
-                                                                </div>
-                                                                <div class="product-price">
-                                                                    <div class="new-price">$38</div>
-                                                                    <div class="old-price">$45</div>
-                                                                </div>
-                                                                <div class="product-star">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-half-o"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3 mega-product">
-                                                                <div class="product-avatar">
-                                                                    <a href="#"><img src="${root}/assets/data/p11.jpg" alt="product1"></a>
-                                                                </div>
-                                                                <div class="product-name">
-                                                                    <a href="#">Fashion hand bag</a>
-                                                                </div>
-                                                                <div class="product-price">
-                                                                    <div class="new-price">$38</div>
-                                                                    <div class="old-price">$45</div>
-                                                                </div>
-                                                                <div class="product-star">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-half-o"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3 mega-product">
-                                                                <div class="product-avatar">
-                                                                    <a href="#"><img src="${root}/assets/data/p12.jpg" alt="product1"></a>
-                                                                </div>
-                                                                <div class="product-name">
-                                                                    <a href="#">Fashion hand bag</a>
-                                                                </div>
-                                                                <div class="product-price">
-                                                                    <div class="new-price">$38</div>
-                                                                    <div class="old-price">$45</div>
-                                                                </div>
-                                                                <div class="product-star">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-half-o"></i>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-sm-3 mega-product">
-                                                                <div class="product-avatar">
-                                                                    <a href="#"><img src="${root}/assets/data/p13.jpg" alt="product1"></a>
-                                                                </div>
-                                                                <div class="product-name">
-                                                                    <a href="#">Fashion hand bag</a>
-                                                                </div>
-                                                                <div class="product-price">
-                                                                    <div class="new-price">$38</div>
-                                                                    <div class="old-price">$45</div>
-                                                                </div>
-                                                                <div class="product-star">
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star"></i>
-                                                                    <i class="fa fa-star-half-o"></i>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/6.png">Toys &amp; Hobbies</a></li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/7.png">Computers &amp; Networking</a></li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/8.png">Laptops &amp; Accessories</a></li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/9.png">Jewelry &amp; Watches</a></li>
-                                        <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/10.png">Flashlights &amp; Lamps</a></li>
-                                        <li>
-                                            <a href="#">
-                                                <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/11.png">
-                                                Cameras &amp; Photo
-                                            </a>
-                                        </li>
-                                        <li class="cat-link-orther">
-                                            <a href="#">
-                                                <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/5.png">
-                                                Television
-                                            </a>
-                                        </li>
-                                        <li class="cat-link-orther">
-                                            <a href="#">
-                                                <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/7.png">Computers &amp; Networking
-                                            </a>
-                                        </li>
-                                        <li class="cat-link-orther">
-                                            <a href="#">
-                                                <img class="icon-menu" alt="Funky roots" src="${root}/assets/data/6.png">
-                                                Toys &amp; Hobbies
-                                            </a>
-                                        </li>
-                                        <li class="cat-link-orther">
-                                            <a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/9.png">Jewelry &amp; Watches</a></li>
-                                    </ul>
-                                    <div class="all-category"><span class="open-cate">All Categories</span></div>
+                                        <% CategoryDAO categoryDAO = new CategoryDAO();%>
+                                        <c:forEach var="current" items="<%=categoryDAO.getlistCAT()%>" > 
+                                            <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/${current.icon}">${current.name}</a></li>    
+                                        </c:forEach>
+                                        </ul>
+                                        <div class="all-category"><span class="open-cate">All Categories</span></div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </div>   
                         <div id="main-menu" class="col-sm-9 main-menu">
                             <nav class="navbar navbar-default">
                                 <div class="container-fluid">
@@ -359,7 +200,7 @@
                                         <ul class="nav navbar-nav">
                                             <li class="active"><a href="#">Home</a></li>
                                             <li class="dropdown">
-                                                <a href="category.html" class="dropdown-toggle" data-toggle="dropdown">Fashion</a>
+                                                <a href="${root}/category" class="dropdown-toggle" data-toggle="dropdown">Fashion</a>
                                                 <ul class="dropdown-menu mega_dropdown" role="menu" style="width: 830px;">
                                                     <li class="block-container col-sm-3">
                                                         <ul class="block">

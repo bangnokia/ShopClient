@@ -19,5 +19,7 @@ public class HomeController {
         mm.addAttribute("title", "Home page");
         return "home";
     }
-    
+    public String CategoryIndex(){
+        return "category";
+    }
 }
