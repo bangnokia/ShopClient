@@ -205,7 +205,7 @@
                 },
                 error: function (request, textStatus, errorThrown) {
                     alert('faile');
-                  //  alert(errorThrown);
+                    alert(errorThrown);
                 }
             });
         });

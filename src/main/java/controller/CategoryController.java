@@ -51,9 +51,9 @@ public class CategoryController {
     }
 
     public String deleteCAT(@RequestParam("id") String id) {
-
-        System.out.println(id);
-        return id;
+        return "/admin/category";
+        // System.out.println(id);
+        //  return id;
         // return "/admin/category";
     }
 
