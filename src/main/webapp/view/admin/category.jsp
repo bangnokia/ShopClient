@@ -21,59 +21,6 @@
         <div class="page-title">
             ADD category 
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="grid simple ">
-                    <div class="grid-title no-border">
-                        <h4>Table  <span class="semi-bold">Styles</span></h4>
-                        <div class="tools">	<a href="javascript:;" class="collapse"></a>
-                            <a href="#grid-config" data-toggle="modal" class="config"></a>
-                            <a href="javascript:;" class="reload"></a>
-                            <a href="javascript:;" class="remove"></a>
-                        </div>
-                    </div>
-                    <div class="grid-body no-border">
-                        <form action="${adminRoot}/admin/category/getlistCAT" method="post">
-                            <input type="hidden" id="url" name="url" value="/admin/category/">
-                            <h3>Basic  <span class="semi-bold">Table</span></h3>
-                            <div class="form-group">
-                                <label class="form-label">Text</label>
-                                <span class="help">name....</span>
-                                <div class="input-with-icon  right">                                       
-                                    <i class=""></i>
-                                    <input type="text" name="text" id="text" style="width: 200px; float: left" class="form-control"> 
-                                    <button type="submit" class="btn btn-danger btn-cons" style="float: left"><i class="icon-ok"></i>Search</button>
-                                </div>   
-                            </div>
-                        </form>
-                        <table class="table table-hover no-more-tables">
-                            <thead>
-                                <tr>
-                                    <th>id cat</th>
-                                    <th>parent id</th>
-                                    <th>name</th>
-                                    <th>icon</th>
-                                    <th>status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach items="${listCAT}" var="current">
-                                    <tr>
-                                        <td><c:out value="${current.idCat}" /></td>
-                                        <td><c:out value="${current.parentId}" /></td>
-                                        <td><c:out value="${current.name}" /></td>
-                                        <td><c:out value="${current.icon}" /></td>
-                                        <td><c:out value="${current.status}" /></td>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                        <div id='jqxWidget'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="col-md-6" style="width: 300px">
             <div class="grid simple" style="height: 500px">
                 <div id='jqxTreeCategory'>
@@ -87,37 +34,37 @@
                     <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
                 </div>
                 <div class="grid-body no-border"> <br>
-                    <form id="form_iconic_validation" action="${adminRoot}/admin/category/save" method="post" name="" novalidate="novalidate">
+                    <form id="form_category" action="${adminRoot}/admin/category/save" method="post" name="" novalidate="novalidate">
                         <div class="form-group">
                             <label class="form-label">idCat</label>
-                            <span class="help">e.g. "Jonh Smith"</span>
+                            <span class="help">id category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="idCat" id="idCat" class="form-control">                                 
+                                <input type="text" name="idCat" id="form_category_idCat" disabled="disabled" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">name</label>
-                            <span class="help">e.g. "john@examp.com"</span>
+                            <span class="help">Name of category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="name" id="name" class="form-control">                                 
+                                <input type="text" name="name" id="form_category_name" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">icon</label>
-                            <span class="help">e.g. "john@examp.com"</span>
+                            <span class="help">name icon "icon.png"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="icon" id="icon" class="form-control">                                 
+                                <input type="text" name="icon" id="form_category_icon" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label">parentID</label>
-                            <span class="help">e.g. "http://www.webarc.com"</span>
+                            <span class="help">Parent category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select name="parentID" id="parentID">
+                                <select name="parentId" id="form_category_parentId">
                                     <option value="123">--chon--</option>
                                     <c:forEach items="${listCAT}" var="current1">
                                         <option value="<c:out value="${current1.idCat}" />"><c:out value="${current1.name}" /></option>
@@ -127,10 +74,10 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Status</label>
-                            <span class="help">e.g. "Select one"</span>
+                            <span class="help">Show / hide</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <select name="status" id="status">
+                                <select name="status" id="form_category_status">
                                     <option value="1">Show</option>
                                     <option value="2">Hide</option>
                                 </select>
@@ -138,10 +85,9 @@
                         </div>                
                         <div class="form-actions">  
                             <div class="pull-right">
-                                <button type="button" class="btn btn-danger btn-cons"><i class="icon-ok"></i>New</button>
-                                <button type="submit" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Save</button>
-                                <button type="button" id="deleteFORM" value="" class="btn btn-white btn-cons"><i class="icon-ok"></i>delete</button>
-                                <a href="${adminRoot}/admin/category/delete/123" class="btn btn-danger btn-cons"><i class="icon-ok"></i>Delete</a>
+                                <button type="button" class="btn btn-white btn-cons"><i class="icon-ok"></i>New</button>
+                                <button type="button" id="saveForm" value="" class="btn btn-white btn-cons"><i class="icon-ok"></i>Save</button>
+                                <button type="button" id="deleteFORM" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>delete</button>
                                 <button type="button" class="btn btn-white btn-cons">Cancel</button>
                             </div>
                         </div>
@@ -154,60 +100,96 @@
 <%@include file="_footer.jsp" %>
 <script type="text/javascript">
     $(document).ready(function () {
+        function getlistCat() {
+            var url = '${adminRoot}/admin/category/getlistCAT';
 
-        var data = [
-    <c:forEach items="${listCAT}" var="categoryTree">
+            var datajson = getDataJson(url);
 
-            {"id": ${categoryTree.idCat},
-                "parentid": ${categoryTree.parentId},
-                "text": "${categoryTree.name}",
-                "value"
-                        : "${categoryTree.name}"
-            },
-    </c:forEach>
-        ];
-        // data = eval(data);
-        var source =
-                {
-                    datatype: "json",
-                    datafields: [
-                        {name: 'id'},
-                        {name: 'parentid'},
-                        {name: 'text'},
-                        {name: 'value'}
-                    ],
-                    id: 'id',
-                    localdata: data
-                };
-        var dataAdapter = new $.jqx.dataAdapter(source);
-        dataAdapter.dataBind();
-        var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{name: 'text', map: 'label'}]);
-        $('#jqxWidget').jqxTree({source: records, width: '300px'});
+            if (datajson == null)
+                return;
 
-        $('#jqxTreeCategory').jqxTree({source: source, width: '100%', height: '100%'});
+            var arr = new Array();
+            if (datajson != null) {
+                $.each(datajson, function (index) {
+                    var item = datajson[index];
+                    var object = new Object();
+                    object.id = item.idCat;
+                    object.parentId = item.parentId;
+                    object.text = item.name;
+                    object.value = item.idCat;
+                    arr.push(object);
+                });
+            }
+            datajsonTree = JSON.parse(JSON.stringify(arr));
 
-        $('.dddddddf').bind('click', function () {
-            alert($(this).html());
+            var source =
+                    {
+                        datatype: "json",
+                        datafields: [
+                            {name: 'id'},
+                            {name: 'parentId'},
+                            {name: 'text'},
+                            {name: 'value'}
+                        ],
+                        id: 'id',
+                        localdata: datajsonTree
+                    };
+            var dataAdapter = new $.jqx.dataAdapter(source);
+            dataAdapter.dataBind();
+            var records = dataAdapter.getRecordsHierarchy('id', 'parentId', 'items', [{name: 'text', map: 'label'}]);
+
+            $('#jqxTreeCategory').jqxTree({source: records, width: '100%', height: '100%'});
+
+            bindingcombo('form_category_parentId', '', datajson, 'idCat,name');
+        }
+
+        $('#jqxTreeCategory').on('itemClick', function (event)
+        {
+            var args = event.args;
+            var item = $('#jqxTreeCategory').jqxTree('getItem', args.element);
+            var label = item.label;
+            var id = item.id;
+            var parentid = item.parentId;
+
+            var url = '${adminRoot}/admin/category/getitemdetail?catID=' + id;
+
+            var datajson = getDataJson(url);
+
+            if (datajson == null)
+                return;
+            else {
+                bindItemDetail(datajson, 'form_category');
+            }
         });
 
-        function ganabc(ssssss) {
-            alert(ssssss);
-        }
+        $('#saveForm').bind('click', function () {
+            do_save_form('${adminRoot}/admin/category/save', 'form_category', 'getlistCat();');
+        });
+
         $('#deleteFORM').bind('click', function () {
+            if ($('#form_category_idCat').val() == '') {
+                alert('select category to delete');
+                return;
+            }
+
             $.ajax({
-                url: '${adminRoot}/admin/category/delete/', // Your Servlet mapping or JSP(not suggested)
-                data: {id: 12},
+                url: '${adminRoot}/admin/category/delete?idCat=' + $('#form_category_idCat').val(), // Your Servlet mapping or JSP(not suggested)
+                //   data: {idCat: },
                 type: 'POST',
                 //dataType: 'html', // Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
                 success: function (response) {
                     alert('OK');
+                    getlistCat();
                     // create an empty div in your page with some id
                 },
                 error: function (request, textStatus, errorThrown) {
                     alert('faile');
+                    getlistCat();
                     alert(errorThrown);
                 }
             });
         });
+
+        getlistCat();
     });
 </script>

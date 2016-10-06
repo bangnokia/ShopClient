@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 3, 2016 7:08:07 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Brand" table="brand" catalog="hnashop">
+        <id name="idBrand" type="java.lang.Integer">
+            <column name="idBrand" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="ma" type="string">
+            <column name="ma" length="50" />
+        </property>
+        <property name="ten" type="string">
+            <column name="ten" length="50" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

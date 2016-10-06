@@ -282,6 +282,8 @@
 <script src="${adminRoot}/assets/js/jqwidgets/jqxpanel.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxtree.js" type="text/javascript"></script>
 
+<script src="${adminRoot}/assets/js/jquery.common.js" type="text/javascript"></script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $(".live-tile,.flip-list").liveTile();

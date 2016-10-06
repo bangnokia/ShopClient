@@ -1,21 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2016 7:09:02 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Oct 3, 2016 7:08:07 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.Category" table="category" catalog="hnashop" optimistic-lock="version">
-        <id name="idCat" type="java.lang.Integer">
-            <column name="idCat" />
+    <class name="entity.Property" table="property" catalog="hnashop" optimistic-lock="version">
+        <id name="idProperty" type="java.lang.Integer">
+            <column name="idProperty" />
             <generator class="identity" />
         </id>
-        <property name="parentId" type="java.lang.Integer">
-            <column name="parentID" />
+        <property name="catId" type="java.lang.Integer">
+            <column name="catID" />
         </property>
         <property name="name" type="string">
             <column name="name" length="100" />
-        </property>
-        <property name="icon" type="string">
-            <column name="icon" length="100" />
         </property>
         <property name="status" type="string">
             <column name="status" length="10" />
