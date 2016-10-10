@@ -1,39 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 3, 2016 7:09:02 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Oct 10, 2016 5:51:38 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.User" table="User" catalog="hnashop">
-        <id name="id" type="java.lang.Long">
+    <class name="entity.User" table="user" catalog="hnashop" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity"></generator>
+            <generator class="identity" />
         </id>
         <property name="username" type="string">
-            <column name="username" length="30" not-null="true" unique="true" />
+            <column name="username" length="50" />
         </property>
         <property name="password" type="string">
-            <column name="password" length="64" not-null="true" />
+            <column name="password" length="50" />
         </property>
-        <property name="email" type="string">
-            <column name="email" length="64" not-null="true" unique="true" />
+        <property name="name" type="string">
+            <column name="name" length="300" />
         </property>
         <property name="address" type="string">
-            <column name="address" length="200" />
+            <column name="address" length="300" />
         </property>
-        <property name="district" type="string">
-            <column name="district" length="150" />
+        <property name="phone" type="string">
+            <column name="phone" length="20" />
         </property>
-        <property name="state" type="string">
-            <column name="state" length="120" />
+        <property name="email" type="string">
+            <column name="email" length="20" />
         </property>
-        <property name="country" type="string">
-            <column name="country" length="120" />
+        <property name="status" type="string">
+            <column name="status" length="10" />
         </property>
-        <property name="status" type="byte">
-            <column name="status" not-null="true" />
-        </property>
-        <property name="passwordToken" type="string">
-            <column name="passwordToken" length="64" />
+        <property name="group" type="java.lang.Byte">
+            <column name="group" />
         </property>
     </class>
 </hibernate-mapping>

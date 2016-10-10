@@ -3,16 +3,16 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Oct 10, 2016 5:51:38 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.Brand" table="brand" catalog="hnashop" optimistic-lock="version">
+    <class name="entity.Image" table="image" catalog="hnashop" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity" />
         </id>
-        <property name="name" type="string">
-            <column name="name" length="50" />
+        <property name="productId" type="java.lang.Integer">
+            <column name="productId" />
         </property>
-        <property name="status" type="string">
-            <column name="status" length="10" />
+        <property name="url" type="string">
+            <column name="url" length="200" />
         </property>
     </class>
 </hibernate-mapping>

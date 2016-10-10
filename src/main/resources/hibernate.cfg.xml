@@ -8,7 +8,17 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="entity/User.hbm.xml"/>
+    <mapping resource="entity/Orderdetail.hbm.xml"/>
+    <mapping resource="entity/Product.hbm.xml"/>
+    <mapping resource="entity/Productpropertydetail.hbm.xml"/>
+    <mapping resource="entity/Brand.hbm.xml"/>
     <mapping resource="entity/Category.hbm.xml"/>
+    <mapping resource="entity/User.hbm.xml"/>
+    <mapping resource="entity/Rate.hbm.xml"/>
+    <mapping resource="entity/Categoryproperty.hbm.xml"/>
+    <mapping resource="entity/Image.hbm.xml"/>
+    <mapping resource="entity/Shop.hbm.xml"/>
+    <mapping resource="entity/Order.hbm.xml"/>
+    <mapping resource="entity/Property.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

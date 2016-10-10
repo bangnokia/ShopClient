@@ -70,7 +70,7 @@ public class CategoryDAO {
 
             Category cat = new Category();
 
-            cat.setIdCat(idCat);
+            cat.setId(idCat);
             session.getCurrentSession().delete(cat);
             session.getCurrentSession().getTransaction().commit();
             return true;
