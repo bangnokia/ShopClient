@@ -40,7 +40,7 @@
                             <span class="help">id category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="idCat" id="form_category_idCat" disabled="disabled" class="form-control">                                 
+                                <input type="text" name="id" id="form_category_id" disabled="disabled" class="form-control">                                 
                             </div>
                         </div>
                         <div class="form-group">
@@ -65,10 +65,6 @@
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <select name="parentId" id="form_category_parentId">
-                                    <option value="123">--chon--</option>
-                                    <c:forEach items="${listCAT}" var="current1">
-                                        <option value="<c:out value="${current1.idCat}" />"><c:out value="${current1.name}" /></option>
-                                    </c:forEach>
                                 </select>
                             </div>
                         </div>
@@ -85,7 +81,7 @@
                         </div>                
                         <div class="form-actions">  
                             <div class="pull-right">
-                                <button type="button" class="btn btn-white btn-cons"><i class="icon-ok"></i>New</button>
+                                <button type="button" id="clearForm" class="btn btn-white btn-cons"><i class="icon-ok"></i>Clear</button>
                                 <button type="button" id="saveForm" value="" class="btn btn-white btn-cons"><i class="icon-ok"></i>Save</button>
                                 <button type="button" id="deleteFORM" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>delete</button>
                                 <button type="button" class="btn btn-white btn-cons">Cancel</button>
@@ -98,98 +94,10 @@
     </div>
 </div>
 <%@include file="_footer.jsp" %>
+<script src="${adminRoot}/assets/js/jsCategory.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
-        function getlistCat() {
-            var url = '${adminRoot}/admin/category/getlistCAT';
-
-            var datajson = getDataJson(url);
-
-            if (datajson == null)
-                return;
-
-            var arr = new Array();
-            if (datajson != null) {
-                $.each(datajson, function (index) {
-                    var item = datajson[index];
-                    var object = new Object();
-                    object.id = item.idCat;
-                    object.parentId = item.parentId;
-                    object.text = item.name;
-                    object.value = item.idCat;
-                    arr.push(object);
-                });
-            }
-            datajsonTree = JSON.parse(JSON.stringify(arr));
-
-            var source =
-                    {
-                        datatype: "json",
-                        datafields: [
-                            {name: 'id'},
-                            {name: 'parentId'},
-                            {name: 'text'},
-                            {name: 'value'}
-                        ],
-                        id: 'id',
-                        localdata: datajsonTree
-                    };
-            var dataAdapter = new $.jqx.dataAdapter(source);
-            dataAdapter.dataBind();
-            var records = dataAdapter.getRecordsHierarchy('id', 'parentId', 'items', [{name: 'text', map: 'label'}]);
-
-            $('#jqxTreeCategory').jqxTree({source: records, width: '100%', height: '100%'});
-
-            bindingcombo('form_category_parentId', '', datajson, 'idCat,name');
-        }
-
-        $('#jqxTreeCategory').on('itemClick', function (event)
-        {
-            var args = event.args;
-            var item = $('#jqxTreeCategory').jqxTree('getItem', args.element);
-            var label = item.label;
-            var id = item.id;
-            var parentid = item.parentId;
-
-            var url = '${adminRoot}/admin/category/getitemdetail?catID=' + id;
-
-            var datajson = getDataJson(url);
-
-            if (datajson == null)
-                return;
-            else {
-                bindItemDetail(datajson, 'form_category');
-            }
-        });
-
-        $('#saveForm').bind('click', function () {
-            do_save_form('${adminRoot}/admin/category/save', 'form_category', 'getlistCat();');
-        });
-
-        $('#deleteFORM').bind('click', function () {
-            if ($('#form_category_idCat').val() == '') {
-                alert('select category to delete');
-                return;
-            }
-
-            $.ajax({
-                url: '${adminRoot}/admin/category/delete?idCat=' + $('#form_category_idCat').val(), // Your Servlet mapping or JSP(not suggested)
-                //   data: {idCat: },
-                type: 'POST',
-                //dataType: 'html', // Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
-                success: function (response) {
-                    alert('OK');
-                    getlistCat();
-                    // create an empty div in your page with some id
-                },
-                error: function (request, textStatus, errorThrown) {
-                    alert('faile');
-                    getlistCat();
-                    alert(errorThrown);
-                }
-            });
-        });
-
-        getlistCat();
+        urlForm = '${adminRoot}';
+        category();
     });
 </script>

@@ -1,3 +1,5 @@
+var timeout = 500;
+
 function getDataJson(p_url) {
     var dataJson = '';
     var source = {
@@ -11,7 +13,7 @@ function getDataJson(p_url) {
                 dataJson = eval(data.map.result);
             } else {
                 dataJson = null;
-                alert('Fail get data!');
+                showNotification('error', 'Fail get data!');
             }
         }
     };
@@ -21,6 +23,7 @@ function getDataJson(p_url) {
 }
 
 function bindItemDetail(dataLocal, formName) {
+
     var column_value;
 
     if (dataLocal == null || dataLocal.length == 0)
@@ -85,21 +88,77 @@ function do_save_form(p_url, p_formName, p_function_run) {
             if (data != undefined && data != '') {
                 data = eval('[' + data + ']');
             }
-            var message = data.map.message;
+            var message = data[0].map.message;
             if (message == 'success_ok') {
-                dataJson = eval(data.map.result);
+                dataJson = eval(data[0].map.result);
                 loi = true;
                 if (p_function_run != undefined && p_function_run != '')
                     eval(p_function_run);
+                showNotification('success', 'Save success');
             } else {
                 dataJson = null;
-                alert('Fail get data!');
+                showNotification('error', 'Fail to save!');
                 loi = false;
             }
         },
         failure: function (errMsg) {
-            alert('fail');
+            showNotification('error', 'Fail to save!');
         }
     });
     return loi;
+}
+
+function loadingForm(status) {
+    try {
+        if (status) {
+            $('#div_loadingContent').show();
+            var width = $('#div_loadingContent').width();
+            var height = $('#div_loadingContent').height();
+            var width1 = $('#loadingContent').width();
+            var height1 = $('#loadingContent').height();
+            $('#loadingContent').css('margin-left', (width - width1) / 2 + 'px');
+            $('#loadingContent').css('margin-top', (height - height1) / 2 + 'px');
+        } else
+            $('#div_loadingContent').hide();
+    } catch (Exception) {
+        alert('Lỗi loading');
+    }
+}
+
+function clear_form(p_name) {
+    $('#' + p_name).find(':input').each(function () {
+        switch (this.type) {
+            case 'select':
+            case 'select-multiple':
+            case 'select-one':
+                //$('select option:first-child').attr("selected", "selected");
+                $(this).val($("#" + this.id + " option:first").val());
+                break;
+            case 'text':
+            case 'textarea':
+            case 'password':
+            case 'hidden':
+                $(this).val('');
+                break;
+            case 'checkbox':
+            case 'radio':
+                this.checked = false;
+        }
+    });
+}
+
+function showNotification(template, message) {
+    $("#div_message_notification").html('<div id="messageNotification"></div>');
+    $("#messageNotification").html(message);
+
+    $("#messageNotification").jqxNotification({
+        position: "top-right",
+        width: "100%",
+        appendContainer: "#containerNotification",
+        opacity: 0.9,
+        autoOpen: true,
+        autoClose: true,
+        template: template
+    });
+
 }

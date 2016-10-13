@@ -19,6 +19,5 @@
     <mapping resource="entity/Image.hbm.xml"/>
     <mapping resource="entity/Shop.hbm.xml"/>
     <mapping resource="entity/Order.hbm.xml"/>
-    <mapping resource="entity/Property.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

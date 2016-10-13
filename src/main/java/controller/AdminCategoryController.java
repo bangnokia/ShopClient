@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.json.JSONObject;
 
 @Controller
-public class CategoryController {
+public class AdminCategoryController {
 
     // @Autowired
     private CategoryDAO CategoryDAO = new CategoryDAO();
@@ -41,13 +41,13 @@ public class CategoryController {
         return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> getitemdetail(@RequestParam("catID") String catID) {
+    public ResponseEntity<String> getitemdetail(@RequestParam("id") String catID) {
         JSONObject jsonOB = new JSONObject();
         try {
             List<Category> catlist = CategoryDAO.getitemDetail(Integer.parseInt(catID));
 
             String json = new Gson().toJson(catlist);
-            if (json != null) {
+            if (json != "null") {
                 jsonOB.put("result", json);
                 jsonOB.put("message", "success_ok");
             } else {
@@ -62,7 +62,7 @@ public class CategoryController {
     }
 
     public ResponseEntity<String> insertCAT(
-            @RequestParam("idCat") String idCat,
+            @RequestParam("id") String id,
             @RequestParam("parentId") String parentId,
             @RequestParam("name") String name,
             @RequestParam("icon") String icon,
@@ -74,7 +74,7 @@ public class CategoryController {
         int idCatTemp = 0;
 
         try {
-            idCatTemp = Integer.parseInt(idCat);
+            idCatTemp = Integer.parseInt(id);
         } catch (Exception e) {
 
         }
@@ -93,8 +93,17 @@ public class CategoryController {
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
 
-    public String deleteCAT(@RequestParam("idCat") String idCat) {
-        if (CategoryDAO.deleteCat(Integer.parseInt(idCat))) {
+    public String deleteCAT(@RequestParam("id") String id) {
+
+        int idCatTemp = 0;
+
+        try {
+            idCatTemp = Integer.parseInt(id);
+        } catch (Exception e) {
+
+        }
+
+        if (CategoryDAO.deleteCat(idCatTemp)) {
             return "/admin/category";
         }
 

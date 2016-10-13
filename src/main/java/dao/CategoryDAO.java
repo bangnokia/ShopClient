@@ -24,10 +24,13 @@ public class CategoryDAO {
     public List<Category> getlistCAT() {
         try {
             session.getCurrentSession().beginTransaction();
+
             Criteria cr = session.getCurrentSession().createCriteria(Category.class);
             List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
             return results;
         } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
             return null;
         }
     }
@@ -35,27 +38,43 @@ public class CategoryDAO {
     public List<Category> getitemDetail(Integer catID) {
         try {
             session.getCurrentSession().beginTransaction();
+
             Criteria cr = session.getCurrentSession().createCriteria(Category.class);
-            cr.add(Restrictions.eq("idCat", catID));
+            cr.add(Restrictions.eq("id", catID));
             List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
             return results;
         } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
             return null;
         }
     }
 
     public boolean insertCat(Integer idCat, String parentID, String name, String icon, String status) {
+        CategoryDAO cate = new CategoryDAO();
         try {
             session.getCurrentSession().beginTransaction();
+            int parentIDTemp = 0;
+            try {
+                parentIDTemp = Integer.parseInt(parentID);
+            } catch (Exception e) {
+
+            }
 
             Category cat = new Category();
 
+            cat.setId(idCat);
             cat.setName(name);
             cat.setIcon(icon);
             cat.setStatus(status);
-            cat.setParentId(Integer.parseInt(parentID));
+            cat.setParentId(parentIDTemp);
 
-            session.getCurrentSession().save(cat);
+            if (idCat != 0) {
+                session.getCurrentSession().update(cat);
+            } else {
+                session.getCurrentSession().save(cat);
+            }
+            
             session.getCurrentSession().getTransaction().commit();
             return true;
         } catch (Exception e) {
@@ -64,13 +83,13 @@ public class CategoryDAO {
         }
     }
 
-    public boolean deleteCat(Integer idCat) {
+    public boolean deleteCat(Integer id) {
         try {
             session.getCurrentSession().beginTransaction();
 
             Category cat = new Category();
 
-            cat.setId(idCat);
+            cat.setId(id);
             session.getCurrentSession().delete(cat);
             session.getCurrentSession().getTransaction().commit();
             return true;
