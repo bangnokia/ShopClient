@@ -42,6 +42,26 @@ function bindItemDetail(dataLocal, formName) {
     });
 }
 
+function bindItemDetailGrid(dataLocal, formName) {
+
+    var column_value;
+
+    if (dataLocal == null || dataLocal.length == 0)
+        return;
+
+    $('#' + formName).find('input, textarea, select').each(function (index, field) {
+        if (field.name != null && field.name != '') {
+
+            temp = " column_value = dataLocal." + field.name + ";";
+            eval(temp);
+
+            if (typeof column_value != 'undefined' && column_value != null) {
+                field.value = column_value;
+            }
+        }
+    });
+}
+
 function bindingcombo(p_name, p_selectedValue, datajson, arrColum) {
     var arrName = p_name.split(',');
     for (var i = 0; i < arrName.length; i++) {

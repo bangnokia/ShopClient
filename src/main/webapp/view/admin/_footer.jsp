@@ -296,7 +296,16 @@
 <script src="${adminRoot}/assets/js/jqwidgets/jqxpanel.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxtree.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxnotification.js" type="text/javascript"></script>
-
+<script src="${adminRoot}/assets/js/jqwidgets/jqxmenu.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxdropdownlist.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxlistbox.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxcheckbox.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.sort.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.pager.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.selection.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.edit.js" type="text/javascript"></script>
+    
 <script src="${adminRoot}/assets/js/jquery.common.js" type="text/javascript"></script>
 <!--
 <script type="text/javascript">
