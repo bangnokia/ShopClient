@@ -1,8 +1,8 @@
 package controller;
 
 import com.google.gson.Gson;
-import dao.CategoryDAO;
-import entity.Category;
+import dao.CategoryPropertyDAO;
+import entity.Categoryproperty;
 import java.util.List;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
@@ -11,20 +11,20 @@ import org.springframework.web.bind.annotation.*;
 import org.json.JSONObject;
 
 @Controller
-public class AdminCategoryController {
+public class AdminCategoryPropertyController {
 
     // @Autowired
-    private CategoryDAO CategoryDAO = new CategoryDAO();
+    private CategoryPropertyDAO CategoryPropertyDAO = new CategoryPropertyDAO();
 
     public String index(ModelMap cate) {
-        return "/admin/category";
+        return "/admin/categoryProperty";
     }
 
     // @RequestMapping(value = "/json", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<String> getlistCAT() {
+    public ResponseEntity<String> getlist() {
         JSONObject jsonOB = new JSONObject();
         try {
-            List<Category> catlist = CategoryDAO.getlistCAT();
+            List<Categoryproperty> catlist = CategoryPropertyDAO.getlist();
 
             String json = new Gson().toJson(catlist);
             if (json != null) {
@@ -44,7 +44,7 @@ public class AdminCategoryController {
     public ResponseEntity<String> getitemdetail(@RequestParam("id") String catID) {
         JSONObject jsonOB = new JSONObject();
         try {
-            List<Category> catlist = CategoryDAO.getitemDetail(Integer.parseInt(catID));
+            List<Categoryproperty> catlist = CategoryPropertyDAO.getitemDetail(Integer.parseInt(catID));
 
             String json = new Gson().toJson(catlist);
             if (json != "null") {
@@ -61,26 +61,25 @@ public class AdminCategoryController {
         return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> insertCAT(
+    public ResponseEntity<String> insert(
             @RequestParam("id") String id,
-            @RequestParam("parentId") String parentId,
+            @RequestParam("catId") String catId,
             @RequestParam("name") String name,
-            @RequestParam("icon") String icon,
             @RequestParam("status") String status,
             ModelMap cate) {
 
         JSONObject jsonOB = new JSONObject();
 
-        int idCatTemp = 0;
+        int idTemp = 0;
 
         try {
-            idCatTemp = Integer.parseInt(id);
+            idTemp = Integer.parseInt(id);
         } catch (Exception e) {
 
         }
 
         try {
-            if (CategoryDAO.insertCat(idCatTemp, parentId, name, icon, status)) {
+            if (CategoryPropertyDAO.insert(idTemp, catId, name, status)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");
@@ -93,7 +92,7 @@ public class AdminCategoryController {
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> deleteCAT(
+    public ResponseEntity<String> delete(
             @RequestParam("id") String id) {
 
         JSONObject jsonOB = new JSONObject();
@@ -107,7 +106,7 @@ public class AdminCategoryController {
         }
 
         try {
-            if (CategoryDAO.deleteCat(idTemp)) {
+            if (CategoryPropertyDAO.delete(idTemp)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");

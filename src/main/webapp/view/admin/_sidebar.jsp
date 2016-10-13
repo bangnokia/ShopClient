@@ -17,14 +17,15 @@
         <p class="menu-title">BROWSE <span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
         <ul>
             <li class="start "> <a href="${adminRoot}/admin/category" > <i class="icon-custom-home"></i> <span class="title">Category</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
-                <ul class="sub-menu">
-                    <li > <a href="${adminRoot}/admin/category">Add Category</a> </li>
-                    <li class="active"> <a href="index.html ">Add brand<span class=" label label-info pull-right m-r-30">NEW</span></a></li>
-                </ul>
+
             </li>
             <li class="start "> <a href="${adminRoot}/admin/brand" > <i class="icon-custom-home"></i> <span class="title">Brand</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
 
             </li>
+            <li class="start "> <a href="${adminRoot}/admin/categoryproperty" > <i class="icon-custom-home"></i> <span class="title">Category Property</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
+
+            </li>
+            
         </ul>
         <div class="side-bar-widgets">
             <p class="menu-title">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="fa fa-plus"></i></a></span></p>

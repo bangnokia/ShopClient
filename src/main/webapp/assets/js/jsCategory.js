@@ -26,25 +26,16 @@ function category() {
             return;
         }
 
-        $.ajax({
-            url: urlForm + '/admin/category/delete?id=' + $('#form_category_id').val(), // Your Servlet mapping or JSP(not suggested)
-            //   data: {idCat: },
-            type: 'POST',
-            //dataType: 'html', // Returns HTML as plain text; included script tags are evaluated when inserted in the DOM.
-            success: function (response) {
-                alert('OK');
-                getlistCat();
-                // create an empty div in your page with some id
-            },
-            error: function (request, textStatus, errorThrown) {
-                alert('faile');
-                getlistCat();
-                alert(errorThrown);
-            }
-        });
+        do_delete_form(urlForm + '/admin/category/delete?id=' + $('#form_category_id').val(), 'getlistCat();$("#clearForm").click();');
+
     });
 
     getlistCat();
+}
+
+function afterUpload(url) {
+    $('#form_category_icon').val(url);
+    $('#imagerDemo').attr('src', url);
 }
 
 function bindingItem(id) {
@@ -57,6 +48,7 @@ function bindingItem(id) {
         return;
     else {
         bindItemDetail(datajson, 'form_category');
+        $('#imagerDemo').attr('src', $('#form_category_icon').val());
     }
 }
 

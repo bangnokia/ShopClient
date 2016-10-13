@@ -128,6 +128,39 @@ function do_save_form(p_url, p_formName, p_function_run) {
     return loi;
 }
 
+function do_delete_form(p_url, p_function_run) {
+    var dataSent = '1=1';
+    var loi = false;
+
+    $.ajax({
+        datatype: "json",
+        url: p_url,
+        type: "POST",
+        data: dataSent,
+        success: function (data) {
+            if (data != undefined && data != '') {
+                data = eval('[' + data + ']');
+            }
+            var message = data[0].map.message;
+            if (message == 'success_ok') {
+                dataJson = eval(data[0].map.result);
+                loi = true;
+                if (p_function_run != undefined && p_function_run != '')
+                    eval(p_function_run);
+                showNotification('success', 'Delete success');
+            } else {
+                dataJson = null;
+                showNotification('error', 'Fail to delete!');
+                loi = false;
+            }
+        },
+        failure: function (errMsg) {
+            showNotification('error', 'Fail to delete!');
+        }
+    });
+    return loi;
+}
+
 function loadingForm(status) {
     try {
         if (status) {

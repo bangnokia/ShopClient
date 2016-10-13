@@ -90,21 +90,31 @@ public class AdminBrandController {
         String json = new Gson().toJson(jsonOB);
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
+    
+     public ResponseEntity<String> delete(
+            @RequestParam("id") String id) {
 
-    public String delete(@RequestParam("id") String id) {
+        JSONObject jsonOB = new JSONObject();
 
-        int idCatTemp = 0;
+        int idTemp = 0;
 
         try {
-            idCatTemp = Integer.parseInt(id);
+            idTemp = Integer.parseInt(id);
         } catch (Exception e) {
 
         }
 
-        if (Brand.delete(idCatTemp)) {
-            return "/admin/brand";
+        try {
+            if (Brand.delete(idTemp)) {
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
         }
 
-        return "/admin/brand";
+        String json = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
 }

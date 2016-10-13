@@ -307,6 +307,8 @@
 <script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.edit.js" type="text/javascript"></script>
     
 <script src="${adminRoot}/assets/js/jquery.common.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
 <!--
 <script type="text/javascript">
     $(document).ready(function () {

@@ -1,41 +1,47 @@
 var urlForm;
 var id_temp = '';
-function brand() {
+function categoryproperty() {
     $('#saveForm').bind('click', function () {
-        do_save_form(urlForm + '/admin/brand/save', 'form_brand', 'getlistbrand();$("#clearForm").click();');
+        do_save_form(urlForm + '/admin/categoryproperty/save', 'form_categoryproperty', 'getlistcategoryproperty();$("#clearForm").click();');
     });
 
     $('#clearForm').bind('click', function () {
-        clear_form('form_brand');
+        clear_form('form_categoryproperty');
     });
 
     $('#deleteFORM').bind('click', function () {
-        if ($('#form_brand_idCat').val() == '') {
-            alert('select brand to delete');
+        if ($('#form_categoryproperty_idCat').val() == '') {
+            alert('select categoryproperty to delete');
             return;
         }
-        
-        do_delete_form(urlForm + '/admin/brand/delete?id=' + $('#form_brand_id').val(), 'getlistbrand();$("#clearForm").click();');
+
+        do_delete_form(urlForm + '/admin/categoryproperty/delete?id=' + $('#form_categoryproperty_id').val(), 'getlistcategoryproperty();$("#clearForm").click();');
     });
 
-    getlistbrand();
+    getlistcategoryproperty();
 }
 
 function bindingItem(id) {
     id_temp = id;
-    var url = urlForm + '/admin/brand/getitemdetail?id=' + id;
+    var url = urlForm + '/admin/categoryproperty/getitemdetail?id=' + id;
 
     var datajson = getDataJson(url);
 
     if (datajson == null)
         return;
     else {
-        bindItemDetail(datajson, 'form_brand');
+        bindItemDetail(datajson, 'form_categoryproperty');
     }
 }
 
-function getlistbrand() {
-    var url = urlForm + '/admin/brand/getlist?1=1';
+function getlistcategoryproperty() {
+    var url = urlForm + '/admin/category/getlistCAT?1=1';
+
+    var datajson = getDataJson(url);
+
+    bindingcombo('form_categoryproperty_catId', '', datajson, 'id,name');
+
+    var url = urlForm + '/admin/categoryproperty/getlist?1=1';
 
     var datajson = getDataJson(url);
 
@@ -48,6 +54,7 @@ function getlistbrand() {
                 datatype: "json",
                 datafields: [
                     {name: 'id', type: 'string'},
+                    {name: 'catId', type: 'string'},
                     {name: 'name', type: 'string'},
                     {name: 'status', type: 'string'}
                 ],
@@ -55,7 +62,7 @@ function getlistbrand() {
             };
     var dataAdapter = new $.jqx.dataAdapter(source);
     $("#gridBrand").jqxGrid({
-        width: 400,
+        width: 500,
         source: dataAdapter,
         pageable: true,
         autoheight: true,
@@ -65,7 +72,8 @@ function getlistbrand() {
         // editable: true,
         selectionmode: 'singlerow',
         columns: [
-            {text: 'id brand', datafield: 'id', width: 100},
+            {text: 'id property', datafield: 'id', width: 100},
+            {text: 'id category', datafield: 'catId', width: 100},
             {text: 'name', datafield: 'name', width: 200},
             {text: 'status', datafield: 'status', width: 100}
         ]
@@ -80,6 +88,6 @@ function getlistbrand() {
 
         console.log(rowData);
 
-        bindItemDetailGrid(rowData, 'form_brand');
+        bindItemDetailGrid(rowData, 'form_categoryproperty');
     });
 }
