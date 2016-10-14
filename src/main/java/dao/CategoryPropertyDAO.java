@@ -5,7 +5,7 @@
  */
 package dao;
 
-import entity.Categoryproperty;
+import entity.CategoryProperty;
 import java.util.List;
 import model.HibernateUtil;
 import org.hibernate.Criteria;
@@ -20,11 +20,11 @@ public class CategoryPropertyDAO {
 
     private SessionFactory session = HibernateUtil.getSessionFactory();
 
-    public List<Categoryproperty> getlist() {
+    public List<CategoryProperty> getlist() {
         try {
             session.getCurrentSession().beginTransaction();
 
-            Criteria cr = session.getCurrentSession().createCriteria(Categoryproperty.class);
+            Criteria cr = session.getCurrentSession().createCriteria(CategoryProperty.class);
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
             return results;
@@ -34,11 +34,11 @@ public class CategoryPropertyDAO {
         }
     }
 
-    public List<Categoryproperty> getitemDetail(Integer ID) {
+    public List<CategoryProperty> getitemDetail(Integer ID) {
         try {
             session.getCurrentSession().beginTransaction();
 
-            Criteria cr = session.getCurrentSession().createCriteria(Categoryproperty.class);
+            Criteria cr = session.getCurrentSession().createCriteria(CategoryProperty.class);
             cr.add(Restrictions.eq("id", ID));
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
@@ -60,7 +60,7 @@ public class CategoryPropertyDAO {
 
             }
 
-            Categoryproperty cat = new Categoryproperty();
+            CategoryProperty cat = new CategoryProperty();
 
             cat.setId(id);
             cat.setName(name);
@@ -85,7 +85,7 @@ public class CategoryPropertyDAO {
         try {
             session.getCurrentSession().beginTransaction();
 
-            Categoryproperty cat = new Categoryproperty();
+            CategoryProperty cat = new CategoryProperty();
 
             cat.setId(id);
             session.getCurrentSession().delete(cat);

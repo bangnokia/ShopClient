@@ -2,7 +2,7 @@ package controller;
 
 import com.google.gson.Gson;
 import dao.CategoryPropertyDAO;
-import entity.Categoryproperty;
+import entity.CategoryProperty;
 import java.util.List;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
@@ -24,7 +24,7 @@ public class AdminCategoryPropertyController {
     public ResponseEntity<String> getlist() {
         JSONObject jsonOB = new JSONObject();
         try {
-            List<Categoryproperty> catlist = CategoryPropertyDAO.getlist();
+            List<CategoryProperty> catlist = CategoryPropertyDAO.getlist();
 
             String json = new Gson().toJson(catlist);
             if (json != null) {
@@ -44,7 +44,7 @@ public class AdminCategoryPropertyController {
     public ResponseEntity<String> getitemdetail(@RequestParam("id") String catID) {
         JSONObject jsonOB = new JSONObject();
         try {
-            List<Categoryproperty> catlist = CategoryPropertyDAO.getitemDetail(Integer.parseInt(catID));
+            List<CategoryProperty> catlist = CategoryPropertyDAO.getitemDetail(Integer.parseInt(catID));
 
             String json = new Gson().toJson(catlist);
             if (json != "null") {

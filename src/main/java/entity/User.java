@@ -1,5 +1,5 @@
 package entity;
-// Generated Oct 10, 2016 5:51:38 PM by Hibernate Tools 4.3.1
+// Generated Oct 14, 2016 11:30:50 AM by Hibernate Tools 4.3.1
 
 
 
@@ -17,12 +17,12 @@ public class User  implements java.io.Serializable {
      private String phone;
      private String email;
      private String status;
-     private Byte group;
+     private Byte userGroup;
 
     public User() {
     }
 
-    public User(String username, String password, String name, String address, String phone, String email, String status, Byte group) {
+    public User(String username, String password, String name, String address, String phone, String email, String status, Byte userGroup) {
        this.username = username;
        this.password = password;
        this.name = name;
@@ -30,7 +30,7 @@ public class User  implements java.io.Serializable {
        this.phone = phone;
        this.email = email;
        this.status = status;
-       this.group = group;
+       this.userGroup = userGroup;
     }
    
     public Integer getId() {
@@ -89,12 +89,12 @@ public class User  implements java.io.Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
-    public Byte getGroup() {
-        return this.group;
+    public Byte getUserGroup() {
+        return this.userGroup;
     }
     
-    public void setGroup(Byte group) {
-        this.group = group;
+    public void setUserGroup(Byte userGroup) {
+        this.userGroup = userGroup;
     }
 
 

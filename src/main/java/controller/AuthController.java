@@ -7,8 +7,9 @@ package controller;
 
 import dao.UserDAO;
 import entity.User;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.http.HttpSession;
-import lib.Authentication;
+import lib.Helper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,9 +39,9 @@ public class AuthController {
     }
     
     //process login request
-    public String postLogin(@RequestParam("usernameLogin") String username, @RequestParam("passwordLogin") String password, ModelMap mm) {        
+    public String postLogin(@RequestParam("usernameLogin") String username, @RequestParam("passwordLogin") String password, ModelMap mm) throws NoSuchAlgorithmException {        
         User user = userDAO.findUserByName(username);
-        if (user != null && user.getPassword().equals(password)) {
+        if (user != null && user.getPassword().equals(Helper.md5(password))) {
             session.setAttribute("user", user);
             return "redirect:/";
         }
@@ -48,6 +49,27 @@ public class AuthController {
         mm.addAttribute("title", "Login");
         mm.addAttribute("loginError", "Login fail, please try again or using forgot password!");
         return "/auth/login";
+    }
+    
+    public String postRegister(
+        ModelMap mm,
+        @RequestParam("name") String name, 
+        @RequestParam("username") String username, 
+        @RequestParam("email") String email,
+        @RequestParam("password") String password,
+        @RequestParam("address") String address
+    ) throws NoSuchAlgorithmException {
+        //check if username or email exists
+        if (userDAO.findUserByName(username) == null && userDAO.findUserByEmail(email) == null) {
+            User user = new User(username, password, name, address, "", email, "1", (byte) 1);
+            if (userDAO.save(user))
+                mm.addAttribute("registerNotice", "Register successfully");
+            else
+                mm.addAttribute("registerNotice", "cant register, something wrong");
+        } else {
+            mm.addAttribute("registerNotice", "username or email is exist");
+        }     
+        return "auth/login";
     }
     
     //logout account

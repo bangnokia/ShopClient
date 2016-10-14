@@ -26,17 +26,24 @@
                     <div class="box-authentication">
                         <h3>Create an account</h3>
                         <p>Please fill fields to create an account.</p>                                                
-                        <form action="/auth/register" method="post" name="auth_register">
+                        <form action="${root}/auth/register" method="post" name="auth_register">
+                            <label for="fullname_register">Full name</label>
+                            <input id="fullname_register" type="text" class="form-control" required name="name">
+                            
                             <label for="username_register">Username</label>
-                            <input id="username_register" type="text" class="form-control" required>
+                            <input id="username_register" type="text" class="form-control" required name="username">
 
                             <label for="emmail_register">Email address</label>
-                            <input id="emmail_register" type="text" class="form-control" type="email" required>
+                            <input id="emmail_register" type="text" class="form-control" type="email" required name="email">
 
                             <label for="password_register">Password</label>
-                            <input id="password_register" type="password" class="form-control" required>
+                            <input id="password_register" type="password" class="form-control" required name="password">
+                            
+                            <label for="address_register">Address</label>
+                            <input id="address_resgister" type="text" class="form-control" required name="address">
 
-                            <button class="button"><i class="fa fa-user"></i> Create an account</button>
+                            <button class="button" type="submit"><i class="fa fa-user"></i> Create an account</button>
+                            <p class="text-danger">${registerNotice}</p>
                         </form>
                     </div>
                 </div>

@@ -6,18 +6,19 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/hnashop</property>
     <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
-    <mapping resource="entity/Orderdetail.hbm.xml"/>
-    <mapping resource="entity/Product.hbm.xml"/>
-    <mapping resource="entity/Productpropertydetail.hbm.xml"/>
-    <mapping resource="entity/Brand.hbm.xml"/>
-    <mapping resource="entity/Category.hbm.xml"/>
-    <mapping resource="entity/User.hbm.xml"/>
     <mapping resource="entity/Rate.hbm.xml"/>
-    <mapping resource="entity/Categoryproperty.hbm.xml"/>
-    <mapping resource="entity/Image.hbm.xml"/>
-    <mapping resource="entity/Shop.hbm.xml"/>
+    <mapping resource="entity/Product.hbm.xml"/>
+    <mapping resource="entity/Category.hbm.xml"/>
+    <mapping resource="entity/ProductPropertyDetail.hbm.xml"/>
+    <mapping resource="entity/OrderDetail.hbm.xml"/>
+    <mapping resource="entity/User.hbm.xml"/>
+    <mapping resource="entity/Brand.hbm.xml"/>
     <mapping resource="entity/Order.hbm.xml"/>
+    <mapping resource="entity/CategoryProperty.hbm.xml"/>
+    <mapping resource="entity/Shop.hbm.xml"/>
+    <mapping resource="entity/Image.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
