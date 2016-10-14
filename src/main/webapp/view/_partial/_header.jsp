@@ -4,6 +4,8 @@
     Author     : daudau
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="entity.Category"%>
 <%@page import="dao.CategoryDAO"%>
 <%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -178,18 +180,47 @@
                                 </h4>
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
-                                        <% CategoryDAO categoryDAO = new CategoryDAO();%>
-                                        <c:forEach var="current" items="<%=categoryDAO.getlistCAT()%>" > 
-                                            <c:set var="show" value="${current.status}"/>
-                                            <c:if test="${show  == '1'}">
-                                            <li><a href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/${current.icon}">${current.name}</a></li>    
-                                            </c:if>
-                                        </c:forEach>
-                                        </ul>
-                                        <div class="all-category"><span class="open-cate">All Categories</span></div>
-                                    </div>
+                                        <% CategoryDAO categoryDAO = new CategoryDAO();
+                                            String Class = null;
+                                            List<Category> categoryList = categoryDAO.getlistCAT();
+                                            for (Category parentNull : categoryList) {
+                                                if (parentNull.getParentId() == 0 && parentNull.getStatus().equalsIgnoreCase("1") || parentNull.getParentId() == null && parentNull.getStatus().equalsIgnoreCase("1")) {
+                                        %>
+                                        <li><a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/<% out.print(parentNull.getIcon()); %>"><% out.print(parentNull.getName()); %></a>
+                                            <div class="vertical-dropdown-menu">
+                                                <div class="vertical-groups col-sm-12">
+                                                    <%
+                                                        for (Category parent1 : categoryList) {
+                                                            if (parent1.getParentId() == parentNull.getId() && parent1.getStatus().equalsIgnoreCase("1")) {
+                                                    %>
+
+                                                    <div class="mega-group col-sm-4">
+                                                        <h4 class="mega-group-header"><span><% out.print(parent1.getName()); %></span></h4>
+                                                                <%
+                                                                    for (Category parent2 : categoryList) {
+                                                                        if (parent2.getParentId() == parent1.getId() && parent2.getStatus().equalsIgnoreCase("1")) {
+
+                                                                %>
+                                                        <ul class="group-link-default">
+                                                            <li><a href="#"><% out.print(parent2.getName()); %></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <%              }
+                                                                }
+                                                            }
+                                                        }
+                                                    %></div>
+                                            </div>
+                                        </li><%}
+                                            }
+
+                                        %>
+
+                                    </ul>
+                                    <div class="all-category"><span class="open-cate">All Categories</span></div>
                                 </div>
-                            </div>   
+                            </div>
+                        </div>   
                         <div id="main-menu" class="col-sm-9 main-menu">
                             <nav class="navbar navbar-default">
                                 <div class="container-fluid">

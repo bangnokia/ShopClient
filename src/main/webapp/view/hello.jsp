@@ -14,8 +14,5 @@
     </head>
     <body>
         <h1>Hello world!</h1>
-        <h2>${farent}</h2>
-        <c:forEach var="categoryList" items="${farent}">
-        <li><a href="#"><img class="icon-menu" src="${root}/assets/data/${categoryList.icon}">${categoryList.name}</a></li>
-            </c:forEach>
+        <h1>quần</h1>
 </html>
