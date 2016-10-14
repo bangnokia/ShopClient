@@ -61,7 +61,7 @@ public class AuthController {
     ) throws NoSuchAlgorithmException {
         //check if username or email exists
         if (userDAO.findUserByName(username) == null && userDAO.findUserByEmail(email) == null) {
-            User user = new User(username, password, name, address, "", email, "1", (byte) 1);
+            User user = new User(username, Helper.md5(password), name, address, "", email, "1", (byte) 1);
             if (userDAO.save(user))
                 mm.addAttribute("registerNotice", "Register successfully");
             else
