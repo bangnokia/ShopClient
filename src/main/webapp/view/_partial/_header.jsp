@@ -186,7 +186,7 @@
                                             for (Category parentNull : categoryList) {
                                                 if (parentNull.getParentId() == 0 && parentNull.getStatus().equalsIgnoreCase("1") || parentNull.getParentId() == null && parentNull.getStatus().equalsIgnoreCase("1")) {
                                         %>
-                                        <li><a class="parent" href="#"><img class="icon-menu" alt="Funky roots" src="${root}/assets/data/<% out.print(parentNull.getIcon()); %>"><% out.print(parentNull.getName()); %></a>
+                                        <li><a class="parent" href="#"><img class="icon-menu" alt="<% out.print(parentNull.getName()); %>" src="<% out.print(parentNull.getIcon()); %>"><% out.print(parentNull.getName()); %></a>
                                             <div class="vertical-dropdown-menu">
                                                 <div class="vertical-groups col-sm-12">
                                                     <%
