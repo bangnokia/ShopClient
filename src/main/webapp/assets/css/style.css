@@ -4406,7 +4406,8 @@ span.notify-right{
   margin-top: 15px;
 }
 .box-authentication input, 
-.box-authentication textarea {
+.box-authentication textarea,
+.box-authentication select {
   border-radius: 0px;
   border: 1px solid #eaeaea;
   -webkit-box-shadow: inherit;

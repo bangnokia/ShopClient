@@ -26,7 +26,29 @@
                 </h2>
                 <!-- Content page -->
                 <div class="content-text clearfix">
-                    
+                    <div class="box-authentication">
+                        <form action="" method="post">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" />
+                            
+                            <label>Price</label>
+                            <input type="number" name="price" class="form-control" />
+                            
+                            <label>Category</label>
+                            <select class="form-control" name="categoryId">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            
+                            <label>Brand</label>
+                            <select class="form-control" name="brandId">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </form>
+                    </div>
                 </div>
                 <!-- ./Content page -->
             </div>

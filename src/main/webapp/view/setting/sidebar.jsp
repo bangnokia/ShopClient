@@ -8,7 +8,7 @@
             <div class="layered layered-category">
                 <div class="layered-content">
                     <ul class="tree-menu">
-                        <li><span></span><a href="#">Profile Setting</a></li>
+                        <li><span></span><a href="${root}/setting/profile">Profile Setting</a></li>
                         <li><span></span><a href="${root}/product/create">Add new Product</a></li>
                         <li><span></span><a href="#">Manage Products</a></li>                        
                     </ul>
