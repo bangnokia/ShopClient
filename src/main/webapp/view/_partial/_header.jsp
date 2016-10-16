@@ -76,7 +76,7 @@
                                 <span><%=currentUser.getUsername()%></span>
                             </a>
                             <ul class="dropdown-menu mega_dropdown" role="menu">
-                                <li><a href="#">Setting</a></li>
+                                <li><a href="${root}/setting/profile">Profile Setting</a></li>
                                 <li><a href="#">Manage Product</a></li>
                                 <li><a href="${root}/auth/logout">Logout</a></li>
                             </ul>

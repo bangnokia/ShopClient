@@ -63,11 +63,11 @@ public class AuthController {
         if (userDAO.findUserByName(username) == null && userDAO.findUserByEmail(email) == null) {
             User user = new User(username, Helper.md5(password), name, address, "", email, "1", (byte) 1);
             if (userDAO.save(user))
-                mm.addAttribute("registerNotice", "Register successfully");
+                mm.addAttribute("registerNotice", "Register successfully, please login!");
             else
-                mm.addAttribute("registerNotice", "cant register, something wrong");
+                mm.addAttribute("registerNotice", "Cant register, something wrong");
         } else {
-            mm.addAttribute("registerNotice", "username or email is exist");
+            mm.addAttribute("registerNotice", "Username or email is exist");
         }     
         return "auth/login";
     }
