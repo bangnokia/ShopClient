@@ -27,6 +27,7 @@
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/style.css" />
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/responsive.css" />
+        <script type="text/javascript" src="${root}/assets/lib/jquery/jquery-1.11.2.min.js"></script>
         <title>${title} - hnashop</title>
     </head>
 

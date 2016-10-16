@@ -15,11 +15,11 @@
                         <a href="#"><img src="${root}/assets/data/introduce-logo.png" alt="" /></a>
                         <div id="address-list">
                             <div class="tit-name">Address:</div>
-                            <div class="tit-contain">Example Street 68, Mahattan, New York, USA.</div>
+                            <div class="tit-contain">19 Nguyen Trai, Thanh Xuan, Ha Noi.</div>
                             <div class="tit-name">Phone:</div>
-                            <div class="tit-contain">+00 123 456 789</div>
+                            <div class="tit-contain">0904 527 144</div>
                             <div class="tit-name">Email:</div>
-                            <div class="tit-contain">support@business.com</div>
+                            <div class="tit-contain">support@devkafe.com</div>
                         </div>
                     </div> 
                 </div>
@@ -253,13 +253,12 @@
                         <li><a href="#" >Contact</a></li>
                     </ul>
                 </div>
-                <p class="text-center">Copyrights &#169; 2015 KuteShop. All Rights Reserved. Designed by KuteThemes.com</p>
+                <p class="text-center">Copyrights &#169; 2016 hna shop. All Rights Reserved. Designed by hna shop</p>
             </div><!-- /#footer-menu-box -->
         </div> 
 </footer>
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
-<script type="text/javascript" src="${root}/assets/lib/jquery/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="${root}/assets/lib/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${root}/assets/lib/select2/js/select2.min.js"></script>
 <script type="text/javascript" src="${root}/assets/lib/jquery.bxslider/jquery.bxslider.min.js"></script>

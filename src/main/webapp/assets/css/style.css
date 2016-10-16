@@ -4414,7 +4414,7 @@ span.notify-right{
   box-shadow: inherit;
   width: 50%;
 }
-.box-authentication  .button{
+.box-authentication .button{
   margin-top: 15px;
 }
 
@@ -5210,3 +5210,16 @@ span.notify-right{
   opacity: 0.8;
 }
 
+/*custom css*/
+.product-form textarea {
+    width: 100%;
+    height: 200px;
+    font-size: 15px !important;
+}
+.img-preview {
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    max-width: 300px;
+}
