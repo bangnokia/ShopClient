@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 14, 2016 11:30:51 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Oct 17, 2016 10:00:42 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Product" table="product" catalog="hnashop" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -28,6 +28,18 @@
         </property>
         <property name="status" type="string">
             <column name="status" length="10" />
+        </property>
+        <property name="categoryId" type="java.lang.Integer">
+            <column name="categoryId" />
+        </property>
+        <property name="outOfStock" type="java.lang.Boolean">
+            <column name="outOfStock" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <property name="image" type="string">
+            <column name="image" length="250" />
         </property>
     </class>
 </hibernate-mapping>

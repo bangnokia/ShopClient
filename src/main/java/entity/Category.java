@@ -1,5 +1,5 @@
 package entity;
-// Generated Oct 14, 2016 11:30:50 AM by Hibernate Tools 4.3.1
+// Generated Oct 17, 2016 10:00:42 AM by Hibernate Tools 4.3.1
 
 
 
@@ -13,12 +13,12 @@ public class Category  implements java.io.Serializable {
      private Integer parentId;
      private String name;
      private String icon;
-     private String status;
+     private Integer status;
 
     public Category() {
     }
 
-    public Category(Integer parentId, String name, String icon, String status) {
+    public Category(Integer parentId, String name, String icon, Integer status) {
        this.parentId = parentId;
        this.name = name;
        this.icon = icon;
@@ -53,11 +53,11 @@ public class Category  implements java.io.Serializable {
     public void setIcon(String icon) {
         this.icon = icon;
     }
-    public String getStatus() {
+    public Integer getStatus() {
         return this.status;
     }
     
-    public void setStatus(String status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

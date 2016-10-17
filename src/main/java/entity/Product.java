@@ -1,5 +1,5 @@
 package entity;
-// Generated Oct 14, 2016 11:30:50 AM by Hibernate Tools 4.3.1
+// Generated Oct 17, 2016 10:00:42 AM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -18,11 +18,15 @@ public class Product  implements java.io.Serializable {
      private Date createdAt;
      private Integer brandId;
      private String status;
+     private Integer categoryId;
+     private Boolean outOfStock;
+     private String description;
+     private String image;
 
     public Product() {
     }
 
-    public Product(String name, Float price, String shopId, Integer quantity, Date createdAt, Integer brandId, String status) {
+    public Product(String name, Float price, String shopId, Integer quantity, Date createdAt, Integer brandId, String status, Integer categoryId, Boolean outOfStock, String description, String image) {
        this.name = name;
        this.price = price;
        this.shopId = shopId;
@@ -30,6 +34,10 @@ public class Product  implements java.io.Serializable {
        this.createdAt = createdAt;
        this.brandId = brandId;
        this.status = status;
+       this.categoryId = categoryId;
+       this.outOfStock = outOfStock;
+       this.description = description;
+       this.image = image;
     }
    
     public Integer getId() {
@@ -87,6 +95,34 @@ public class Product  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public Integer getCategoryId() {
+        return this.categoryId;
+    }
+    
+    public void setCategoryId(Integer categoryId) {
+        this.categoryId = categoryId;
+    }
+    public Boolean getOutOfStock() {
+        return this.outOfStock;
+    }
+    
+    public void setOutOfStock(Boolean outOfStock) {
+        this.outOfStock = outOfStock;
+    }
+    public String getDescription() {
+        return this.description;
+    }
+    
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public String getImage() {
+        return this.image;
+    }
+    
+    public void setImage(String image) {
+        this.image = image;
     }
 
 

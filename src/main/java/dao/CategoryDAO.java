@@ -34,6 +34,21 @@ public class CategoryDAO {
             return null;
         }
     }
+    
+    public List<Category> getListCatActive() {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Category.class);
+            cr.add(Restrictions.eq("status", 1));
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
 
     public List<Category> getitemDetail(Integer catID) {
         try {
@@ -62,11 +77,11 @@ public class CategoryDAO {
             }
 
             Category cat = new Category();
-
+            
             cat.setId(idCat);
             cat.setName(name);
             cat.setIcon(icon);
-            cat.setStatus(status);
+            cat.setStatus(Integer.parseInt(status));
             cat.setParentId(parentIDTemp);
 
             if (idCat != 0) {
