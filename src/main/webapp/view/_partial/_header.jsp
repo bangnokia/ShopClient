@@ -181,41 +181,38 @@
                                 </h4>
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
-                                        <% CategoryDAO categoryDAO = new CategoryDAO();
-                                            String Class = null;
-                                            List<Category> categoryList = categoryDAO.getlistCAT();
-                                            for (Category parentNull : categoryList) {
-                                                if (parentNull.getParentId() == 0 && parentNull.getStatus().equalsIgnoreCase("1") || parentNull.getParentId() == null && parentNull.getStatus().equalsIgnoreCase("1")) {
-                                        %>
-                                        <li><a class="parent" href="#"><img class="icon-menu" alt="<% out.print(parentNull.getName()); %>" src="<% out.print(parentNull.getIcon()); %>"><% out.print(parentNull.getName()); %></a>
-                                            <div class="vertical-dropdown-menu">
-                                                <div class="vertical-groups col-sm-12">
-                                                    <%
-                                                        for (Category parent1 : categoryList) {
-                                                            if (parent1.getParentId() == parentNull.getId() && parent1.getStatus().equalsIgnoreCase("1")) {
-                                                    %>
-
-                                                    <div class="mega-group col-sm-4">
-                                                        <h4 class="mega-group-header"><span><% out.print(parent1.getName()); %></span></h4>
-                                                                <%
-                                                                    for (Category parent2 : categoryList) {
-                                                                        if (parent2.getParentId() == parent1.getId() && parent2.getStatus().equalsIgnoreCase("1")) {
-
-                                                                %>
-                                                        <ul class="group-link-default">
-                                                            <li><a href="#"><% out.print(parent2.getName()); %></a></li>
-                                                        </ul>
+                                    <%
+                                    CategoryDAO categoryDAO = new CategoryDAO();
+                                    List<Category> categoryList = categoryDAO.getListCatActive();
+                                    for (Category parentNull : categoryList) {
+                                        if (parentNull.getParentId() == 0) { %>
+                                             <li>
+                                                <a class="parent" href="#"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
+                                                <div class="vertical-dropdown-menu" style="width: 900px;">
+                                                    <div class="vertical-groups col-sm-12">
+                                                        <%
+                                                        for (Category catLv2 : categoryList) {
+                                                            if (catLv2.getParentId() == parentNull.getId()) { %>
+                                                                <div class="mega-group col-sm-4">
+                                                                    <h4 class="mega-group-header"><span><%=catLv2.getName()%></span></h4>
+                                                                    <ul class="group-link-default">
+                                                                        <%
+                                                                        for (Category catLv3 : categoryList) {
+                                                                            if (catLv3.getParentId() == catLv2.getId()) { %>
+                                                                                <li><a href="#"><%=catLv3.getName()%></a></li>
+                                                                            <% }
+                                                                        }
+                                                                        %>                                                                       
+                                                                    </ul>
+                                                                </div>
+                                                            <% }
+                                                            
+                                                        } %>                                                                                                                                               
                                                     </div>
-                                                    <%              }
-                                                                }
-                                                            }
-                                                        }
-                                                    %></div>
-                                            </div>
-                                        </li><%}
-                                            }
-
-                                        %>
+                                                </div>
+                                            </li>
+                                        <% }
+                                    } %>
 
                                     </ul>
                                     <div class="all-category"><span class="open-cate">All Categories</span></div>
