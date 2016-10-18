@@ -1,5 +1,0 @@
-target/ShopServerAPI-1.0-SNAPSHOT.war
-target/ShopServerAPI-1.0-SNAPSHOT
-/target/
-
-src/main/resources/hibernate.cfg.xml
