@@ -27,7 +27,9 @@
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/reset.css" />
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/style.css" />
         <link rel="stylesheet" type="text/css" href="${root}/assets/css/responsive.css" />
-        <script type="text/javascript" src="${root}/assets/lib/jquery/jquery-1.11.2.min.js"></script>
+
+        <link rel="stylesheet" href="${root}/assets/js/jqwidgets/styles/jqx.base.css" type="text/css" />
+        <link rel="stylesheet" href="${root}/assets/js/jqwidgets/styles/jqx.bootstrap.css" type="text/css" />
         <title>${title} - hnashop</title>
     </head>
 
@@ -181,36 +183,36 @@
                                 </h4>
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
-                                    <%
-                                    CategoryDAO categoryDAO = new CategoryDAO();
-                                    List<Category> categoryList = categoryDAO.getListCatActive();
-                                    for (Category parentNull : categoryList) {
-                                        if (parentNull.getParentId() == 0) { %>
-                                             <li>
-                                                <a class="parent" href="#"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
-                                                <div class="vertical-dropdown-menu" style="width: 900px;">
-                                                    <div class="vertical-groups col-sm-12">
-                                                        <%
-                                                        for (Category catLv2 : categoryList) {
-                                                            if (catLv2.getParentId() == parentNull.getId()) { %>
-                                                                <div class="mega-group col-sm-4">
-                                                                    <h4 class="mega-group-header"><span><%=catLv2.getName()%></span></h4>
-                                                                    <ul class="group-link-default">
-                                                                        <%
-                                                                        for (Category catLv3 : categoryList) {
-                                                                            if (catLv3.getParentId() == catLv2.getId()) { %>
-                                                                                <li><a href="#"><%=catLv3.getName()%></a></li>
-                                                                            <% }
-                                                                        }
-                                                                        %>                                                                       
-                                                                    </ul>
-                                                                </div>
-                                                            <% }
-                                                            
-                                                        } %>                                                                                                                                               
+                                        <%
+                                        CategoryDAO categoryDAO = new CategoryDAO();
+                                        List<Category> categoryList = categoryDAO.getListCatActive();
+                                        for (Category parentNull : categoryList) {
+                                            if (parentNull.getParentId() == 0) { %>
+                                        <li>
+                                            <a class="parent" href="#"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
+                                            <div class="vertical-dropdown-menu" style="width: 900px;">
+                                                <div class="vertical-groups col-sm-12">
+                                                    <%
+                                                    for (Category catLv2 : categoryList) {
+                                                        if (catLv2.getParentId() == parentNull.getId()) { %>
+                                                    <div class="mega-group col-sm-4">
+                                                        <h4 class="mega-group-header"><span><%=catLv2.getName()%></span></h4>
+                                                        <ul class="group-link-default">
+                                                            <%
+                                                            for (Category catLv3 : categoryList) {
+                                                                if (catLv3.getParentId() == catLv2.getId()) { %>
+                                                            <li><a href="#"><%=catLv3.getName()%></a></li>
+                                                                <% }
+                                                            }
+                                                                %>                                                                       
+                                                        </ul>
                                                     </div>
+                                                    <% }
+                                                            
+                                                } %>                                                                                                                                               
                                                 </div>
-                                            </li>
+                                            </div>
+                                        </li>
                                         <% }
                                     } %>
 
