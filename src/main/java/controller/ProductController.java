@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -132,5 +133,11 @@ public class ProductController {
 
         String json = new Gson().toJson(jsonOB);
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
+    }
+    
+    public String detail(@PathVariable("id") String id, ModelMap mm) {
+        mm.addAttribute("id", id); //product id
+        System.out.println(id);
+        return "product_detail";
     }
 }
