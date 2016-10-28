@@ -3,14 +3,14 @@
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="hnashop"/>
   <table-filter match-name="order"/>
-  <table-filter match-name="shop"/>
-  <table-filter match-name="ProductPropertyDetail"/>
-  <table-filter match-name="product"/>
-  <table-filter match-name="image"/>
-  <table-filter match-name="orderDetail"/>
-  <table-filter match-name="categoryProperty"/>
-  <table-filter match-name="category"/>
-  <table-filter match-name="user"/>
-  <table-filter match-name="rate"/>
   <table-filter match-name="brand"/>
+  <table-filter match-name="image"/>
+  <table-filter match-name="productpropertydetail"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="product"/>
+  <table-filter match-name="shop"/>
+  <table-filter match-name="categoryproperty"/>
+  <table-filter match-name="rate"/>
+  <table-filter match-name="orderdetail"/>
+  <table-filter match-name="category"/>
 </hibernate-reverse-engineering>

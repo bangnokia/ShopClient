@@ -6,8 +6,10 @@
 package controller;
 
 import com.google.gson.Gson;
-import dao.ProductDao;
+import dao.ShopDao;
 import entity.Product;
+import entity.Shop;
+import entity.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
@@ -15,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
@@ -22,23 +25,43 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author daudau
  */
 @Controller
-public class ProductController {
+public class ShopController {
 
-    private ProductDao ProductDao = new ProductDao();
-    HttpSession session;
+    private ShopDao ShopDao = new ShopDao();
+    private AuthController AuthController = new AuthController();
+    // HttpSession session;
 
-    public String index(ModelMap mm) {
-        mm.addAttribute("title", "Add product");
-        return "setting/product_add";
+    public String index(@ModelAttribute("abbbbb") String id, ModelMap mm) {
+        mm.addAttribute("title", "Add shop");
+        // int idTemp = 0;
+
+        // try {
+        //     idTemp = Integer.parseInt(id);
+        // } catch (Exception e) {
+        // }
+        // if (ShopDao.checkShop(idTemp)) {
+        return "setting/shop";
+        //  } else {
+        //     return "setting/shopRegister";
+        // }
     }
 
-    public ResponseEntity<String> getlist(@RequestParam("Text") String Text,
-            @RequestParam("Price") String Price, @RequestParam("category") String category) {
+    public ResponseEntity<String> getlist(@RequestParam("userId") String id) {
         JSONObject jsonOB = new JSONObject();
         try {
-            List<Product> brandlist = ProductDao.getlist(Text, Price, category);
+            int idTemp = 0;
+            String json;
+            try {
+                idTemp = Integer.parseInt(id);
+            } catch (Exception e) {
+            }
+            if (ShopDao.checkShop(idTemp)) {
+                List<Shop> shoplist = ShopDao.getlist(idTemp);
+                json = new Gson().toJson(shoplist);
+            } else {
+                json = null;
+            }
 
-            String json = new Gson().toJson(brandlist);
             if (json != null) {
                 jsonOB.put("result", json);
                 jsonOB.put("message", "success_ok");
@@ -53,48 +76,31 @@ public class ProductController {
         return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> insertProduct(
+    public ResponseEntity<String> insertShop(
             @RequestParam("id") String id,
+            @RequestParam("userId") String userId,
             @RequestParam("name") String name,
-            @RequestParam("price") String price,
-            @RequestParam("shopId") String shopId,
-            @RequestParam("quantity") String quantity,
-            @RequestParam("createdAt") String createdAt,
-            @RequestParam("brandId") String brandId,
+            @RequestParam("address") String address,
+            @RequestParam("phone") String phone,
+            @RequestParam("email") String email,
             @RequestParam("status") String status,
-            @RequestParam("categoryId") String categoryId,
-            @RequestParam("outOfStock") String outOfStock,
-            @RequestParam("description") String description,
-            @RequestParam("image") String image,
             ModelMap cate) {
 
         JSONObject jsonOB = new JSONObject();
 
         int idTemp = 0;
-        int brandIdTemp = 0;
-        int categoryIdTemp = 0;
-        float priceTemp = 0;
-
+        int userIdTemp = 0;
         try {
             idTemp = Integer.parseInt(id);
         } catch (Exception e) {
         }
         try {
-            brandIdTemp = Integer.parseInt(brandId);
-        } catch (Exception e) {
-        }
-        try {
-            categoryIdTemp = Integer.parseInt(categoryId);
-        } catch (Exception e) {
-        }
-        try {
-            priceTemp = Float.parseFloat(price);
+            userIdTemp = Integer.parseInt(userId);
         } catch (Exception e) {
         }
 
         try {
-            if (ProductDao.insert(idTemp, name, priceTemp, shopId, quantity, categoryIdTemp,
-                    brandIdTemp, outOfStock, description, image, status)) {
+            if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, status)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");
@@ -121,7 +127,7 @@ public class ProductController {
         }
 
         try {
-            if (ProductDao.delete(idTemp)) {
+            if (ShopDao.delete(idTemp)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");

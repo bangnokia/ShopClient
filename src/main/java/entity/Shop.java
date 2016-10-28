@@ -1,5 +1,5 @@
 package entity;
-// Generated Oct 17, 2016 10:00:42 AM by Hibernate Tools 4.3.1
+// Generated Oct 28, 2016 9:29:03 AM by Hibernate Tools 4.3.1
 
 
 
@@ -15,16 +15,18 @@ public class Shop  implements java.io.Serializable {
      private String phone;
      private String email;
      private String status;
+     private String name;
 
     public Shop() {
     }
 
-    public Shop(Integer userId, String address, String phone, String email, String status) {
+    public Shop(Integer userId, String address, String phone, String email, String status, String name) {
        this.userId = userId;
        this.address = address;
        this.phone = phone;
        this.email = email;
        this.status = status;
+       this.name = name;
     }
    
     public Integer getId() {
@@ -68,6 +70,13 @@ public class Shop  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String getName() {
+        return this.name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
     }
 
 

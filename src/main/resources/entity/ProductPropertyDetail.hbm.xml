@@ -1,22 +1,21 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Oct 17, 2016 10:00:42 AM by Hibernate Tools 4.3.1 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 28, 2016 9:29:05 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.ProductPropertyDetail" table="ProductPropertyDetail" catalog="hnashop" optimistic-lock="version">
-        <composite-id name="id" class="entity.ProductPropertyDetailId">
-            <key-property name="propertyId" type="int">
-                <column name="propertyId" />
-            </key-property>
-            <key-property name="productId" type="int">
-                <column name="productId" />
-            </key-property>
-        </composite-id>
-        <property name="value" type="string">
-            <column name="value" length="100" />
-        </property>
-        <property name="status" type="string">
-            <column name="status" length="10" />
-        </property>
-    </class>
+  <class catalog="hnashop" name="entity.ProductPropertyDetail" optimistic-lock="version" table="productpropertydetail">
+    <composite-id class="entity.ProductPropertyDetailId" name="id">
+      <key-property name="propertyId" type="int">
+        <column name="propertyId"/>
+      </key-property>
+      <key-property name="productId" type="int">
+        <column name="productId"/>
+      </key-property>
+    </composite-id>
+    <property name="value" type="string">
+      <column length="100" name="value"/>
+    </property>
+    <property name="status" type="string">
+      <column length="10" name="status"/>
+    </property>
+  </class>
 </hibernate-mapping>

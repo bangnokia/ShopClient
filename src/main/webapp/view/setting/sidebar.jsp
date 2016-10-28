@@ -8,9 +8,18 @@
             <div class="layered layered-category">
                 <div class="layered-content">
                     <ul class="tree-menu">
-                        <li><span></span><a href="${root}/setting/profile">Profile Setting</a></li>
-                        <li><span></span><a href="${root}/product/create">Add new Product</a></li>
-                        <li><span></span><a href="#">Manage Products</a></li>                        
+                        <li><span style="float: left;"></span>
+                            <form action="${root}/setting/profile" method="get">
+                                <button type="submit" id="ProfileSetting" href="">Profile Setting</a>
+                            </form>
+                        </li>
+                        <li><span style="float: left;"></span>
+                            <form action="${root}/product/shop" method="post">
+                                <button type="submit" id="ShopManagerBtn" name="abbbbb" value="<%=currentUser.getId()%>">Shop manager</button>
+                            </form>
+                        </li>
+                        <li><span style="float: left;"></span><a href="${root}/product/create">Add new Product</a></li>
+                        <li><span style="float: left;"></span><a href="#">Manage Products</a></li>                        
                     </ul>
                 </div>
             </div>

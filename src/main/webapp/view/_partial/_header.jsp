@@ -76,13 +76,14 @@
                                 User currentUser = (User) session.getAttribute("user");
                                 if (currentUser != null) {%>                                
                             <c:set var="currentUser" value="${currentUser}" scope="session" />
-
+                            <input type="hidden" id="dsaccsacsagsagsdwefe" value="<%=currentUser.getId()%>">
+                            <input type="hidden" id="bgfsbafdsafdsafd" value="<%=currentUser.getUsername()%>">
                             <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
                                 <span><%=currentUser.getUsername()%></span>
                             </a>
                             <ul class="dropdown-menu mega_dropdown" role="menu">
                                 <li><a href="${root}/setting/profile">Profile Setting</a></li>
-                                <li><a href="#">Manage Product</a></li>
+                                <li><a href="${root}/product/create">Manage Product</a></li>
                                 <li><a href="${root}/auth/logout">Logout</a></li>
                             </ul>
 
@@ -109,16 +110,13 @@
                     <div class="col-xs-7 col-sm-7 header-search-box">
                         <form class="form-inline">
                             <div class="form-group form-category">
-                                <select class="select-category">
-                                    <option value="2">All Categories</option>
-                                    <option value="1">Men</option>
-                                    <option value="2">Women</option>
+                                <select id="categorySearch" class="select-category">
                                 </select>
                             </div>
                             <div class="form-group input-serach">
-                                <input type="text"  placeholder="Keyword here...">
+                                <input id="keywordSearch" type="text"  placeholder="Keyword here...">
                             </div>
-                            <button type="submit" class="pull-right btn-search"></button>
+                            <button type="button" id="SearchItem" class="pull-right btn-search"></button>
                         </form>
                     </div>
                     <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
@@ -184,37 +182,37 @@
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
                                         <%
-                                        CategoryDAO categoryDAO = new CategoryDAO();
-                                        List<Category> categoryList = categoryDAO.getListCatActive();
-                                        for (Category parentNull : categoryList) {
-                                            if (parentNull.getParentId() == 0) { %>
+                                            CategoryDAO categoryDAO = new CategoryDAO();
+                                            List<Category> categoryList = categoryDAO.getListCatActive();
+                                            for (Category parentNull : categoryList) {
+                                                if (parentNull.getParentId() == 0) {%>
                                         <li>
                                             <a class="parent" href="#"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
                                             <div class="vertical-dropdown-menu" style="width: 900px;">
                                                 <div class="vertical-groups col-sm-12">
                                                     <%
-                                                    for (Category catLv2 : categoryList) {
-                                                        if (catLv2.getParentId() == parentNull.getId()) { %>
+                                                        for (Category catLv2 : categoryList) {
+                                                            if (catLv2.getParentId() == parentNull.getId()) {%>
                                                     <div class="mega-group col-sm-4">
                                                         <h4 class="mega-group-header"><span><%=catLv2.getName()%></span></h4>
                                                         <ul class="group-link-default">
                                                             <%
-                                                            for (Category catLv3 : categoryList) {
-                                                                if (catLv3.getParentId() == catLv2.getId()) { %>
+                                                                for (Category catLv3 : categoryList) {
+                                                                    if (catLv3.getParentId() == catLv2.getId()) {%>
                                                             <li><a href="#"><%=catLv3.getName()%></a></li>
                                                                 <% }
-                                                            }
+                                                                    }
                                                                 %>                                                                       
                                                         </ul>
                                                     </div>
                                                     <% }
-                                                            
-                                                } %>                                                                                                                                               
+
+                                                        } %>                                                                                                                                               
                                                 </div>
                                             </div>
                                         </li>
                                         <% }
-                                    } %>
+                                            }%>
 
                                     </ul>
                                     <div class="all-category"><span class="open-cate">All Categories</span></div>

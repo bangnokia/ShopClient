@@ -27,41 +27,49 @@
                 <!-- Content page -->
                 <div class="content-text clearfix">
                     <div class="box-authentication">
-                        <form action="" method="post" class="product-form">
+                        <input id="searchvalue" type="text" class="form-control" placeholder="input text here" />
+                        <button type="button" id="Search" class="button btn-danger">Search</button>
+                        <div class="grid simple" style="width: 450px">
+                            <div id="gridProduct">
+                            </div>
+                        </div>
+                        <form id="frm_addproduct" class="product-form">
+                            <input type="hidden" id="frm_addproduct_quantity" name="quantity">
+                            <input type="hidden" id="frm_addproduct_createdAt" name="createdAt">
+                            <input type="hidden" id="frm_addproduct_outOfStock" name="outOfStock">
+                            <input type="hidden" id="frm_addproduct_description" name="description">
+                            <input type="hidden" id="frm_addproduct_id" name="id">
+                            <input type="hidden" id="frm_addproduct_shopId" name="shopId">
+
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control" />
-
+                            <input id="frm_addproduct_name" type="text" name="name" class="form-control" />
                             <label>Image</label>
-                            <input type="text" name="image" id="product-image" class="form-control" placeholder="Image"/>
-
+                            <input id="frm_addproduct_image" type="text" name="image" class="form-control" placeholder="Image"/>
                             <label>Price</label>
-                            <input type="number" name="price" class="form-control" />
-
+                            <input id="frm_addproduct_price" type="text" name="price" class="form-control" />
                             <label>Category</label>
-                            <input style="width: 50px" type="number" id="categoryId" name="categoryId" class="form-control" />
-
+                            <input id="frm_addproduct_categoryId" style="width: 50px" type="text" name="categoryId" class="form-control" />
                             <div class="form-control" id="dropDownButton">
                                 <div style="border: none;" id='jqxTreeCategory'>
                                 </div>
                             </div>
-
                             <label>Brand</label>
-                            <select class="form-control" name="brandId">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                            <select id="frm_addproduct_brandId" class="form-control" name="brandId">
                             </select>
-
+                            <label>status</label>
+                            <select class="form-control" name="status" id="frm_addproduct_status">
+                                <option value="1">Show</option>
+                                <option value="2">Hide</option>
+                            </select>
                             <label>Description</label> <br/>
                             <button class="button" type="button" id="description-img-upload">Upload Image</button>
                             <textarea class="form-control" id="product-description"></textarea>
-
-
                             <div class="img-preview">
                                 <img src="" />
                             </div>
-                            <button class="button btn-danger" type="submit"><i class="fa fa-save"></i> Create</button>
-                            <button class="button" type="reset"><i class="fa fa-times"></i> Reset</button>
+                            <button type="button" id="saveForm" class="button btn-danger"><i class="fa fa-save"></i>Save</button>   
+                            <button type="button" id="clearForm" class="button" type="reset"><i class="fa fa-times"></i>Clear</button>
+                            <button type="button" id="deleteForm" class="button" type="reset"><i class="fa fa-times"></i>Delete</button>
                         </form>
                     </div>
                 </div>
@@ -74,101 +82,16 @@
 </div>
 <script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>            
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-
+<script src="${root}/assets/js/jsAddProduct.js" type="text/javascript"></script>
 <%@ include file="../_partial/_footer.jsp" %>
 
 <script>
-    function getTreeCate() {
-        $("#dropDownButton").jqxDropDownButton({width: 200, height: 25, theme: 'bootstrap'});
-        $('#jqxTreeCategory').on('select', function (event) {
-            var args = event.args;
-            var item = $('#jqxTreeCategory').jqxTree('getItem', args.element);
-            var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + item.label + '</div>';
-            $("#dropDownButton").jqxDropDownButton('setContent', dropDownContent);
-            $('#categoryId').val(item.id);
-        });
-
-        var url = '${root}/admin/category/getlistCAT?1=1';
-
-        var datajson = getDataJson(url);
-
-        if (datajson == null)
-            return;
-
-        var arr = new Array();
-        if (datajson != null) {
-            $.each(datajson, function (index) {
-                var item = datajson[index];
-                var object = new Object();
-                object.id = item.id;
-                object.parentId = item.parentId;
-                object.text = item.name;
-                object.value = item.idCat;
-                arr.push(object);
-            });
-        }
-        datajsonTree = JSON.parse(JSON.stringify(arr));
-
-        var source =
-                {
-                    datatype: "json",
-                    datafields: [
-                        {name: 'id'},
-                        {name: 'parentId'},
-                        {name: 'text'},
-                        {name: 'value'}
-                    ],
-                    id: 'id',
-                    localdata: datajsonTree
-                };
-        var dataAdapter = new $.jqx.dataAdapter(source);
-        dataAdapter.dataBind();
-        var records = dataAdapter.getRecordsHierarchy('id', 'parentId', 'items', [{name: 'text', map: 'label'}]);
-
-        $('#jqxTreeCategory').jqxTree({source: records, width: 200, theme: 'bootstrap'});
-    }
-
     tinymce.init({
         selector: 'textarea',
         fontsize_formats: "12pt 26pt 36pt"
     });
-
     jQuery(document).ready(function () {
-        filepicker.setKey("AM7JvJ8MRpa348OF98wKwz");
-
-//        upload product image
-        $('#product-image').click(function () {
-            filepicker.pick(
-                    {
-                        mimetype: 'image/*',
-                        container: 'window'
-                    },
-                    function (res) {
-                        $('#product-image').val(res.url);
-                        $('.img-preview img').attr('src', res.url);
-                    }
-            );
-        });
-
-        //upload for content
-        $('#description-img-upload').click(function () {
-            filepicker.pick(
-                    {
-                        mimetype: 'image/*',
-                        container: 'window'
-                    },
-                    function (res) {
-                        var img = '<img src="' + res.url + '" />';
-                        tinymce.get("product-description").execCommand('mceInsertContent', false, img);
-                    },
-                    function (FPError) {
-                    }
-            );
-        });
-
-        // tree dropdow 
-        getTreeCate();
-
+        addproduct();
     });
 </script>
 

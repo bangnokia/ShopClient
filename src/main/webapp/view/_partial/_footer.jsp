@@ -257,6 +257,22 @@
         </div><!-- /#footer-menu-box -->
     </div> 
 </footer>
+<div id="div_loadingContent" style="width: 100%;z-index: 999999; display: none; text-align: center;position: fixed;top: 0px;height: 100%;left: 0px;background-color: rgba(0, 0, 0, 0.18);">
+    <div id="loadingContent" class="cssload-container">            
+        <div class="cssload-loader">
+            <div class="cssload-inner cssload-one"></div>
+            <div class="cssload-inner cssload-two"></div>
+            <div class="cssload-inner cssload-three"></div>
+        </div>
+    </div>
+</div>
+
+<div id="div_message_notification">
+    <div id="messageNotification"></div>
+</div>
+<div id="containerNotification" style="position: fixed; z-index: 99999; top: 10px; right: 20px; overflow: auto;">
+</div>          
+
 <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
 <!-- Script-->
 <script type="text/javascript" src="${root}/assets/lib/jquery/jquery-1.11.2.min.js"></script>
@@ -289,5 +305,17 @@
 <script src="${root}/assets/js/jqwidgets/jqxgrid.edit.js" type="text/javascript"></script>
 
 <script src="${root}/assets/js/jquery.common.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    var urlForm= '${root}';
+    $(document).ready(function () {
+        var urlCategory = urlForm + '/admin/category/getlistCAT?1=1';
+        var datajsonCategory = getDataJson(urlCategory);
+
+        bindingcombo('categorySearch', '', datajsonCategory, 'id,name');
+        bindingProductHome();
+    });
+</script>
+
 </body>
 </html>

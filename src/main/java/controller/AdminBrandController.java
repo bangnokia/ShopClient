@@ -91,7 +91,7 @@ public class AdminBrandController {
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
     
-     public ResponseEntity<String> delete(
+    public ResponseEntity<String> delete(
             @RequestParam("id") String id) {
 
         JSONObject jsonOB = new JSONObject();

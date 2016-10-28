@@ -178,24 +178,26 @@ function loadingForm(status) {
     }
 }
 
-function clear_form(p_name) {
+function clear_form(p_name, skip) {
     $('#' + p_name).find(':input').each(function () {
-        switch (this.type) {
-            case 'select':
-            case 'select-multiple':
-            case 'select-one':
-                //$('select option:first-child').attr("selected", "selected");
-                $(this).val($("#" + this.id + " option:first").val());
-                break;
-            case 'text':
-            case 'textarea':
-            case 'password':
-            case 'hidden':
-                $(this).val('');
-                break;
-            case 'checkbox':
-            case 'radio':
-                this.checked = false;
+        if (this.id != p_name + '_' + skip) {
+            switch (this.type) {
+                case 'select':
+                case 'select-multiple':
+                case 'select-one':
+                    //$('select option:first-child').attr("selected", "selected");
+                    $(this).val($("#" + this.id + " option:first").val());
+                    break;
+                case 'text':
+                case 'textarea':
+                case 'password':
+                case 'hidden':
+                    $(this).val('');
+                    break;
+                case 'checkbox':
+                case 'radio':
+                    this.checked = false;
+            }
         }
     });
 }
@@ -213,5 +215,15 @@ function showNotification(template, message) {
         autoClose: true,
         template: template
     });
+
+}
+function SearchItemJson(data, colum, value) {
+    if (value == undefined || value == '' || colum == undefined || colum == '') {
+        return data;
+    }
+
+    var arr = new Array();
+    //if(data != null && )
+
 
 }
