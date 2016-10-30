@@ -1,5 +1,3 @@
-var urlForm;
-
 function addproduct() {
 
     var url = urlForm + '/product/shop/getlist?1=1&userId=' + $('#dsaccsacsagsagsdwefe').val();
@@ -11,7 +9,7 @@ function addproduct() {
         } else {
             $('#ProfileSetting').click();
         }
-    }else{
+    } else {
         $('#frm_addproduct_shopId').val(datajsonShop[0].id);
     }
 
@@ -40,7 +38,7 @@ function addproduct() {
                 },
                 function (res) {
                     var img = '<img src="' + res.url + '" />';
-                    tinymce.get("product-description").execCommand('mceInsertContent', false, img);
+                    tinymce.get("textarea-description").execCommand('mceInsertContent', false, img);
                 },
                 function (FPError) {
                 }
@@ -52,7 +50,8 @@ function addproduct() {
     });
 
     $('#clearForm').bind('click', function () {
-        clear_form('frm_addproduct','shopId');
+        clear_form('frm_addproduct', 'shopId');
+        tinymce.get("textarea-description").execCommand('mceSetContent', false, '');
     });
 
     $('#Search').bind('click', function () {
@@ -145,7 +144,8 @@ function getlistProduct() {
                     {name: 'status', type: 'string'},
                     {name: 'categoryId', type: 'string'},
                     {name: 'image', type: 'string'},
-                    {name: 'shopId', type: 'string'}
+                    {name: 'shopId', type: 'string'},
+                    {name: 'description', type: 'string'}
                 ],
                 id: 'id'
             };
@@ -169,7 +169,8 @@ function getlistProduct() {
             {text: 'status', datafield: 'status', width: 70},
             {text: 'categoryId', datafield: 'categoryId', width: 70},
             {text: 'image', datafield: 'image', width: 200},
-            {text: 'id', datafield: 'id', width: 100, hidden: 'hidden'}
+            {text: 'id', datafield: 'id', width: 100, hidden: 'hidden'},
+            {text: 'description', datafield: 'description', width: 100, hidden: 'hidden'}
         ]
     });
 
@@ -181,8 +182,10 @@ function getlistProduct() {
         var rowData = args.row;
 
         console.log(rowData);
-
         bindItemDetailGrid(rowData, 'frm_addproduct');
+
+        tinymce.get("textarea-description").execCommand('mceSetContent', false, rowData.description);
+
         $('.img-preview img').attr('src', rowData.image);
     });
 }

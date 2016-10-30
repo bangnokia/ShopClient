@@ -213,10 +213,11 @@ function showNotification(template, message) {
         opacity: 0.9,
         autoOpen: true,
         autoClose: true,
+        autoCloseDelay: 500,
         template: template
     });
-
 }
+
 function SearchItemJson(data, colum, value) {
     if (value == undefined || value == '' || colum == undefined || colum == '') {
         return data;
@@ -225,5 +226,121 @@ function SearchItemJson(data, colum, value) {
     var arr = new Array();
     //if(data != null && )
 
-
 }
+
+function sortItemJsonByRate(data, status, loai) {
+    var arr = new Array();
+    $.each(data, function (index) {
+        var item = data[index];
+        arr.push(item);
+    });
+    if (loai == 'rate') {
+        arr.sort(function (a, b) {
+            if (status)
+                return parseFloat(b.rate) - parseFloat(a.rate);
+            else
+                return parseFloat(a.rate) - parseFloat(b.rate);
+        });
+    } else if (loai == 'price') {
+        arr.sort(function (a, b) {
+            if (status)
+                return parseFloat(b.price) - parseFloat(a.price);
+            else
+                return parseFloat(a.price) - parseFloat(b.price);
+        });
+    } else if (loai == 'name') {
+        arr.sort();
+    }
+    return JSON.parse(JSON.stringify(arr));
+}
+
+function formatNumberPrice(n, currency) {
+    return  n.toFixed().replace(/./g, function (c, i, a) {
+        return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "," + c : c;
+    }) + " " + currency;
+}
+
+function caculaterRate(product) {
+    var sum = 0;
+    var numberRate = 0;
+    $.each(jsonRate, function (index) {
+        var item = jsonRate[index];
+        if (item.productId == product.id) {
+            sum = sum + parseInt(item.rate);
+            numberRate++;
+        }
+    });
+    return sum / numberRate;
+}
+
+function numberOfRate(product) {
+    var numberRate = 0;
+    $.each(jsonRate, function (index) {
+        var item = jsonRate[index];
+        if (item.productId == product.id) {
+            numberRate++;
+        }
+    });
+    return numberRate;
+}
+
+function createRate(product) {
+    var String = '<div class="product-star">';
+    var rate = caculaterRate(product);
+    rate = Math.round(rate * 10) / 10;
+    for (i = 0; i < 5; i++) {
+        if (i < rate) {
+            String += '<i class="fa fa-star"></i>';
+        } else {
+            if ((rate - (i - 1)) > 0.5) {
+                String += '<i class="fa fa-star-half-o"></i>';
+            } else {
+                String += '<i class="fa fa-star-o"></i>';
+            }
+        }
+    }
+    return String;
+}
+
+function addRateDataProduct(data) {
+    var arr = new Array();
+    $.each(data, function (index) {
+        var item = data[index];
+        var rate = caculaterRate(item);
+        if (isNaN(rate))
+            rate = 0;
+        item.rate = rate;
+        arr.push(item);
+    });
+    return JSON.parse(JSON.stringify(arr));
+}
+
+var Stringsadsa;
+function findCategoryChild(datajson, parentId) {
+    var loop = false;
+    var String = ",";
+    $.each(datajson, function (index) {
+        var item = datajson[index];
+        if (parentId.indexOf(',' + item.parentId + ',') != -1) {
+            String = String + item.id + ',';
+            Stringsadsa = Stringsadsa + item.id + ',';
+            loop = true;
+        }
+    });
+    if (loop)
+        findCategoryChild(datajson, String)
+    return String;
+}
+
+//function findCategoryChild123(datajson, parentId) {
+//    var kq = ''
+//    if (parentId == undefined || parentId == '')
+//        return '';
+//    $.each(datajson, function (index) {
+//        var item = datajson[index];
+//        if (parentId == item.parentId) {
+//            kq = kq + item.id + findCategoryChild123(datajson, item.id)
+//        }
+//    });
+//    return kq;
+//}

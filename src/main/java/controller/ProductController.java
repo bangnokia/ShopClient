@@ -8,6 +8,7 @@ package controller;
 import com.google.gson.Gson;
 import dao.ProductDao;
 import entity.Product;
+import entity.Rate;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
@@ -40,6 +41,33 @@ public class ProductController {
             List<Product> brandlist = ProductDao.getlist(Text, Price, category);
 
             String json = new Gson().toJson(brandlist);
+            if (json != null) {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<String> getlistRate(@RequestParam("id") String id) {
+        JSONObject jsonOB = new JSONObject();
+        int idTemp = 0;
+
+        try {
+            idTemp = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
+        
+        try {
+            List<Rate> rate = ProductDao.getlistRate(idTemp);
+
+            String json = new Gson().toJson(rate);
             if (json != null) {
                 jsonOB.put("result", json);
                 jsonOB.put("message", "success_ok");
@@ -134,10 +162,38 @@ public class ProductController {
         String json = new Gson().toJson(jsonOB);
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
-    
+
     public String detail(@PathVariable("id") String id, ModelMap mm) {
         mm.addAttribute("id", id); //product id
         System.out.println(id);
         return "product_detail";
+    }
+
+    public ResponseEntity<String> getitemdetail(@RequestParam("id") String ID) {
+        JSONObject jsonOB = new JSONObject();
+        int idTemp = 0;
+
+        try {
+            idTemp = Integer.parseInt(ID);
+        } catch (Exception e) {
+
+        }
+
+        try {
+            List<Product> catlist = ProductDao.getitemDetail(idTemp);
+
+            String json = new Gson().toJson(catlist);
+            if (json != "null") {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 }

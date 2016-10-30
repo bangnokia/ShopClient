@@ -43,7 +43,7 @@
             <div class="top-header">
                 <div class="container">
                     <div class="nav-top-links">
-                        <a class="first-item" href="#"><img alt="phone" src="${root}/assets/images/phone.png" />00-62-658-658</a>
+                        <a class="first-item" href="#"><img alt="phone" src="${root}/assets/images/phone.png" />088-888-888-888</a>
                         <a href="#"><img alt="email" src="${root}/assets/images/email.png" />Contact us today!</a>
                     </div>
                     <!--                    <div class="currency ">
@@ -119,6 +119,7 @@
                             <button type="button" id="SearchItem" class="pull-right btn-search"></button>
                         </form>
                     </div>
+                    <!-- cat box
                     <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
                         <a class="cart-link" href="order.html">
                             <span class="title">Shopping cart</span>
@@ -166,6 +167,7 @@
                             </div>
                         </div>
                     </div>
+                       -->                         
                 </div>
             </div>
 
@@ -187,19 +189,19 @@
                                             for (Category parentNull : categoryList) {
                                                 if (parentNull.getParentId() == 0) {%>
                                         <li>
-                                            <a class="parent" href="#"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
+                                            <a class="parent" href="${root}/category/<%=parentNull.getId()%>"><img class="icon-menu" alt="<%=parentNull.getName()%>" src="<%=parentNull.getIcon()%>"><%=parentNull.getName()%></a>
                                             <div class="vertical-dropdown-menu" style="width: 900px;">
                                                 <div class="vertical-groups col-sm-12">
                                                     <%
                                                         for (Category catLv2 : categoryList) {
                                                             if (catLv2.getParentId() == parentNull.getId()) {%>
                                                     <div class="mega-group col-sm-4">
-                                                        <h4 class="mega-group-header"><span><%=catLv2.getName()%></span></h4>
+                                                        <h4 class="mega-group-header"><a href="${root}/category/<%=catLv2.getId()%>"><span><%=catLv2.getName()%></span></a></h4>
                                                         <ul class="group-link-default">
                                                             <%
                                                                 for (Category catLv3 : categoryList) {
                                                                     if (catLv3.getParentId() == catLv2.getId()) {%>
-                                                            <li><a href="#"><%=catLv3.getName()%></a></li>
+                                                            <li><a href="${root}/category/<%=catLv3.getId()%>"><%=catLv3.getName()%></a></li>
                                                                 <% }
                                                                     }
                                                                 %>                                                                       

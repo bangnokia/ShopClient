@@ -1,16 +1,4 @@
-var urlForm;
-
 function jshome() {
-//             {name: 'id', type: 'string'},
-//                    {name: 'name', type: 'string'},
-//                    {name: 'price', type: 'string'},
-//                    {name: 'createdAt', type: 'string'},
-//                    {name: 'brandId', type: 'string'},
-//                    {name: 'status', type: 'string'},
-//                    {name: 'categoryId', type: 'string'},
-//                    {name: 'image', type: 'string'},
-//                    {name: 'shopId', type: 'string'}
-
     $('#SearchItem').bind('click', function () {
         loadingForm(true);
         setTimeout(function () {
@@ -19,6 +7,10 @@ function jshome() {
             loadingForm(false);
             if (datajson == null)
                 return;
+
+            datajson = addRateDataProduct(datajson);
+            datajson = sortItemJsonByRate(datajson, true, 'rate');
+
             bindingItemBest('tab-1', datajson);
             addCategoryProduct(datajson);
 
@@ -35,10 +27,11 @@ function bindingItemBest(parentId, data) {
             'data-responsive=\'{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}\'>';
     $.each(data, function (index) {
         var item = data[index];
+        ;
         String += '<li>' +
                 '<div class="left-block">' +
-                '<a href="#">' +
-                '<img style="min-height: 260px; min-width: 214px;max-height: 260px; max-width: 214px; " class="img-responsive" alt="product" src="' + item.image + '" /></a>' +
+                '<a href="' + urlForm + '/product/' + item.id + '">' +
+                '<img class="img-responsive" alt="product" src="' + item.image + '" /></a>' +
                 '<div class="quick-view">' +
                 '<a title="Add to my wishlist" class="heart" href="#"></a>' +
                 '<a title="Add to compare" class="compare" href="#"></a>' +
@@ -48,22 +41,17 @@ function bindingItemBest(parentId, data) {
                 '<a title="Add to Cart" href="#">Add to Cart</a>' +
                 '</div>' +
                 '<div class="group-price">' +
-                '<span class="product-new">NEW</span>' +
-                '<span class="product-sale">Sale</span>' +
+                // '<span class="product-new">NEW</span>' +
+                // '<span class="product-sale">Sale</span>' +
                 '</div>' +
                 '</div>' +
                 '<div class="right-block">' +
                 '<h5 class="product-name"><a href="#">' + item.name + '</a></h5>' +
                 '<div class="content_price">' +
-                '<span class="price product-price">' + item.price + '</span>' +
-                '<span class="price old-price">' + item.price + '</span>' +
+                '<span class="price product-price">' + formatNumberPrice(item.price, 'VND') + '</span>' +
+                //  '<span class="price old-price">' + formatNumberPrice(item.price, 'VND') + '</span>' +
                 '</div>' +
-                '<div class="product-star">' +
-                '<i class="fa fa-star"></i>' +
-                '<i class="fa fa-star"></i>' +
-                '<i class="fa fa-star"></i>' +
-                '<i class="fa fa-star"></i>' +
-                '<i class="fa fa-star-half-o"></i>' +
+                createRate(item) +
                 '</div>' +
                 '</div>' +
                 '</li>';
@@ -72,28 +60,12 @@ function bindingItemBest(parentId, data) {
     $('#' + parentId).html(String);
 }
 
-var Stringsadsa;
-function findCategoryChild(datajson, parentId) {
-    var loop = false;
-    var String = ",";
-    $.each(datajson, function (index) {
-        var item = datajson[index];
-        if (parentId.indexOf(',' + item.parentId + ',') != -1) {
-            String = String + item.id + ',';
-            Stringsadsa = Stringsadsa + item.id + ',';
-            loop = true;
-        }
-    });
-    if (loop)
-        findCategoryChild(datajson, String)
-    return String;
-}
-
 function addCategoryProduct(data) {
     var url = urlForm + '/admin/category/getlistCAT?1=1';
     var datajson = getDataJson(url);
     if (datajson == null)
         return;
+    console.log(datajson);
 
     var String = '';
     var number = 0;
@@ -101,18 +73,26 @@ function addCategoryProduct(data) {
         var item = datajson[index];
         if (item.parentId == 0) {
             number++;
+            var bestItemImage = "";
+            var bestItemId = "";
+
             Stringsadsa = ',' + item.id + ',';
             findCategoryChild(datajson, ',' + item.id + ',');
+
             var StringProduct = '  <ul  class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" ' +
                     'data-margin = "30" data-autoplayTimeout="1000" data-autoplayHoverPause = "true"' +
                     'data-responsive=\'{"0":{"items":1},"600":{"items":3},"1000":{"items":3}}\'>';
             $.each(data, function (index) {
                 var item = data[index];
                 if (Stringsadsa.indexOf(',' + item.categoryId + ',') != -1) {
+                    if (bestItemImage == '') {
+                        bestItemImage = item.image;
+                        bestItemId = item.id;
+                    }
                     StringProduct += '<li>' +
                             '<div class="left-block">' +
-                            '<a href="#">' +
-                            '<img style="min-height: 260px; min-width: 214px;max-height: 260px; max-width: 214px; " class="img-responsive" alt="product" src="' + item.image + '" /></a>' +
+                            '<a href="' + urlForm + '/product/' + item.id + '">' +
+                            '<img class="img-responsive" alt="product" src="' + item.image + '" /></a>' +
                             '<div class="quick-view">' +
                             '<a title="Add to my wishlist" class="heart" href="#"></a>' +
                             '<a title="Add to compare" class="compare" href="#"></a>' +
@@ -122,22 +102,17 @@ function addCategoryProduct(data) {
                             '<a title="Add to Cart" href="#">Add to Cart</a>' +
                             '</div>' +
                             '<div class="group-price">' +
-                            '<span class="product-new">NEW</span>' +
-                            '<span class="product-sale">Sale</span>' +
+                            //  '<span class="product-new">NEW</span>' +
+                            //'<span class="product-sale">Sale</span>' +
                             '</div>' +
                             '</div>' +
                             '<div class="right-block">' +
                             '<h5 class="product-name"><a href="#">' + item.name + '</a></h5>' +
                             '<div class="content_price">' +
-                            '<span class="price product-price">' + item.price + '</span>' +
-                            '<span class="price old-price">' + item.price + '</span>' +
+                            '<span class="price product-price">' + formatNumberPrice(item.price, 'VND') + '</span>' +
+                            // '<span class="price old-price">' + item.price + '</span>' +
                             '</div>' +
-                            '<div class="product-star">' +
-                            '<i class="fa fa-star"></i>' +
-                            '<i class="fa fa-star"></i>' +
-                            '<i class="fa fa-star"></i>' +
-                            '<i class="fa fa-star"></i>' +
-                            '<i class="fa fa-star-half-o"></i>' +
+                            createRate(item) +
                             '</div>' +
                             '</div>' +
                             '</li>';
@@ -149,7 +124,7 @@ function addCategoryProduct(data) {
                     '<nav class="navbar nav-menu nav-menu-red show-brand">' +
                     '<div class="container">' +
                     '<!-- Brand and toggle get grouped for better mobile display -->' +
-                    '<div class="navbar-brand"><a href="#"><img alt="' + item.name + '" src="' + item.icon + '" />' + item.name + '</a></div>' +
+                    '<div class="navbar-brand"><a href="' + urlForm + /category/ + item.id + '"><img alt="' + item.name + '" src="' + item.icon + '" />' + item.name + '</a></div>' +
                     '<span class="toggle-menu"></span>' +
                     '<!-- Collect the nav links, forms, and other content for toggling -->' +
                     '<div class="collapse navbar-collapse">' +
@@ -167,19 +142,19 @@ function addCategoryProduct(data) {
                     '<a href="#elevator-' + (number + 1) + '" class="btn-elevator down fa fa-angle-down"></a>' +
                     '</div>' +
                     '</nav>' +
-                    '<div class="category-banner">' +
-                    '<div class="col-sm-6 banner">' +
-                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads2.jpg" /></a>' +
-                    '</div>' +
-                    '<div class="col-sm-6 banner">' +
-                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads3.jpg" /></a>' +
-                    '</div>' +
-                    '</div>' +
+//                    '<div class="category-banner">' +
+//                    '<div class="col-sm-6 banner">' +
+//                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads6.jpg" /></a>' +
+//                    '</div>' +
+//                    '<div class="col-sm-6 banner">' +
+//                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads7.jpg" /></a>' +
+//                    '</div>' +
+//                    '</div>' +
                     '<div class="product-featured clearfix">' +
                     '<div class="banner-featured">' +
                     '<div class="featured-text"><span>featured</span></div>' +
                     '<div class="banner-img">' +
-                    '<a href="#"><img style="min-height: 350px; min-width: 234px;max-height: 350px; max-width: 234px; " alt="Featurered 1" src="' + data[0].image + '" /></a>' +
+                    '<a href="' + urlForm + '/product/' + bestItemId + '"><img style="min-height: 350px; min-width: 234px;max-height: 350px; max-width: 234px; " alt="Featurered 1" src="' + bestItemImage + '" /></a>' +
                     '</div>' +
                     '</div>' +
                     '<div class="product-featured-content">' +

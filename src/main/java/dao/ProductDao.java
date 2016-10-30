@@ -6,6 +6,7 @@
 package dao;
 
 import entity.Product;
+import entity.Rate;
 import java.util.Date;
 import java.util.List;
 import model.HibernateUtil;
@@ -66,6 +67,23 @@ public class ProductDao {
             cr.add(Restrictions.like("name", text, MatchMode.ANYWHERE));
             if (category != null && category != "") {
                 cr.add(Restrictions.eq("categoryId", category));
+            }
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+
+    public List<Rate> getlistRate(Integer id) {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Rate.class);
+            if (id != 0) {
+                cr.add(Restrictions.eq("id", id));
             }
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();

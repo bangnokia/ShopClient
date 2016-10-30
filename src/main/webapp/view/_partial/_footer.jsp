@@ -307,8 +307,13 @@
 <script src="${root}/assets/js/jquery.common.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-    var urlForm= '${root}';
+    var urlForm = '${root}';
+    var jsonRate;
     $(document).ready(function () {
+        var url = urlForm + '/product/create/getlistrate?1=1&id=';
+        jsonRate = getDataJson(url);
+        console.log(jsonRate);
+
         var urlCategory = urlForm + '/admin/category/getlistCAT?1=1';
         var datajsonCategory = getDataJson(urlCategory);
 

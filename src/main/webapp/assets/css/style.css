@@ -5224,6 +5224,13 @@ span.notify-right{
     max-width: 300px;
 }
 
+.img-responsive{
+    min-height: 260px; 
+    min-width: 214px;
+    max-height: 260px; 
+    max-width: 214px; 
+}
+
 .cssload-loader {
     position: relative;
     left: calc(50% - 72px);

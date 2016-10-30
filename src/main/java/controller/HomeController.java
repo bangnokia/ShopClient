@@ -7,6 +7,7 @@ package controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  *
@@ -14,12 +15,14 @@ import org.springframework.ui.ModelMap;
  */
 @Controller
 public class HomeController {
-    
+
     public String index(ModelMap mm) {
         mm.addAttribute("title", "Home page");
         return "home";
     }
-    public String CategoryIndex(){
+
+    public String CategoryIndex(@PathVariable("id") String id, ModelMap mm) {
+        mm.addAttribute("id", id); //category id
         return "category";
     }
 }

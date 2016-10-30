@@ -37,7 +37,6 @@
                             <input type="hidden" id="frm_addproduct_quantity" name="quantity">
                             <input type="hidden" id="frm_addproduct_createdAt" name="createdAt">
                             <input type="hidden" id="frm_addproduct_outOfStock" name="outOfStock">
-                            <input type="hidden" id="frm_addproduct_description" name="description">
                             <input type="hidden" id="frm_addproduct_id" name="id">
                             <input type="hidden" id="frm_addproduct_shopId" name="shopId">
 
@@ -60,10 +59,12 @@
                             <select class="form-control" name="status" id="frm_addproduct_status">
                                 <option value="1">Show</option>
                                 <option value="2">Hide</option>
+                                <option value="0">Stock out</option>
                             </select>
                             <label>Description</label> <br/>
                             <button class="button" type="button" id="description-img-upload">Upload Image</button>
-                            <textarea class="form-control" id="product-description"></textarea>
+                            <input type="hidden" id="frm_addproduct_description" name="description"/>
+                            <textarea class="form-control" name="" id="textarea-description"></textarea>
                             <div class="img-preview">
                                 <img src="" />
                             </div>
@@ -88,7 +89,15 @@
 <script>
     tinymce.init({
         selector: 'textarea',
-        fontsize_formats: "12pt 26pt 36pt"
+        fontsize_formats: "12pt 26pt 36pt",
+        setup: function (ed) {
+            ed.on('change', function (e) {
+                console.log('the event object ', e);
+                console.log('the editor object ', ed);
+                console.log('the content ', ed.getContent());
+                $('#frm_addproduct_description').val(ed.getContent());
+            });
+        }
     });
     jQuery(document).ready(function () {
         addproduct();

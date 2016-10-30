@@ -157,19 +157,25 @@ function bindingProductHome() {
     /* Resize top menu*/
     resizeTopmenu();
     /* Zoom image */
-    if ($('#product-zoom').length > 0) {
-        $('#product-zoom').elevateZoom({
-            zoomType: "inner",
-            cursor: "crosshair",
-            zoomWindowFadeIn: 500,
-            zoomWindowFadeOut: 750,
-            gallery: 'gallery_01'
-        });
+    try {
+        if ($('#product-zoom').length > 0) {
+            $('#product-zoom').elevateZoom({
+                zoomType: "inner",
+                cursor: "crosshair",
+                zoomWindowFadeIn: 500,
+                zoomWindowFadeOut: 750,
+                gallery: 'gallery_01'
+            });
+        }
+        if ($('#size_chart').length > 0) {
+            $('#size_chart').fancybox();
+        }
+    } catch (Exception) {
+
     }
+
     /* Popup sizechart */
-    if ($('#size_chart').length > 0) {
-        $('#size_chart').fancybox();
-    }
+
     /** OWL CAROUSEL**/
     $(".owl-carousel").each(function (index, el) {
         var config = $(this).data();
@@ -317,9 +323,15 @@ function bindingProductHome() {
             max: max,
             values: [value_min, value_max],
             slide: function (event, ui) {
-                var result = label_reasult + " " + unit + ui.values[ 0 ] + ' - ' + unit + ui.values[ 1 ];
-                console.log(t);
+                var result = label_reasult + " " + formatNumberPrice(ui.values[ 0 ], 'VND') + ' - ' + formatNumberPrice(ui.values[ 1 ], 'VND');
+                // console.log(t);
+                $('#priceMinFilter').val(ui.values[ 0 ]);
+                $('#priceMaxFilter').val(ui.values[ 1 ]);
                 t.closest('.slider-range').find('.amount-range-price').html(result);
+            },
+            change: function (event, ui) {
+                loadingProduct();
+                showNotification('success', 'ok');
             }
         });
     })
