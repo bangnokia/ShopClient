@@ -1,7 +1,9 @@
 var catJson;
 var jsonProduct;
+var uesrIdform;
 function productdetail() {
     var productId = $('#idProductDetail').val();
+    uesrIdform = $('#dsaccsacsagsagsdwefe').val();
     var url = urlForm + '/product/create/getdetail?1=1&id=' + productId;
     var datajson = getDataJson(url);
     if (datajson == null)
@@ -17,7 +19,7 @@ function productdetail() {
     jsonProduct = addRateDataProduct(jsonProduct);
 
     datajson = addRateDataProduct(datajson);
-    console.log(datajson);
+
     $('#product-detail').html(datajson[0].description);
 
     var status = ''
@@ -28,9 +30,12 @@ function productdetail() {
     else if (datajson[0].status == '0')
         status = 'Stock out';
 
+
+    createReview();
     bindingProductListLeft();
     CreateRelatedProducts();
     createLinkProduct(datajson[0].categoryId, datajson[0].name);
+
 
     $('#product-imageDetail').html('<div class="product-full">' +
             '<img style="min-width: 100%;" id="product-zoom" src=\'' + datajson[0].image + '\' data-zoom-image="' + datajson[0].image + '"/>' +
@@ -50,6 +55,8 @@ function productdetail() {
             '</ul>' +
             '</div>');
 
+    var url = urlForm + '/product/shop/getdetail?1=1&shopId=' + datajson[0].shopId;
+    var jsonShop = getDataJson(url);
 
     $('#product_detai').html('<h1 class="product-name">' + datajson[0].name + '</h1>' +
             '<div class="product-comments">' +
@@ -57,7 +64,7 @@ function productdetail() {
             '</div>' +
             '<div class="comments-advices">' +
             '<a href="#">Based  on ' + numberOfRate(datajson[0]) + ' ratings</a>' +
-            '<a href="#"><i class="fa fa-pencil"></i> write a review</a>' +
+            '<a href="#" id="rateProduct"><i class="fa fa-pencil"></i>rate product</a>' +
             '</div>' +
             '</div>' +
             '<div class="product-price-group">' +
@@ -70,8 +77,10 @@ function productdetail() {
             '<p>Availability: <span class="in-stock">' + status + '</span></p>' +
             '<p>Condition: New</p>' +
             '</div>' +
-            '<div class="product-desc">' +
-            'show cai meo gi ra day? ' +
+            '<div class="product-desc"><h3 style="font-weight: bold;">Shop: ' + jsonShop[0].name + '</h3>' +
+            'Phone: ' + jsonShop[0].phone +
+            '</br>Address: ' + jsonShop[0].address +
+            '</br>Email: ' + jsonShop[0].email +
             '</div>' +
             '<div class="form-option">' +
             '<p class="form-option-title">Available Options:</p>' +
@@ -136,8 +145,40 @@ function productdetail() {
             '<div class="network-share">' +
             '</div>' +
             '</div>');
-
+    windowRate.init();
     bindingProductHome();
+}
+
+function getUserName(id) {
+    var url = urlForm + '/product/create/getDetailUser?1=1&id=' + id;
+    var datajson = getDataJson(url);
+    return datajson;
+}
+
+function createReview() {
+    var String = '';
+    $.each(jsonRate, function (index) {
+        var item = jsonRate[index];
+        if (item.productId == $('#idProductDetail').val())
+        {
+            String += '<div class="comment row">' +
+                    '<div class="col-sm-3 author">' +
+                    '<div class="grade">' +
+                    '<span>Grade</span>' +
+                    createRate1(item.rate) +
+                    '</div>' +
+                    '<div class="info-author">' +
+                    '<span><strong>' + getUserName(item.userId) + '</strong></span>' +
+                    // '<em>04/08/2015</em>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-9 commnet-dettail">' +
+                    item.content +
+                    '</div>' +
+                    '</div>';
+        }
+    });
+    $('#reviews-product').html(String);
 }
 
 function createLinkProduct(catId, NameProduct) {
@@ -221,3 +262,84 @@ function CreateRelatedProducts() {
     String += ' </ul>';
     $('#Related-Products').html(String);
 }
+
+var windowRate = (function () {
+    function _addEventListeners() {
+        $('#rateProduct').bind('click', function () {
+            $('#windowRate').jqxWindow('open');
+        });
+
+        $("#jqxRating").on('change', function (event) {
+            $("#rate").find('span').remove();
+            $("#rate").append('<span>' + event.value + '</span');
+
+        });
+
+        $('#sendRateProduct').bind('click', function () {
+            var rate = $('#rate span').html();
+            var content = $('#textarea-content').val();
+
+            if (typeof uesrIdform == typeof undefined || uesrIdform == '') {
+                alert('You need to login before!');
+                return;
+            }
+
+            if (typeof rate == typeof undefined || rate == '') {
+                alert('You need to rate product before!');
+                return;
+            }
+
+            if (parseInt(rate) < 4 && content == '')
+            {
+                alert('You need to write a review!');
+                $('#textarea-content').focus();
+                return;
+            }
+
+
+            $('#form_rating_id').val($('#idProductDetail').val());
+            $('#form_rating_userId').val(uesrIdform);
+            $('#form_rating_rate').val(rate);
+            $('#form_rating_content').val(content);
+
+            do_save_form(urlForm + '/product/create/rating', 'form_rating', '');
+        });
+    }
+    ;
+    function _createElements() {
+
+    }
+    ;
+    function _createWindow() {
+        $('#windowRate').jqxWindow({
+            showCollapseButton: false,
+            maxHeight: 400,
+            maxWidth: 700,
+            minHeight: 200,
+            theme: 'bootstrap',
+            autoOpen: false,
+            minWidth: 200,
+            height: 300,
+            width: 500,
+            resizable: false,
+            initContent: function () {
+                $('#windowRate').jqxWindow('focus');
+                $("#jqxRating").jqxRating({width: 350, height: 35, theme: 'classic'});
+            }
+        });
+    }
+    ;
+    return {
+        config: {
+            dragArea: null
+        },
+        init: function () {
+            //Creating all jqxWindgets except the window
+            _createElements();
+            //Attaching event listeners
+            _addEventListeners();
+            //Adding jqxWindow
+            _createWindow();
+        }
+    };
+}());

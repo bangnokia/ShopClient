@@ -76,6 +76,33 @@ public class ShopController {
         return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<String> getdetail(@RequestParam("shopId") String id) {
+        JSONObject jsonOB = new JSONObject();
+        try {
+            int idTemp = 0;
+            String json;
+            try {
+                idTemp = Integer.parseInt(id);
+            } catch (Exception e) {
+            }
+
+            List<Shop> shoplist = ShopDao.getdetail(idTemp);
+            json = new Gson().toJson(shoplist);
+
+            if (json != null) {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+    }
+
     public ResponseEntity<String> insertShop(
             @RequestParam("id") String id,
             @RequestParam("userId") String userId,

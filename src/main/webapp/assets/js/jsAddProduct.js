@@ -1,3 +1,4 @@
+var shopIdproduct;
 function addproduct() {
 
     var url = urlForm + '/product/shop/getlist?1=1&userId=' + $('#dsaccsacsagsagsdwefe').val();
@@ -12,7 +13,7 @@ function addproduct() {
     } else {
         $('#frm_addproduct_shopId').val(datajsonShop[0].id);
     }
-
+    shopIdproduct = datajsonShop[0].id;
     filepicker.setKey("AM7JvJ8MRpa348OF98wKwz");
 
 //        upload product image
@@ -183,6 +184,8 @@ function getlistProduct() {
 
         console.log(rowData);
         bindItemDetailGrid(rowData, 'frm_addproduct');
+        $('#frm_addproduct_shopId').val(shopIdproduct);
+
 
         tinymce.get("textarea-description").execCommand('mceSetContent', false, rowData.description);
 

@@ -13,7 +13,11 @@ function getDataJson(p_url) {
                 dataJson = eval(data.map.result);
             } else {
                 dataJson = null;
-                showNotification('error', 'Fail get data!');
+                if (message != 'success_fail') {
+                    showNotification('error', message);
+                } else {
+                    showNotification('error', 'Fail get data!');
+                }
             }
         }
     };
@@ -117,7 +121,11 @@ function do_save_form(p_url, p_formName, p_function_run) {
                 showNotification('success', 'Save success');
             } else {
                 dataJson = null;
-                showNotification('error', 'Fail to save!');
+                if (message != 'success_fail') {
+                    showNotification('error', message);
+                } else {
+                    showNotification('error', 'Fail get data!');
+                }
                 loi = false;
             }
         },
@@ -292,13 +300,32 @@ function createRate(product) {
         if (i < rate) {
             String += '<i class="fa fa-star"></i>';
         } else {
-            if ((rate - (i - 1)) > 0.5) {
+            if ((rate - i) > 0.5) {
                 String += '<i class="fa fa-star-half-o"></i>';
             } else {
                 String += '<i class="fa fa-star-o"></i>';
             }
         }
     }
+    return String;
+}
+
+function createRate1(rate) {
+    var String = '<span class="reviewRating" >';
+    rate = Math.round(rate * 10) / 10;
+
+    for (i = 0; i < 5; i++) {
+        if (i < rate) {
+            String += '<i class="fa fa-star"></i>';
+        } else {
+            if ((rate - i) > 0.5) {
+                String += '<i class="fa fa-star-half-o"></i>';
+            } else {
+                String += '<i class="fa fa-star-o"></i>';
+            }
+        }
+    }
+    String += '</span>';
     return String;
 }
 

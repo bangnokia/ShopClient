@@ -23,99 +23,107 @@
                     </div>
                 </div> 
             </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="introduce-title">Company</div>
-                        <ul id="introduce-company"  class="introduce-list">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Affiliate Program</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="introduce-title">My Account</div>
-                        <ul id = "introduce-Account" class="introduce-list">
-                            <li><a href="#">My Order</a></li>
-                            <li><a href="#">My Wishlist</a></li>
-                            <li><a href="#">My Credit Slip</a></li>
-                            <li><a href="#">My Addresses</a></li>
-                            <li><a href="#">My Personal In</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="introduce-title">Support</div>
-                        <ul id = "introduce-support"  class="introduce-list">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Affiliate Program</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <!--   
+       <div class="col-md-6">
+           <div class="row">
+               <div class="col-sm-4">
+                   <div class="introduce-title">Company</div>
+                   <ul id="introduce-company"  class="introduce-list">
+                       <li><a href="#">About Us</a></li>
+                       <li><a href="#">Testimonials</a></li>
+                       <li><a href="#">Affiliate Program</a></li>
+                       <li><a href="#">Terms & Conditions</a></li>
+                       <li><a href="#">Contact Us</a></li>
+                   </ul>
+               </div>
+               <div class="col-sm-4">
+                   <div class="introduce-title">My Account</div>
+                   <ul id = "introduce-Account" class="introduce-list">
+                       <li><a href="#">My Order</a></li>
+                       <li><a href="#">My Wishlist</a></li>
+                       <li><a href="#">My Credit Slip</a></li>
+                       <li><a href="#">My Addresses</a></li>
+                       <li><a href="#">My Personal In</a></li>
+                   </ul>
+               </div>
+               <div class="col-sm-4">
+                   <div class="introduce-title">Support</div>
+                   <ul id = "introduce-support"  class="introduce-list">
+                       <li><a href="#">About Us</a></li>
+                       <li><a href="#">Testimonials</a></li>
+                       <li><a href="#">Affiliate Program</a></li>
+                       <li><a href="#">Terms & Conditions</a></li>
+                       <li><a href="#">Contact Us</a></li>
+                   </ul>
+               </div>
+           </div>
+       </div>
+       <div class="col-md-3">
+           <div id="contact-box">
+               <div class="introduce-title">Newsletter</div>
+               <div class="input-group" id="mail-box">
+                   <input type="text" placeholder="Your Email Address"/>
+                   <span class="input-group-btn">
+                       <button class="btn btn-default" type="button">OK</button>
+                   </span>
+               </div>
+            <div class="introduce-title">Let's Socialize</div>
+            <div class="social-link">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                <a href="#"><i class="fa fa-vk"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>
             </div>
-            <div class="col-md-3">
-                <div id="contact-box">
-                    <div class="introduce-title">Newsletter</div>
-                    <div class="input-group" id="mail-box">
-                        <input type="text" placeholder="Your Email Address"/>
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">OK</button>
-                        </span>
-                    </div><!-- /input-group -->
-                    <div class="introduce-title">Let's Socialize</div>
-                    <div class="social-link">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fa fa-vk"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus"></i></a>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+            -->
         </div><!-- /#introduce-box -->
         <!-- #trademark-box -->
-        <div id="trademark-box" class="row">
-            <div class="col-sm-12">
-                <ul id="trademark-list">
-                    <li id="payment-methods">Accepted Payment Methods</li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-ups.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-qiwi.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-wu.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-cn.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-visa.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-mc.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-ems.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-dhl.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-fe.jpg"  alt="ups"/></a>
-                    </li>
-                    <li>
-                        <a href="#"><img src="${root}/assets/data/trademark-wm.jpg"  alt="ups"/></a>
-                    </li>
-                </ul> 
-            </div>
-        </div> <!-- /#trademark-box -->
+
+        <!--
+     <div id="trademark-box" class="row">
+         <div class="col-sm-12">
+             <ul id="trademark-list">
+                 <li id="payment-methods">Accepted Payment Methods</li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-ups.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-qiwi.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-wu.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-cn.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-visa.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-mc.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-ems.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-dhl.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-fe.jpg"  alt="ups"/></a>
+                 </li>
+                 <li>
+                     <a href="#"><img src="${root}/assets/data/trademark-wm.jpg"  alt="ups"/></a>
+                 </li>
+             </ul> 
+         </div>
+     </div> 
+        -->
+        <!-- /#trademark-box -->
         <!-- #trademark-text-box -->
+
+        <!--
         <div id="trademark-text-box" class="row">
             <div class="col-sm-12">
                 <ul id="trademark-search-list" class="trademark-list">
@@ -206,7 +214,10 @@
                     <li><a href="#" >Nikeo Shoes</a></li>
                 </ul>
             </div>
-        </div><!-- /#trademark-text-box -->
+        </div>
+        --> 
+
+        <!-- /#trademark-text-box --> 
         <div id="footer-menu-box">
             <div class="col-sm-12">
                 <ul class="footer-menu-list">
@@ -267,6 +278,30 @@
     </div>
 </div>
 
+<div id="windowRate" style="display: none">
+    <div id="windowRateHeader">
+        <span>
+            <img src="" alt="" style="margin-right: 15px" />Rate
+        </span>
+    </div>
+    <div style="overflow: hidden;" id="windowRateContent">
+        <form id="form_rating">
+            <input type="hidden" id="form_rating_userId" name="userId"/>
+            <input type="hidden" id="form_rating_rate" name="rate"/>
+            <input type="hidden" id="form_rating_content" name="content"/>
+            <input type="hidden" id="form_rating_id" name="id"/>
+        </form>
+        <div style='float: left;'><h4>Rating:</h4></div><div id='jqxRating'></div>
+        <div style="display: none">
+            <div style='float: left;' id='rate'></div>
+        </div>
+        <label>Write a review</label>
+        <textarea style="resize: none;height: 150px;" class="form-control" name="" id="textarea-content"></textarea>
+
+        <div id="mail-box" class="button-group" style="margin-top: 5px"><button type="button" class="btn btn-default" id="sendRateProduct" >Send</button></div>
+    </div>
+</div>    
+
 <div id="div_message_notification">
     <div id="messageNotification"></div>
 </div>
@@ -292,7 +327,9 @@
 <script src="${root}/assets/js/jqwidgets/jqxscrollbar.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxdropdownbutton.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxpanel.js" type="text/javascript"></script>
+<script src="${root}/assets/js/jqwidgets/jqxwindow.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxtree.js" type="text/javascript"></script>
+<script src="${root}/assets/js/jqwidgets/jqxrating.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxnotification.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxmenu.js" type="text/javascript"></script>
 <script src="${root}/assets/js/jqwidgets/jqxdropdownlist.js" type="text/javascript"></script>

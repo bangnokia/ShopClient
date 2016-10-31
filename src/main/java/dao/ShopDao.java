@@ -87,6 +87,21 @@ public class ShopDao {
         }
     }
 
+    public List<Shop> getdetail(Integer id) {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Shop.class);
+            cr.add(Restrictions.eq("id", id));
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+
     public List<Shop> getitemDetail(Integer ID) {
         try {
             session.getCurrentSession().beginTransaction();

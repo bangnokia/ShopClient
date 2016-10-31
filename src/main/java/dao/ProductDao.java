@@ -7,6 +7,7 @@ package dao;
 
 import entity.Product;
 import entity.Rate;
+import entity.User;
 import java.util.Date;
 import java.util.List;
 import model.HibernateUtil;
@@ -21,6 +22,8 @@ import org.hibernate.criterion.Restrictions;
  * @author Hieu
  */
 public class ProductDao {
+
+    private SessionFactory session = HibernateUtil.getSessionFactory();
 
     public boolean insert(Integer id, String name, Float price, String shopId, String quantity, Integer categoryId,
             Integer BrandId, String outOfStock, String description, String image, String status) {
@@ -57,7 +60,36 @@ public class ProductDao {
         }
     }
 
-    private SessionFactory session = HibernateUtil.getSessionFactory();
+    public boolean rating(Integer id, Integer idUser, Integer rate, String content) {
+        ProductDao cate = new ProductDao();
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Rate Rate = new Rate();
+
+            Rate.setProductId(id);
+            Rate.setUserId(idUser);
+            Rate.setRate(rate);
+            Rate.setContent(content);
+
+            Criteria cr = session.getCurrentSession().createCriteria(Rate.class);
+            cr.add(Restrictions.eq("userId", idUser));
+            cr.add(Restrictions.eq("productId", id));
+            List results = cr.list();
+
+            if (results.size() != 0) {
+                return false;
+            }
+
+            session.getCurrentSession().save(Rate);
+
+            session.getCurrentSession().getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return false;
+        }
+    }
 
     public List<Product> getlist(String text, String price, String category) {
         try {
@@ -68,6 +100,21 @@ public class ProductDao {
             if (category != null && category != "") {
                 cr.add(Restrictions.eq("categoryId", category));
             }
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+
+    public List<User> getDetailUser(Integer id) {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(User.class);
+            cr.add(Restrictions.eq("id", id));
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
             return results;

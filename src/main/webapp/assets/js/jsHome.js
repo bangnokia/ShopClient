@@ -65,7 +65,6 @@ function addCategoryProduct(data) {
     var datajson = getDataJson(url);
     if (datajson == null)
         return;
-    console.log(datajson);
 
     var String = '';
     var number = 0;

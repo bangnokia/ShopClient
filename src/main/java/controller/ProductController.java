@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import dao.ProductDao;
 import entity.Product;
 import entity.Rate;
+import entity.User;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
@@ -63,7 +64,7 @@ public class ProductController {
             idTemp = Integer.parseInt(id);
         } catch (Exception e) {
         }
-        
+
         try {
             List<Rate> rate = ProductDao.getlistRate(idTemp);
 
@@ -136,6 +137,46 @@ public class ProductController {
         return new ResponseEntity<String>(json, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<String> rating(
+            @RequestParam("id") String id,
+            @RequestParam("userId") String userId,
+            @RequestParam("rate") String rate,
+            @RequestParam("content") String content,
+            ModelMap cate) {
+
+        JSONObject jsonOB = new JSONObject();
+
+        int idTemp = 0;
+        int userIdTemp = 0;
+        int rateTemp = 0;
+
+        try {
+            idTemp = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
+        try {
+            userIdTemp = Integer.parseInt(userId);
+        } catch (Exception e) {
+        }
+        try {
+            rateTemp = Integer.parseInt(rate);
+        } catch (Exception e) {
+        }
+
+        try {
+            if (ProductDao.rating(idTemp, userIdTemp, rateTemp, content)) {
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "Ban da rate product nay roi!");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+    }
+
     public ResponseEntity<String> delete(
             @RequestParam("id") String id) {
 
@@ -167,6 +208,34 @@ public class ProductController {
         mm.addAttribute("id", id); //product id
         System.out.println(id);
         return "product_detail";
+    }
+
+    public ResponseEntity<String> getDetailUser(@RequestParam("id") String ID) {
+        JSONObject jsonOB = new JSONObject();
+        int idTemp = 0;
+
+        try {
+            idTemp = Integer.parseInt(ID);
+        } catch (Exception e) {
+
+        }
+
+        try {
+            List<User> catlist = ProductDao.getDetailUser(idTemp);
+
+            String json = new Gson().toJson(catlist.get(0).getUsername());
+            if (json != "null") {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> getitemdetail(@RequestParam("id") String ID) {

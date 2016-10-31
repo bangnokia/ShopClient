@@ -158,7 +158,7 @@ function numberOfProductInCatBrand(id, loai) {
         if (StringCatArray.indexOf(',' + item.categoryId + ',') != -1) {
             numberCat++;
         }
-        if (item.brandId == id)
+        if (item.brandId == id && Stringsadsa.indexOf(',' + item.categoryId + ',') != -1)
             numberBrand++;
     });
     if (loai == 'cat')
