@@ -2,7 +2,7 @@ function jshome() {
     $('#SearchItem').bind('click', function () {
         loadingForm(true);
         setTimeout(function () {
-            var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val()+'&shopId=';
+            var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val()+'&shopId=&status=1';
             var datajson = getDataJson(url);
             loadingForm(false);
             if (datajson == null)

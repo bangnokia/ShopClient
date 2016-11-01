@@ -61,6 +61,45 @@ public class ProductDao {
         }
     }
 
+    public boolean browse(Integer id, String status) {
+        ProductDao cate = new ProductDao();
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Product Product = productDetail(id);
+
+            if (Product == null) {
+                return false;
+            }
+
+            Product.setStatus(status);
+
+            session.getCurrentSession().update(Product);
+
+            session.getCurrentSession().getTransaction().commit();
+            return true;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return false;
+        }
+    }
+
+    public Product productDetail(Integer id) {
+        ProductDao cate = new ProductDao();
+        try {
+            Criteria cr = session.getCurrentSession().createCriteria(Product.class);
+            cr.add(Restrictions.eq("id", id));
+
+            List results = cr.list();
+
+            session.getCurrentSession().getTransaction().commit();
+            return (Product) results.get(0);
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+
     public boolean rating(Integer id, Integer idUser, Integer rate, String content) {
         ProductDao cate = new ProductDao();
         try {
@@ -92,18 +131,23 @@ public class ProductDao {
         }
     }
 
-    public List<Product> getlist(String text, String price, Integer category, String shopId) {
+    public List<Product> getlist(String text, String price, Integer category, String shopId, String status) {
         try {
             session.getCurrentSession().beginTransaction();
 
             Criteria cr = session.getCurrentSession().createCriteria(Product.class);
             cr.add(Restrictions.like("name", text, MatchMode.ANYWHERE));
+
             if (category != 0) {
                 cr.add(Restrictions.eq("categoryId", category));
             }
             if (shopId != null && shopId != "") {
                 cr.add(Restrictions.eq("shopId", shopId));
             }
+            if (status != null && status != "") {
+                cr.add(Restrictions.eq("status", status));
+            }
+
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
             return results;

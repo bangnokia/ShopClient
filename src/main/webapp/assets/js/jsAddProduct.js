@@ -47,8 +47,8 @@ function addproduct() {
     });
 
     $('#saveForm').bind('click', function () {
-       
-       
+
+
         $('#frm_addproduct_property').val('{}');
 
         do_save_form(urlForm + '/product/create/save', 'frm_addproduct', 'getlistProduct();$("#clearForm").click();');
@@ -90,8 +90,8 @@ function getTreeCate() {
         var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + item.label + '</div>';
         $("#dropDownButton").jqxDropDownButton('setContent', dropDownContent);
         $('#frm_addproduct_categoryId').val(item.id);
-        
-        
+
+
     });
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';
@@ -135,7 +135,7 @@ function getTreeCate() {
 }
 
 function getlistProduct() {
-    var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#searchvalue').val() + '&Price=&category=&shopId=' + shopIdproduct;
+    var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#searchvalue').val() + '&Price=&category=&status=&shopId=' + shopIdproduct;
     var datajson = getDataJson(url);
 
     if (datajson == null)
@@ -194,7 +194,6 @@ function getlistProduct() {
         console.log(rowData);
         bindItemDetailGrid(rowData, 'frm_addproduct');
         $('#frm_addproduct_shopId').val(shopIdproduct);
-
 
         tinymce.get("textarea-description").execCommand('mceSetContent', false, rowData.description);
 

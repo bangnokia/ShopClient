@@ -59,8 +59,7 @@
                             <label>status</label>
                             <select class="form-control" name="status" id="frm_addproduct_status">
                                 <option value="1">Show</option>
-                                <option value="2">Hide</option>
-                                <option value="0">Stock out</option>
+                                <option value="0">Hide</option>
                             </select>
                             <label>Description</label> <br/>
                             <button class="button" type="button" id="description-img-upload">Upload Image</button>

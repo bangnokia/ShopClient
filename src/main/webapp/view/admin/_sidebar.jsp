@@ -25,7 +25,9 @@
             <li class="start "> <a href="${adminRoot}/admin/categoryproperty" > <i class="icon-custom-home"></i> <span class="title">Category Property</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
 
             </li>
-            
+            <li class="start "> <a href="${adminRoot}/admin/productadmin" > <i class="icon-custom-home"></i> <span class="title">Manager Product</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
+
+            </li>
         </ul>
         <div class="side-bar-widgets">
             <p class="menu-title">FOLDER <span class="pull-right"><a href="#" class="create-folder"> <i class="fa fa-plus"></i></a></span></p>

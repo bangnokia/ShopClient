@@ -36,7 +36,10 @@ public class ProductController {
     }
 
     public ResponseEntity<String> getlist(@RequestParam("Text") String Text,
-            @RequestParam("Price") String Price, @RequestParam("category") String category, @RequestParam("shopId") String shopId) {
+            @RequestParam("Price") String Price,
+            @RequestParam("category") String category,
+            @RequestParam("shopId") String shopId,
+            @RequestParam("status") String status) {
         JSONObject jsonOB = new JSONObject();
 
         int idTemp = 0;
@@ -47,7 +50,7 @@ public class ProductController {
         }
         try {
 
-            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopId);
+            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopId, status);
 
             String json = new Gson().toJson(brandlist);
             if (json != null) {

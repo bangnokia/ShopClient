@@ -207,6 +207,7 @@
                                     </tr>
                                 </table>
                             </div>
+                            
                             <div id="reviews" class="tab-panel">
                                 <div class="product-comments-block-tab" id="reviews-product">
                                     <!--

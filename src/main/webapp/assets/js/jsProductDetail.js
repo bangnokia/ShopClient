@@ -14,7 +14,7 @@ function productdetail() {
     Stringsadsa = ',' + datajson[0].categoryId + ',';
     findCategoryChild(catJson, ',' + datajson[0].categoryId + ',');
 
-    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=&shopId=';
+    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=&shopId=&status=1';
     jsonProduct = getDataJson(url);
     jsonProduct = addRateDataProduct(jsonProduct);
 
