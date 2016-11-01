@@ -35,7 +35,7 @@
                 </div>
                 <div class="grid-body no-border"> <br>
                     <form id="form_brand" action="${adminRoot}/admin/brand/save" method="post" name="" novalidate="novalidate">
-                        <div class="form-group">
+                        <div class="form-group hidden">
                             <label class="form-label">id brand</label>
                             <span class="help">id brand</span>
                             <div class="input-with-icon  right">                                       
@@ -48,7 +48,7 @@
                             <span class="help">Name of brand</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="name" id="form_brand_name" class="form-control">                                 
+                                <input type="text" name="name" id="form_brand_name" class="form-control" accesskey="REQ">                                 
                             </div>
                         </div>
                         <div class="form-group">

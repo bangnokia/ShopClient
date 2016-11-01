@@ -6,7 +6,7 @@ var jsonProduct;
 function CategoryHome() {
     var categoryId = $('#idCategoryDetail').val();
 
-    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=';
+    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=&shopId=';
     jsonProduct = getDataJson(url);
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';
@@ -17,6 +17,11 @@ function CategoryHome() {
     createLinkCat(categoryId);
     createBrand();
     createCategoryFilter();
+
+    $('#SearchItem').click(function () {
+        loadingProduct();
+        showNotification('success', 'ok');
+    });
 
     $('.brand_Checkbox').click(function () {
         arrBrand = [];
@@ -36,7 +41,7 @@ function CategoryHome() {
         showNotification('success', 'ok');
     });
 
-    $('#sort-product-category').bind('change', function () {
+    $('#sort-product-category,#keywordSearch').bind('change', function () {
         loadingProduct();
         showNotification('success', 'ok');
     });
@@ -50,7 +55,7 @@ function productFilter(datajson) {
     var arr = new Array();
     $.each(datajson, function (index) {
         var item = datajson[index];
-        if (checkBrand(item) && checkCat(item) && checkPrice(item)) {
+        if (checkBrand(item) && checkCat(item) && checkPrice(item) && item.name.indexOf($('#keywordSearch').val()) != -1) {
             arr.push(item);
             return;
         }

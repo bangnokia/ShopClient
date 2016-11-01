@@ -36,10 +36,18 @@ public class ProductController {
     }
 
     public ResponseEntity<String> getlist(@RequestParam("Text") String Text,
-            @RequestParam("Price") String Price, @RequestParam("category") String category) {
+            @RequestParam("Price") String Price, @RequestParam("category") String category, @RequestParam("shopId") String shopId) {
         JSONObject jsonOB = new JSONObject();
+
+        int idTemp = 0;
+
         try {
-            List<Product> brandlist = ProductDao.getlist(Text, Price, category);
+            idTemp = Integer.parseInt(category);
+        } catch (Exception e) {
+        }
+        try {
+
+            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopId);
 
             String json = new Gson().toJson(brandlist);
             if (json != null) {
@@ -96,6 +104,7 @@ public class ProductController {
             @RequestParam("outOfStock") String outOfStock,
             @RequestParam("description") String description,
             @RequestParam("image") String image,
+            @RequestParam("property") String property,
             ModelMap cate) {
 
         JSONObject jsonOB = new JSONObject();
@@ -124,7 +133,7 @@ public class ProductController {
 
         try {
             if (ProductDao.insert(idTemp, name, priceTemp, shopId, quantity, categoryIdTemp,
-                    brandIdTemp, outOfStock, description, image, status)) {
+                    brandIdTemp, outOfStock, description, image, status, property)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");

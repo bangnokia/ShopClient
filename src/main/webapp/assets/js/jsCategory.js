@@ -21,6 +21,9 @@ function category() {
     });
 
     $('#deleteFORM').bind('click', function () {
+        if (!confirm('Are you sure?'))
+            return;
+        
         if ($('#form_category_idCat').val() == '') {
             alert('select category to delete');
             return;
@@ -53,7 +56,7 @@ function bindingItem(id) {
 }
 
 function getlistCat() {
-    var url = urlForm + '/admin/category/getlistCAT?1=1';
+    var url = urlForm + '/admin/category/getlistCATadmin?1=1';
 
     var datajson = getDataJson(url);
 

@@ -39,21 +39,22 @@
                             <input type="hidden" id="frm_addproduct_outOfStock" name="outOfStock">
                             <input type="hidden" id="frm_addproduct_id" name="id">
                             <input type="hidden" id="frm_addproduct_shopId" name="shopId">
-
+                            <input type="hidden" id="frm_addproduct_property" name="property">
+                            
                             <label>Name</label>
-                            <input id="frm_addproduct_name" type="text" name="name" class="form-control" />
+                            <input id="frm_addproduct_name" type="text" name="name" class="form-control"  accesskey="REQ" />
                             <label>Image</label>
-                            <input id="frm_addproduct_image" type="text" name="image" class="form-control" placeholder="Image"/>
+                            <input id="frm_addproduct_image" type="text" name="image" class="form-control" placeholder="Image" accesskey="REQ"/>
                             <label>Price</label>
-                            <input id="frm_addproduct_price" type="text" name="price" class="form-control" />
+                            <input id="frm_addproduct_price" type="text" name="price" class="form-control" accesskey="NUMBER" />
                             <label>Category</label>
-                            <input id="frm_addproduct_categoryId" style="width: 50px" type="text" name="categoryId" class="form-control" />
+                            <input id="frm_addproduct_categoryId" style="width: 50px" type="text" name="categoryId" class="form-control" accesskey="REQ"/>
                             <div class="form-control" id="dropDownButton">
                                 <div style="border: none;" id='jqxTreeCategory'>
                                 </div>
                             </div>
                             <label>Brand</label>
-                            <select id="frm_addproduct_brandId" class="form-control" name="brandId">
+                            <select id="frm_addproduct_brandId" class="form-control" name="brandId" accesskey="REQ">
                             </select>
                             <label>status</label>
                             <select class="form-control" name="status" id="frm_addproduct_status">

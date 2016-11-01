@@ -41,6 +41,26 @@ public class AdminCategoryController {
         return new ResponseEntity<String>(json1, HttpStatus.CREATED);
     }
 
+    public ResponseEntity<String> getlistCATADMIN() {
+        JSONObject jsonOB = new JSONObject();
+        try {
+            List<Category> catlist = CategoryDAO.getlistCATADMIN();
+
+            String json = new Gson().toJson(catlist);
+            if (json != null) {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+    }
+
     public ResponseEntity<String> getitemdetail(@RequestParam("id") String catID) {
         JSONObject jsonOB = new JSONObject();
         try {

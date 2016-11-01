@@ -26,6 +26,7 @@ public class CategoryDAO {
             session.getCurrentSession().beginTransaction();
 
             Criteria cr = session.getCurrentSession().createCriteria(Category.class);
+            cr.add(Restrictions.eq("status", 1));
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
             return results;
@@ -34,7 +35,21 @@ public class CategoryDAO {
             return null;
         }
     }
-    
+
+    public List<Category> getlistCATADMIN() {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Category.class);
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+
     public List<Category> getListCatActive() {
         try {
             session.getCurrentSession().beginTransaction();
@@ -77,7 +92,7 @@ public class CategoryDAO {
             }
 
             Category cat = new Category();
-            
+
             cat.setId(idCat);
             cat.setName(name);
             cat.setIcon(icon);
@@ -89,7 +104,7 @@ public class CategoryDAO {
             } else {
                 session.getCurrentSession().save(cat);
             }
-            
+
             session.getCurrentSession().getTransaction().commit();
             return true;
         } catch (Exception e) {

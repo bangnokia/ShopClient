@@ -35,7 +35,7 @@
                 </div>
                 <div class="grid-body no-border"> <br>
                     <form id="form_category" action="${adminRoot}/admin/category/save" method="post" name="" novalidate="novalidate">
-                        <div class="form-group">
+                        <div class="form-group hidden">
                             <label class="form-label">idCat</label>
                             <span class="help">id category</span>
                             <div class="input-with-icon  right">                                       
@@ -44,26 +44,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">name</label>
+                            <label class="form-label">Name</label>
                             <span class="help">Name of category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" name="name" id="form_category_name" class="form-control">                                 
+                                <input type="text" name="name" id="form_category_name" class="form-control" accesskey="REQ">                                 
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">icon</label>
+                            <label class="form-label">Icon</label>
                             <span class="help">name icon "icon.png"</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
-                                <input type="text" disabled="disabled" name="icon" id="form_category_icon" class="form-control">          
+                                <input type="text" disabled="disabled" name="icon" id="form_category_icon" class="form-control"  accesskey="REQ">          
                                 <input id="filepicker_id" type="filepicker" data-fp-apikey="AM7JvJ8MRpa348OF98wKwz"
                                        onchange="afterUpload(event.fpfile.url)">
                                 <img style="max-width: 100px; max-height: 100px;" id="imagerDemo" src=""/>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">parentID</label>
+                            <label class="form-label">Parent category</label>
                             <span class="help">Parent category</span>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>

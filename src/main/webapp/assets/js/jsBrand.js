@@ -10,6 +10,9 @@ function brand() {
     });
 
     $('#deleteFORM').bind('click', function () {
+        if (!confirm('Are you sure?'))
+            return;
+        
         if ($('#form_brand_idCat').val() == '') {
             alert('select brand to delete');
             return;

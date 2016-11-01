@@ -27,7 +27,6 @@ function getDataJson(p_url) {
 }
 
 function bindItemDetail(dataLocal, formName) {
-
     var column_value;
 
     if (dataLocal == null || dataLocal.length == 0)
@@ -93,15 +92,44 @@ function generateOptionCombobox(p_dataCombobox, p_selectedValue, arrColum) {
     return temp;
 }
 
+function checkfield(id) {
+    var accesskey = $(id).attr('accesskey');
+
+    if ($(id).val() == '' && (accesskey == 'REQ' || accesskey == 'NUMBER')) {
+        alert($(id).attr('name').toUpperCase() + ' can\'t be empty!');
+        $(id).focus();
+        return false;
+    }
+
+    if (accesskey == 'NUMBER' && isNaN($(id).val())) {
+        alert($(id).attr('name').toUpperCase() + ' must be a number!');
+        $(id).focus();
+        return false;
+    }
+
+    return true;
+}
+
 function do_save_form(p_url, p_formName, p_function_run) {
     var dataSent = '1=1';
     var loi = false;
+    var checkform = true;
 
     $('#' + p_formName).find(':input').each(function (index) {
         var input = $(this);
+
+        if (checkform && !checkfield(this)) {
+            checkform = false;
+            return;
+        }
+
         if (this.id.indexOf(p_formName + '_') != -1)
             dataSent += '&' + input.attr('name') + '=' + input.val();
     });
+
+    if (!checkform) {
+        return;
+    }
 
     $.ajax({
         datatype: "json",

@@ -93,6 +93,7 @@
                             </div>
                             <!-- ./filter brand -->
                             <!-- filter color -->
+                            <!--
                             <div class="layered_subtitle">Color</div>
                             <div class="layered-content filter-color">
                                 <ul class="check-box-list">
@@ -147,8 +148,6 @@
 
                                 </ul>
                             </div>
-                            <!-- ./filter color -->
-                            <!-- ./filter size -->
                             <div class="layered_subtitle">Size</div>
                             <div class="layered-content filter-size">
                                 <ul class="check-box-list">
@@ -226,6 +225,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            -->
                             <!-- ./filter size -->
                         </div>
                         <!-- ./layered -->

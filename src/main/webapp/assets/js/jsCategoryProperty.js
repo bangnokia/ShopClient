@@ -10,6 +10,9 @@ function categoryproperty() {
     });
 
     $('#deleteFORM').bind('click', function () {
+        if (!confirm('Are you sure?'))
+            return;
+
         if ($('#form_categoryproperty_idCat').val() == '') {
             alert('select categoryproperty to delete');
             return;

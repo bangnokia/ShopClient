@@ -19,11 +19,11 @@
                         </ul>
                     </div>
                 </div>
-                <!--
+                
                 <div class="header-banner banner-opacity">
-                    <a href="#"><img alt="Funky roots" src="${root}/assets/data/ads1.jpg" /></a>
+                    <a href="#"><img alt="Funky roots" src="http://media.vietq.vn/thumb_x600x314/upload/2014/03/15/the-body-shop.jpg" /></a>
                 </div>
-                -->
+                
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-
+var contenhomeslider = true;
 "use strict"; // Start of use strict
 /* ---------------------------------------------
  Scripts initialization
@@ -230,16 +230,20 @@ function bindingProductHome() {
         return false;
     })
     /** HOME SLIDE**/
-    if ($('#home-slider').length > 0 && $('#contenhomeslider').length > 0) {
-        var slider = $('#contenhomeslider').bxSlider(
-                {
-                    nextText: '<i class="fa fa-angle-right"></i>',
-                    prevText: '<i class="fa fa-angle-left"></i>',
-                    auto: true,
-                }
+    if (contenhomeslider) {
+        contenhomeslider= false;
+        if ($('#home-slider').length > 0 && $('#contenhomeslider').length > 0) {
+            var slider = $('#contenhomeslider').bxSlider(
+                    {
+                        nextText: '<i class="fa fa-angle-right"></i>',
+                        prevText: '<i class="fa fa-angle-left"></i>',
+                        auto: true,
+                    }
 
-        );
+            );
+        }
     }
+
     /** Custom page sider**/
     if ($('#home-slider').length > 0 && $('#contenhomeslider-customPage').length > 0) {
         var slider = $('#contenhomeslider-customPage').bxSlider(

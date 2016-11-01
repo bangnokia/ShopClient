@@ -18,8 +18,7 @@
                                 <button type="submit" id="ShopManagerBtn" name="abbbbb" value="<%=currentUser.getId()%>">Shop manager</button>
                             </form>
                         </li>
-                        <li><span style="float: left;"></span><a href="${root}/product/create">Add new Product</a></li>
-                        <li><span style="float: left;"></span><a href="#">Manage Products</a></li>                        
+                        <li><span style="float: left;"></span><a href="${root}/product/create">Manage Product</a></li>                     
                     </ul>
                 </div>
             </div>
