@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -13,9 +14,10 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class AdminHomeController {
-    
+
+    HttpSession session;
+
     public String index() {
         return "admin/home";
     }
-    
 }

@@ -19,7 +19,7 @@
     <div class="clearfix"></div>
     <div class="content sm-gutter">
         <div class="page-title">
-            ADD Brand 
+            ADD category property
         </div>
         <div class="col-md-6" style="width: 510px">
             <div class="grid simple" style="height: 500px">

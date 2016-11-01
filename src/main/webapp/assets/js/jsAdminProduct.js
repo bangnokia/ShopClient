@@ -2,35 +2,23 @@ var urlForm;
 var id_temp = '';
 function product() {
     $('#saveForm').bind('click', function () {
-        do_save_form(urlForm + '/admin/brand/save', 'form_brand', 'getlistbrand();$("#clearForm").click();');
+        $('#form_product_status').val('1');
+        do_save_form(urlForm + '/product/create/save', 'form_product', 'getlistproduct();');
     });
 
     $('#deleteFORM').bind('click', function () {
         if (!confirm('Are you sure?'))
             return;
 
-        if ($('#form_brand_idCat').val() == '') {
-            alert('select brand to delete');
+        if ($('#form_product_id').val() == '') {
+            alert('select product to delete');
             return;
         }
 
-        do_delete_form(urlForm + '/admin/brand/delete?id=' + $('#form_brand_id').val(), 'getlistbrand();$("#clearForm").click();');
+        do_delete_form(urlForm + '/product/create/delete?id=' + $('#form_product_id').val(), 'getlistproduct();');
     });
 
     getlistproduct();
-}
-
-function bindingItem(id) {
-    id_temp = id;
-    var url = urlForm + '/admin/brand/getitemdetail?id=' + id;
-
-    var datajson = getDataJson(url);
-
-    if (datajson == null)
-        return;
-    else {
-        bindItemDetail(datajson, 'form_brand');
-    }
 }
 
 function getlistproduct() {
@@ -91,11 +79,6 @@ function getlistproduct() {
         var rowData = args.row;
 
         console.log(rowData);
-        bindItemDetailGrid(rowData, 'frm_addproduct');
-        $('#frm_addproduct_shopId').val(shopIdproduct);
-
-        tinymce.get("textarea-description").execCommand('mceSetContent', false, rowData.description);
-
-        $('.img-preview img').attr('src', rowData.image);
+        bindItemDetailGrid(rowData, 'form_product');
     });
 }

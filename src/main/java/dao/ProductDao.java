@@ -61,29 +61,6 @@ public class ProductDao {
         }
     }
 
-    public boolean browse(Integer id, String status) {
-        ProductDao cate = new ProductDao();
-        try {
-            session.getCurrentSession().beginTransaction();
-
-            Product Product = productDetail(id);
-
-            if (Product == null) {
-                return false;
-            }
-
-            Product.setStatus(status);
-
-            session.getCurrentSession().update(Product);
-
-            session.getCurrentSession().getTransaction().commit();
-            return true;
-        } catch (Exception e) {
-            session.getCurrentSession().getTransaction().rollback();
-            return false;
-        }
-    }
-
     public Product productDetail(Integer id) {
         ProductDao cate = new ProductDao();
         try {
