@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 1, 2016 7:38:19 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Nov 1, 2016 11:13:26 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.Shop" table="shop" catalog="hnashop">
+    <class name="entity.Shop" table="shop" catalog="hnashop" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity"></generator>
+            <generator class="identity" />
         </id>
         <property name="userId" type="java.lang.Integer">
             <column name="userId" />
@@ -25,6 +25,9 @@
         </property>
         <property name="name" type="string">
             <column name="name" length="200" />
+        </property>
+        <property name="facebook" type="string">
+            <column name="facebook" length="250" />
         </property>
     </class>
 </hibernate-mapping>

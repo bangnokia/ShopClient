@@ -110,6 +110,7 @@ public class ShopController {
             @RequestParam("address") String address,
             @RequestParam("phone") String phone,
             @RequestParam("email") String email,
+            @RequestParam("facebook") String facebook,
             @RequestParam("status") String status,
             ModelMap cate) {
 
@@ -127,7 +128,7 @@ public class ShopController {
         }
 
         try {
-            if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, status)) {
+            if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, facebook, status)) {
                 jsonOB.put("message", "success_ok");
             } else {
                 jsonOB.put("message", "success_fail");

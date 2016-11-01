@@ -3,10 +3,14 @@
     <!-- BEGIN MINI-PROFILE -->
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
         <div class="user-info-wrapper">
-            <div class="profile-wrapper"> <img src="${adminRoot}/assets/admin/assets/img/profiles/avatar.jpg"  alt="" data-src="${adminRoot}/assets/admin/assets/img/profiles/avatar.jpg" data-src-retina="${adminRoot}/assets/admin/assets/img/profiles/avatar2x.jpg" width="69" height="69" /> </div>
+            <div class="profile-wrapper"> <img src="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png"  
+                                               alt="" data-src="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png" 
+                                               data-src-retina="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png" width="69" height="69" /> </div>
             <div class="user-info">
                 <div class="greeting">Welcome</div>
+                <!--
                 <div class="username">John <span class="semi-bold">Smith</span></div>
+                -->
                 <div class="status">Status<a href="#">
                         <div class="status-icon green"></div>
                         Online</a></div>
@@ -34,30 +38,17 @@
             <ul class="folders" >
                 <li><a href="#">
                         <div class="status-icon green"></div>
-                        My quick tasks </a> </li>
+                        ...... </a> </li>
                 <li><a href="#">
                         <div class="status-icon red"></div>
-                        To do list </a> </li>
+                        ...... </a> </li>
                 <li><a href="#">
                         <div class="status-icon blue"></div>
-                        Projects </a> </li>
+                        ...... </a> </li>
                 <li class="folder-input" style="display:none">
                     <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="" >
                 </li>
             </ul>
-            <p class="menu-title">PROJECTS </p>
-            <div class="status-widget">
-                <div class="status-widget-wrapper">
-                    <div class="title">Freelancer<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
-                    <p>Redesign home page</p>
-                </div>
-            </div>
-            <div class="status-widget">
-                <div class="status-widget-wrapper">
-                    <div class="title">envato<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
-                    <p>Statistical report</p>
-                </div>
-            </div>
         </div>
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->

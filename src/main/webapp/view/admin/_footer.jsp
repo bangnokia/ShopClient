@@ -1,6 +1,8 @@
 <!-- BEGIN CHAT --> 
 <div class="chat-window-wrapper">
+    <!-- 
     <div id="main-chat-wrapper" class="inner-content">
+        
         <div class="chat-window-wrapper scroller scrollbar-dynamic" id="chat-users" >
             <div class="chat-header">	
                 <div class="pull-left">
@@ -225,7 +227,9 @@
             </div>
             <div class="clearfix"></div>
         </div>
+                        
     </div>
+    -->
 </div>
 <!-- END CHAT -->		  
 </div>

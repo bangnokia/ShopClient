@@ -38,6 +38,8 @@
                             <input id="frm_addshop_phone" type="text" name="phone" class="form-control" />
                             <label>Email</label>
                             <input id="frm_addshop_email" type="text" name="email" class="form-control" />
+                            <label>Facebook</label>
+                            <input id="frm_addshop_facebook" type="text" name="facebook" class="form-control" />
                             <label>Address</label>
                             <input id="frm_addshop_address" type="text" name="address" class="form-control" />
                             <label>Status</label>

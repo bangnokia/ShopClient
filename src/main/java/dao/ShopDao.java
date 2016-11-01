@@ -44,7 +44,7 @@ public class ShopDao {
         }
     }
 
-    public boolean insert(Integer id, Integer userId, String name, String address, String phone, String email, String status) {
+    public boolean insert(Integer id, Integer userId, String name, String address, String phone, String email, String facebook, String status) {
         try {
             session.getCurrentSession().beginTransaction();
 
@@ -57,6 +57,7 @@ public class ShopDao {
             Shop.setPhone(phone);
             Shop.setStatus(status);
             Shop.setUserId(userId);
+            Shop.setFacebook(facebook);
 
             if (id != 0) {
                 session.getCurrentSession().update(Shop);

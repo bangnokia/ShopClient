@@ -81,6 +81,7 @@ function productdetail() {
             'Phone: ' + jsonShop[0].phone +
             '</br>Address: ' + jsonShop[0].address +
             '</br>Email: ' + jsonShop[0].email +
+            '</br>Facebook: ' + jsonShop[0].facebook +
             '</div>' +
             '<div class="form-option">' +
             '<p class="form-option-title">Available Options:</p>' +

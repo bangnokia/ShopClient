@@ -51,7 +51,9 @@
                             </a> </li>
                     </ul>
                     <!-- BEGIN LOGO -->
-                    <a href="index.html"><img src="${adminRoot}/assets/admin/assets/img/logo.png" class="logo" alt=""  data-src="${adminRoot}/assets/admin/assets/img/logo.png" data-src-retina="${adminRoot}/assets/admin/assets/img/logo2x.png" width="106" height="21"/></a>
+                    <a href="index.html"><img src="http://www.shopsmart.org/images/shopsmart-logo.png" class="logo" alt=""  
+                                              data-src="http://www.shopsmart.org/images/shopsmart-logo.png" 
+                                              data-src-retina="http://www.shopsmart.org/images/shopsmart-logo.png" width="106" height="21"/></a>
                     <!-- END LOGO -->
                     <ul class="nav pull-right notifcation-center">
                         <li class="dropdown" id="header_task_bar"> <a href="index.html" class="dropdown-toggle active" data-toggle="">
@@ -59,7 +61,7 @@
                             </a> </li>
                         <li class="dropdown" id="header_inbox_bar" > <a href="email.html" class="dropdown-toggle" >
                                 <div class="iconset top-messages"></div>
-                                <span class="badge" id="msgs-badge">2</span> </a></li>
+                                <span class="badge" id="msgs-badge">0</span> </a></li>
                         <li class="dropdown" id="portrait-chat-toggler" style="display:none"> <a href="#sidr" class="chat-menu-toggle">
                                 <div class="iconset top-chat-white "></div>
                             </a> </li>
@@ -92,10 +94,10 @@
                     <div class="pull-right">
                         <div class="chat-toggler"> <a href="#" class="dropdown-toggle" id="my-task-list" data-placement="bottom"  data-content='' data-toggle="dropdown" data-original-title="Notifications">
                                 <div class="user-details">
-                                    <div class="username"> <span class="badge badge-important">3</span> John <span class="bold">Smith</span> </div>
+                                    <div class="username"> <span class="badge badge-important">0</span> ... <span class="bold">Welcome</span> </div>
                                 </div>
                                 <div class="iconset top-down-arrow"></div>
-                            </a>
+                            </a><!--
                             <div id="notification-list" style="display:none">
                                 <div style="width:300px">
                                     <div class="notification-messages info">
@@ -127,7 +129,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="profile-pic"> <img src="${adminRoot}/assets/admin/assets/img/profiles/avatar_small.jpg"  alt="" data-src="${adminRoot}/assets/admin/assets/img/profiles/avatar_small.jpg" data-src-retina="${adminRoot}/assets/admin/assets/img/profiles/avatar_small2x.jpg" width="35" height="35" /> </div>
+                            -->
+                            <div class="profile-pic"> 
+                                <img src="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png"  alt="" 
+                                     data-src="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png" 
+                                     data-src-retina="https://d13yacurqjgara.cloudfront.net/users/64815/screenshots/1518220/attachments/229248/shop_logo_big.png" width="35" height="35" /> </div>
                         </div>
                         <ul class="nav quick-section ">
                             <li class="quicklinks"> <a data-toggle="dropdown" class="dropdown-toggle  pull-right " href="#" id="user-options">
@@ -143,9 +149,9 @@
                             </li>
                             <li class="quicklinks"> <span class="h-seperate"></span></li>
                             <li class="quicklinks"> <a id="chat-menu-toggle" href="#sidr" class="chat-menu-toggle" >
-                                    <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">1</span></div>
+                                    <div class="iconset top-chat-dark "><span class="badge badge-important hide" id="chat-message-count">0</span></div>
                                 </a>
-                                <div class="simple-chat-popup chat-menu-toggle hide" >
+                                <!--<div class="simple-chat-popup chat-menu-toggle hide" >
                                     <div class="simple-chat-popup-arrow"></div>
                                     <div class="simple-chat-popup-inner">
                                         <div style="width:100px">
@@ -153,7 +159,7 @@
                                             <div class="message">Hey you there </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </li>
                         </ul>
                     </div>
