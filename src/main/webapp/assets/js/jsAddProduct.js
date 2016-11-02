@@ -49,9 +49,11 @@ function addproduct() {
     });
 
     $('#saveForm').bind('click', function () {
-
-
-        $('#frm_addproduct_property').val('{}');
+        var propObj = {};
+        $('.prod-prop').each(function(index, item) {
+            propObj[$(this).data('name')] = $(this).val();
+        });
+        $('#frm_addproduct_property').val(propObj);
 
         do_save_form(urlForm + '/product/create/save', 'frm_addproduct', 'getlistProduct();$("#clearForm").click();');
     });
@@ -102,8 +104,7 @@ function getTreeCate() {
                 var html = '';
                 $.each(res, function(index, item) {
                     html += '<label>' + item.name + '</label>';
-                    html += '<input type="text" name="prop_'+item.id+'" class="form-control"  />';
-                    console.log(item);                                        
+                    html += '<input data-name="'+item.name+'" type="text" name="prop_'+item.id+'" class="form-control prod-prop"  />';
                 });
                 $('#prop-list').append(html); //apend new value
             }            
