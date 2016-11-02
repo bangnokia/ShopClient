@@ -53,7 +53,7 @@ function addproduct() {
         $('.prod-prop').each(function(index, item) {
             propObj[$(this).data('name')] = $(this).val();
         });
-        $('#frm_addproduct_property').val(propObj);
+        $('#frm_addproduct_property').val(JSON.stringify(propObj));
 
         do_save_form(urlForm + '/product/create/save', 'frm_addproduct', 'getlistProduct();$("#clearForm").click();');
     });
