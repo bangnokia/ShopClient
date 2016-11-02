@@ -9,6 +9,7 @@ import entity.CategoryProperty;
 import java.util.List;
 import model.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
@@ -95,5 +96,15 @@ public class CategoryPropertyDAO {
             session.getCurrentSession().getTransaction().rollback();
             return false;
         }
+    }
+    
+    public List<CategoryProperty> getByCatId(Integer catId) {
+        session.getCurrentSession().beginTransaction();
+        Query query = session.getCurrentSession().createQuery("FROM CategoryProperty WHERE catId = :catId");
+        query.setParameter("catId", catId);
+        List<CategoryProperty> list = query.getResultList();
+        session.getCurrentSession().getTransaction().commit();
+        System.out.println(list);
+        return list;
     }
 }

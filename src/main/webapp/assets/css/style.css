@@ -5433,3 +5433,9 @@ span.notify-right{
         -moz-transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
 }
+
+#prop-list {
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
+}

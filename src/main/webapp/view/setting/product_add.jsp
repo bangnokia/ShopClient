@@ -61,6 +61,10 @@
                                 <option value="1">Show</option>
                                 <option value="0">Hide</option>
                             </select>
+                            <div id="prop-list">
+                                <label>Prop name</label>
+                                <input id="frm_addproduct_name" type="text" name="prop_1" class="form-control"  />
+                            </div>
                             <label>Description</label> <br/>
                             <button class="button" type="button" id="description-img-upload">Upload Image</button>
                             <input type="hidden" id="frm_addproduct_description" name="description"/>

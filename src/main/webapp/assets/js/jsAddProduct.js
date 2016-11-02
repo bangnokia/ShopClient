@@ -1,3 +1,5 @@
+/* global urlForm */
+
 var shopIdproduct;
 function addproduct() {
 
@@ -90,7 +92,22 @@ function getTreeCate() {
         var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + item.label + '</div>';
         $("#dropDownButton").jqxDropDownButton('setContent', dropDownContent);
         $('#frm_addproduct_categoryId').val(item.id);
-
+        $.ajax({
+            url: urlForm + '/category/getCatProp/' + item.id,
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+//                console.log(res);
+                $('#prop-list').html(''); //reload;
+                var html = '';
+                $.each(res, function(index, item) {
+                    html += '<label>' + item.name + '</label>';
+                    html += '<input type="text" name="prop_'+item.id+'" class="form-control"  />';
+                    console.log(item);                                        
+                });
+                $('#prop-list').append(html); //apend new value
+            }            
+        });
 
     });
 
