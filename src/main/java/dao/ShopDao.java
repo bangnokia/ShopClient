@@ -44,6 +44,27 @@ public class ShopDao {
         }
     }
 
+    public boolean checkShopEmail(String email) {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Shop.class);
+            cr.add(Restrictions.eq("email", email));
+            List results = cr.list();
+
+            if (results.size() != 0) {
+                session.getCurrentSession().getTransaction().commit();
+                return true;
+            } else {
+                session.getCurrentSession().getTransaction().rollback();
+                return false;
+            }
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return false;
+        }
+    }
+
     public boolean insert(Integer id, Integer userId, String name, String address, String phone, String email, String facebook, String status) {
         try {
             session.getCurrentSession().beginTransaction();

@@ -33,15 +33,15 @@
                             <input type="hidden" id="frm_addshop_id" name="id">
                             <input type="hidden" id="frm_addshop_userId" name="userId">
                             <label>Shop name</label>
-                            <input id="frm_addshop_name" type="text" name="name" class="form-control" />
+                            <input id="frm_addshop_name" type="text" name="name" class="form-control" accesskey="REQ" />
                             <label>Phone</label>
-                            <input id="frm_addshop_phone" type="text" name="phone" class="form-control" />
+                            <input id="frm_addshop_phone" type="text" name="phone" class="form-control" accesskey="REQ"/>
                             <label>Email</label>
-                            <input id="frm_addshop_email" type="text" name="email" class="form-control" />
+                            <input id="frm_addshop_email" type="text" name="email" class="form-control" accesskey="REQ"/>
                             <label>Facebook</label>
                             <input id="frm_addshop_facebook" type="text" name="facebook" class="form-control" />
                             <label>Address</label>
-                            <input id="frm_addshop_address" type="text" name="address" class="form-control" />
+                            <input id="frm_addshop_address" type="text" name="address" class="form-control" accesskey="REQ"/>
                             <label>Status</label>
                             <select class="form-control" name="status" id="frm_addshop_status">
                                 <option value="1">Show</option>

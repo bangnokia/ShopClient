@@ -127,14 +127,19 @@ public class ShopController {
         } catch (Exception e) {
         }
 
-        try {
-            if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, facebook, status)) {
-                jsonOB.put("message", "success_ok");
-            } else {
+        if (ShopDao.checkShopEmail(email)) {
+            jsonOB.put("message", "This email  has been used!");
+        } else {
+
+            try {
+                if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, facebook, status)) {
+                    jsonOB.put("message", "success_ok");
+                } else {
+                    jsonOB.put("message", "success_fail");
+                }
+            } catch (Exception e) {
                 jsonOB.put("message", "success_fail");
             }
-        } catch (Exception e) {
-            jsonOB.put("message", "success_fail");
         }
 
         String json = new Gson().toJson(jsonOB);
