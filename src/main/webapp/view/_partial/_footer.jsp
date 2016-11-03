@@ -23,7 +23,6 @@
                     </div>
                 </div> 
             </div>
-            <!--   
        <div class="col-md-6">
            <div class="row">
                <div class="col-sm-4">
@@ -77,11 +76,9 @@
             </div>
         </div>
     </div>
-            -->
         </div><!-- /#introduce-box -->
         <!-- #trademark-box -->
 
-        <!--
      <div id="trademark-box" class="row">
          <div class="col-sm-12">
              <ul id="trademark-list">
@@ -119,11 +116,9 @@
              </ul> 
          </div>
      </div> 
-        -->
         <!-- /#trademark-box -->
         <!-- #trademark-text-box -->
 
-        <!--
         <div id="trademark-text-box" class="row">
             <div class="col-sm-12">
                 <ul id="trademark-search-list" class="trademark-list">
@@ -215,11 +210,9 @@
                 </ul>
             </div>
         </div>
-        --> 
 
         <!-- /#trademark-text-box --> 
         <div id="footer-menu-box">
-            <!--
             <div class="col-sm-12">
                 <ul class="footer-menu-list">
                     <li><a href="#" >Company Info - Partnerships</a></li>
@@ -265,7 +258,7 @@
                     <li><a href="#" >Contact</a></li>
                 </ul>
             </div>
-            --> 
+            
             <p class="text-center">Copyrights &#169; 2016 hna shop. All Rights Reserved. Designed by hna shop</p>
         </div><!-- /#footer-menu-box -->
     </div> 

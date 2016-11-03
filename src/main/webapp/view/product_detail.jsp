@@ -4,6 +4,109 @@
     Author     : daudau
 --%>
 <jsp:include page="_partial/_header.jsp" />
+<style>
+    .wrap {
+        position: fixed;
+        width: 300px;
+        height: 400px;
+        z-index: 9999999;
+        right: 0px;
+        bottom: 0px;
+    }
+    .x {
+        font-family: arial, helvetica;
+        background: rgba(78, 86, 101, 0.8) none repeat scroll 0 0;
+        font-size: 14px;
+        font-weight: bold;
+        color: #fff;
+        display: inline-block;
+        height: 25px;
+        line-height: 25px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        top: -19px;
+        width: 25px;
+        z-index: 99999999;
+    }
+    .x:hover {
+        cursor: pointer;
+    }
+    .pxem {
+        text-align: left;
+        height: 20px;
+        margin-bottom: 0;
+        margin-top: 0;
+        background: #34495E;
+        width: 100%;
+        bottom: 0;
+        display: block;
+        left: 0px;
+        position: absolute;
+        z-index: 999999999;
+        border-left: 1px solid #fff;
+    }
+    .pxem a.axem {
+        color: #fff;
+        font-family: arial, helvetica;
+        font-size: 12px;
+        line-height: 23px;
+        padding-left: 5px;
+        text-decoration: none;
+    }
+    .pxem a.axem:hover {
+        text-decoration: underline;
+    }
+    .alogo {
+        position: absolute;
+        bottom: 0;
+        right: 0px;
+        z-index: 999999999999;
+        width: 75px;
+        height: 20px;
+        display: inline-block;
+        background: #34495E;
+        border-left: 2px solid #2c3e50;
+        padding-right: 0px;
+        padding-left: 5px
+    }
+    .vnk-tuvan {
+        position: fixed;
+        width: 300px;
+        background: #0075FF;
+        z-index: 99999999;
+        right: 0px;
+        bottom: 0px;
+        border-style: solid solid none;
+        border-color: #2c3e50;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .vnk-tuvan p {
+        color: #fff;
+        font-size: 15px;
+        margin: 0;
+        padding: 0 13px;
+        text-align: left;
+    }
+    .vnk-tuvan p a {
+        color: #fff;
+        font-size: 15px;
+        padding: 5px 0px 7px;
+        margin: 0;
+        display: inline-block;
+        font-family: arial, helvetica;
+        text-decoration: none;
+    }
+    .vnk-tuvan p a:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .vnk-tuvan p img {
+        float: right;
+        margin-top: 10px;
+    }
+</style>
 <div class="columns-container">
     <input type="hidden" id="idProductDetail" value="${id}" >
     <div class="container" id="columns">
@@ -193,22 +296,22 @@
                             </div>
                             <div id="information"  class="tab-panel">
                                 <table class="table table-bordered" id="informationTable">
-                                         <!--
-                                    <tr>
-                                        <td width="200">Compositions</td>
-                                        <td>Cotton</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Styles</td>
-                                        <td>Girly</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Properties</td>
-                                        <td>Colorful Dress</td>
-                                    </tr>-->
+                                    <!--
+                               <tr>
+                                   <td width="200">Compositions</td>
+                                   <td>Cotton</td>
+                               </tr>
+                               <tr>
+                                   <td>Styles</td>
+                                   <td>Girly</td>
+                               </tr>
+                               <tr>
+                                   <td>Properties</td>
+                                   <td>Colorful Dress</td>
+                               </tr>-->
                                 </table>
                             </div>
-                            
+
                             <div id="reviews" class="tab-panel">
                                 <div class="product-comments-block-tab" id="reviews-product">
                                     <!--
@@ -536,10 +639,54 @@
     </div>
 </div>
 
+
 <jsp:include page="_partial/_footer.jsp" />
 <script src="${root}/assets/js/jsProductDetail.js" type="text/javascript"></script>
 <script>
     jQuery(document).ready(function () {
         productdetail();
     });
+</script>
+
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id))
+            return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1687091491571762";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- live chat facebook -->
+<div id="fb-root"></div>
+<script>
+    jQuery(document).ready(function () {
+        $('#btn-prod-buy-fb').click(function() {
+           $('.vnk-tuvan').click();
+        });
+        var raido = jQuery(".wrap").attr("data-toggle");
+        if (raido == 1) {
+            jQuery(".vnk-tuvan").css("display", "none");
+            jQuery(".x").click(function () {
+                jQuery(".wrap").slideToggle();
+                jQuery(".vnk-tuvan").slideToggle();
+            });
+            jQuery(".vnk-tuvan").click(function () {
+                jQuery(".wrap").slideToggle();
+                jQuery(this).slideToggle();
+            });
+        } else {
+            jQuery(".wrap").css("display", "none");
+            jQuery(".x").click(function () {
+                jQuery(".wrap").slideToggle();
+                jQuery(".vnk-tuvan").slideToggle();
+            });
+            jQuery(".vnk-tuvan").click(function () {
+                jQuery(".wrap").slideToggle();
+                jQuery(this).slideToggle();
+            });
+        }
+    })
 </script>

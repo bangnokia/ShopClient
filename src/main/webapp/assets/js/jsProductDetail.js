@@ -59,6 +59,7 @@ function productdetail() {
 
     var url = urlForm + '/product/shop/getdetail?1=1&shopId=' + datajson[0].shopId;
     var jsonShop = getDataJson(url);
+    $('title').html(datajson[0].name);
 
     $('#product_detai').html('<h1 class="product-name">' + datajson[0].name + '</h1>' +
             '<div class="product-comments">' +
@@ -83,7 +84,7 @@ function productdetail() {
             'Phone: ' + jsonShop[0].phone +
             '</br>Address: ' + jsonShop[0].address +
             '</br>Email: ' + jsonShop[0].email +
-            '</br>Facebook: ' + jsonShop[0].facebook +
+            '</br><button id="btn-prod-buy-fb" class="btn btn-danger btn-block">Buy this<button> ' + 
             '</div>' +
             '<div class="form-option">' +
             '<p class="form-option-title">Available Options:</p>' +
@@ -128,18 +129,18 @@ function productdetail() {
             '</div>' +
             '</div>' +
             '</div>' +
-            '<div class="form-action">' +
-            '<div class="button-group">' +
-            '<a class="btn-add-cart" href="#">Add to cart</a>' +
-            '</div>' +
-            '<div class="button-group">' +
-            '<a class="wishlist" href="#"><i class="fa fa-heart-o"></i>' +
-            '<br>Wishlist</a>' +
-            '<a class="compare" href="#"><i class="fa fa-signal"></i>' +
-            '<br>        ' +
-            'Compare</a>' +
-            '</div>' +
-            '</div>' +
+//            '<div class="form-action">' +
+//            '<div class="button-group">' +
+//            '<a class="btn-add-cart" href="#">Add to cart</a>' +
+//            '</div>' +
+//            '<div class="button-group">' +
+//            '<a class="wishlist" href="#"><i class="fa fa-heart-o"></i>' +
+//            '<br>Wishlist</a>' +
+//            '<a class="compare" href="#"><i class="fa fa-signal"></i>' +
+//            '<br>        ' +
+//            'Compare</a>' +
+//            '</div>' +
+//            '</div>' +
             '<div class="form-share">' +
             '<div class="sendtofriend-print">' +
             '<a href="javascript:print();"><i class="fa fa-print"></i> Print</a>' +
@@ -147,7 +148,16 @@ function productdetail() {
             '</div>' +
             '<div class="network-share">' +
             '</div>' +
-            '</div>');
+            '</div>' +
+            '<div data-toggle="0" class="wrap" style="position:fixed; width:280px; height: 320px; ">' +
+    '<span class="x" style="">X</span>'+
+    '<div class="fb-page" data-adapt-container-width="true" data-height="320" data-hide-cover="false" data-href="'+jsonShop[0].facebook+'" data-show-facepile="true" data-show-posts="false" data-small-header="false" data-tabs="messages" data-width="280" style="position:relative; z-index:9999999; right:0px; bottom:21px;border-left: 1px solid #fff;border-top: 1px solid #fff;"></div>'+
+    '<p class="pxem" style=""></p>'+
+'</div>'+
+'<div class="vnk-tuvan" style="width: 278px;" >'+
+    '<p style=" "><a style="">Contact shop!</a><i class="fa fa-angle-up fa-2x" style="float:right;"></i></p>'+
+'</div>'
+            );
     windowRate.init();
     bindingProductHome();
 }
