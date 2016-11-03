@@ -127,7 +127,7 @@ public class ShopController {
         } catch (Exception e) {
         }
 
-        if (ShopDao.checkShopEmail(email)) {
+        if (ShopDao.checkShopEmail(idTemp,email)) {
             jsonOB.put("message", "This email  has been used!");
         } else {
 

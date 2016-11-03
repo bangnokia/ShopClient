@@ -44,12 +44,13 @@ public class ShopDao {
         }
     }
 
-    public boolean checkShopEmail(String email) {
+    public boolean checkShopEmail(Integer id,String email) {
         try {
             session.getCurrentSession().beginTransaction();
 
             Criteria cr = session.getCurrentSession().createCriteria(Shop.class);
             cr.add(Restrictions.eq("email", email));
+            cr.add(Restrictions.ne("id", id));
             List results = cr.list();
 
             if (results.size() != 0) {
