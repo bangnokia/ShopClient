@@ -1,5 +1,5 @@
 /* global urlForm */
-
+var property;
 var shopIdproduct;
 function addproduct() {
 
@@ -49,8 +49,9 @@ function addproduct() {
     });
 
     $('#saveForm').bind('click', function () {
+        $('#frm_addproduct_status').val('0');
         var propObj = {};
-        $('.prod-prop').each(function(index, item) {
+        $('.prod-prop').each(function (index, item) {
             propObj[$(this).data('name')] = $(this).val();
         });
         $('#frm_addproduct_property').val(JSON.stringify(propObj));
@@ -86,6 +87,34 @@ function addproduct() {
     getlistProduct();
 }
 
+function getCatProp(idcat) {
+    var url = urlForm + '/category/getCatProp?1=1&idcat=' + idcat;
+    var datajsonShop = getDataJson(url);
+    $('#prop-list').html('');
+    var html = '';
+    $.each(datajsonShop, function (index, item) {
+        html += '<label>' + item.name + '</label>';
+        html += '<input data-name="' + item.name + '" type="text" name="prop_' + item.id + '" class="form-control prod-prop"  />';
+    });
+    $('#prop-list').append(html); //apend new value
+
+//    $.ajax({
+//        url: urlForm + '/category/getCatProp/' + idcat,
+//        type: 'GET',
+//        dataType: 'json',
+//        success: function (res) {
+////                console.log(res);
+//            $('#prop-list').html(''); //reload;
+//            var html = '';
+//            $.each(res, function (index, item) {
+//                html += '<label>' + item.name + '</label>';
+//                html += '<input data-name="' + item.name + '" type="text" name="prop_' + item.id + '" class="form-control prod-prop"  />';
+//            });
+//            $('#prop-list').append(html); //apend new value
+//        }
+//    });
+}
+
 function getTreeCate() {
     $("#dropDownButton").jqxDropDownButton({width: 200, height: 25, theme: 'bootstrap'});
     $('#jqxTreeCategory').on('select', function (event) {
@@ -94,22 +123,8 @@ function getTreeCate() {
         var dropDownContent = '<div style="position: relative; margin-left: 3px; margin-top: 5px;">' + item.label + '</div>';
         $("#dropDownButton").jqxDropDownButton('setContent', dropDownContent);
         $('#frm_addproduct_categoryId').val(item.id);
-        $.ajax({
-            url: urlForm + '/category/getCatProp/' + item.id,
-            type: 'GET',
-            dataType: 'json',
-            success: function(res) {
-//                console.log(res);
-                $('#prop-list').html(''); //reload;
-                var html = '';
-                $.each(res, function(index, item) {
-                    html += '<label>' + item.name + '</label>';
-                    html += '<input data-name="'+item.name+'" type="text" name="prop_'+item.id+'" class="form-control prod-prop"  />';
-                });
-                $('#prop-list').append(html); //apend new value
-            }            
-        });
 
+        getCatProp(item.id);
     });
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';
@@ -173,6 +188,7 @@ function getlistProduct() {
                     {name: 'categoryId', type: 'string'},
                     {name: 'image', type: 'string'},
                     {name: 'shopId', type: 'string'},
+                    {name: 'property', type: 'string'},
                     {name: 'description', type: 'string'}
                 ],
                 id: 'id'
@@ -198,6 +214,7 @@ function getlistProduct() {
             {text: 'categoryId', datafield: 'categoryId', width: 70},
             {text: 'image', datafield: 'image', width: 200},
             {text: 'id', datafield: 'id', width: 100, hidden: 'hidden'},
+            {text: 'property', datafield: 'property', width: 100, hidden: 'hidden'},
             {text: 'description', datafield: 'description', width: 100, hidden: 'hidden'}
         ]
     });
@@ -209,9 +226,18 @@ function getlistProduct() {
         var rowBoundIndex = args.rowindex;
         var rowData = args.row;
 
-        console.log(rowData);
         bindItemDetailGrid(rowData, 'frm_addproduct');
         $('#frm_addproduct_shopId').val(shopIdproduct);
+        getCatProp(rowData.categoryId);
+
+        if (rowData.property != null && rowData.property != '') {
+            property = JSON.parse(rowData.property);
+
+            $('#prop-list').find(':input').each(function (index) {
+                var name = $(this).attr('data-name');
+                $(this).val(eval('property["' + name + '"]'));
+            });
+        }
 
         tinymce.get("textarea-description").execCommand('mceSetContent', false, rowData.description);
 

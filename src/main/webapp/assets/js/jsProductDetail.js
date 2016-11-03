@@ -36,6 +36,8 @@ function productdetail() {
     CreateRelatedProducts();
     createLinkProduct(datajson[0].categoryId, datajson[0].name);
 
+    createInformation(datajson[0]);
+
 
     $('#product-imageDetail').html('<div class="product-full">' +
             '<img style="min-width: 100%;" id="product-zoom" src=\'' + datajson[0].image + '\' data-zoom-image="' + datajson[0].image + '"/>' +
@@ -148,6 +150,23 @@ function productdetail() {
             '</div>');
     windowRate.init();
     bindingProductHome();
+}
+
+function createInformation(data) {
+    var property;
+    var string = '';
+    if (data.property != null && data.property != '') {
+        property = JSON.parse(data.property);
+
+        for (var key in property) {
+            string += '<tr>' +
+                    '<td width="200">' + key + '</td>' +
+                    '<td>' + property[key] + '</td>' +
+                    '</tr>';
+        }
+    }
+
+    $('#informationTable').html(string);
 }
 
 function getUserName(id) {

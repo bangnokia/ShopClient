@@ -40,7 +40,7 @@
                             <input type="hidden" id="frm_addproduct_id" name="id">
                             <input type="hidden" id="frm_addproduct_shopId" name="shopId">
                             <input type="hidden" id="frm_addproduct_property" name="property">
-                            
+
                             <label>Name</label>
                             <input id="frm_addproduct_name" type="text" name="name" class="form-control"  accesskey="REQ" />
                             <label>Image</label>
@@ -56,15 +56,16 @@
                             <label>Brand</label>
                             <select id="frm_addproduct_brandId" class="form-control" name="brandId" accesskey="REQ">
                             </select>
-                            <label>status</label>
-                            <select class="form-control" name="status" id="frm_addproduct_status">
-                                <option value="1">Show</option>
-                                <option value="0">Hide</option>
-                            </select>
-                            
+                            <div style="display: none"> 
+                                <label>status</label>
+                                <select class="form-control" name="status" id="frm_addproduct_status">
+                                    <option value="1">Show</option>
+                                    <option value="0">Hide</option>
+                                </select>
+                            </div>
                             <!--custom property load here-->
                             <div id="prop-list"></div>
-                            
+
                             <label>Description</label> <br/>
                             <button class="button" type="button" id="description-img-upload">Upload Image</button>
                             <input type="hidden" id="frm_addproduct_description" name="description"/>

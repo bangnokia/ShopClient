@@ -191,8 +191,9 @@
                             <div id="product-detail" class="tab-panel active">
 
                             </div>
-                            <div id="information" class="tab-panel">
-                                <table class="table table-bordered">
+                            <div id="information"  class="tab-panel">
+                                <table class="table table-bordered" id="informationTable">
+                                         <!--
                                     <tr>
                                         <td width="200">Compositions</td>
                                         <td>Cotton</td>
@@ -204,7 +205,7 @@
                                     <tr>
                                         <td>Properties</td>
                                         <td>Colorful Dress</td>
-                                    </tr>
+                                    </tr>-->
                                 </table>
                             </div>
                             
