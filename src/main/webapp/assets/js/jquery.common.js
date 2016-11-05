@@ -107,6 +107,12 @@ function checkfield(id) {
         return false;
     }
 
+    if (accesskey == 'NUMBER' && $(id).val() < 0) {
+        alert($(id).attr('name').toUpperCase() + ' must be > 0!');
+        $(id).focus();
+        return false;
+    }
+
     return true;
 }
 
