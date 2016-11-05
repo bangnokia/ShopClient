@@ -5,6 +5,11 @@ function product() {
         $('#form_product_status').val('1');
         do_save_form(urlForm + '/product/create/save', 'form_product', 'getlistproduct();');
     });
+    
+    $('#hideForm').bind('click', function () {
+        $('#form_product_status').val('0');
+        do_save_form(urlForm + '/product/create/save', 'form_product', 'getlistproduct();');
+    });
 
     $('#deleteFORM').bind('click', function () {
         if (!confirm('Are you sure?'))

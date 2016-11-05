@@ -48,6 +48,7 @@
                         <div class="form-actions">  
                             <div class="pull-left">
                                 <button type="button" id="saveForm" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>browse</button>
+                                <button type="button" id="hideForm" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>hide</button>
                                 <button type="button" id="deleteFORM" value="" class="btn btn-danger btn-cons"><i class="icon-ok"></i>delete</button>
                             </div>
                         </div>
