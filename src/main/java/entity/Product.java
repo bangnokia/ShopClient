@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 1, 2016 11:13:25 PM by Hibernate Tools 4.3.1
+// Generated Nov 5, 2016 3:03:54 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -13,7 +13,7 @@ public class Product  implements java.io.Serializable {
      private Integer id;
      private String name;
      private Float price;
-     private String shopId;
+     private Integer shopId;
      private Integer quantity;
      private Date createdAt;
      private Integer brandId;
@@ -27,7 +27,7 @@ public class Product  implements java.io.Serializable {
     public Product() {
     }
 
-    public Product(String name, Float price, String shopId, Integer quantity, Date createdAt, Integer brandId, String status, Integer categoryId, Boolean outOfStock, String description, String image, String property) {
+    public Product(String name, Float price, Integer shopId, Integer quantity, Date createdAt, Integer brandId, String status, Integer categoryId, Boolean outOfStock, String description, String image, String property) {
        this.name = name;
        this.price = price;
        this.shopId = shopId;
@@ -63,11 +63,11 @@ public class Product  implements java.io.Serializable {
     public void setPrice(Float price) {
         this.price = price;
     }
-    public String getShopId() {
+    public Integer getShopId() {
         return this.shopId;
     }
     
-    public void setShopId(String shopId) {
+    public void setShopId(Integer shopId) {
         this.shopId = shopId;
     }
     public Integer getQuantity() {

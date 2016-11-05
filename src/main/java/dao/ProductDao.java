@@ -25,7 +25,7 @@ public class ProductDao {
 
     private SessionFactory session = HibernateUtil.getSessionFactory();
 
-    public boolean insert(Integer id, String name, Float price, String shopId, String quantity, Integer categoryId,
+    public boolean insert(Integer id, String name, Float price, Integer shopId, String quantity, Integer categoryId,
             Integer BrandId, String outOfStock, String description, String image, String status, String property) {
         ProductDao cate = new ProductDao();
         try {
@@ -108,7 +108,7 @@ public class ProductDao {
         }
     }
 
-    public List<Product> getlist(String text, String price, Integer category, String shopId, String status) {
+    public List<Product> getlist(String text, String price, Integer category, Integer shopId, String status) {
         try {
             session.getCurrentSession().beginTransaction();
 
@@ -118,7 +118,7 @@ public class ProductDao {
             if (category != 0) {
                 cr.add(Restrictions.eq("categoryId", category));
             }
-            if (shopId != null && shopId != "") {
+            if (shopId != 0) {
                 cr.add(Restrictions.eq("shopId", shopId));
             }
             if (status != null && status != "") {

@@ -43,14 +43,19 @@ public class ProductController {
         JSONObject jsonOB = new JSONObject();
 
         int idTemp = 0;
+        int shopIdTemp = 0;
 
         try {
             idTemp = Integer.parseInt(category);
         } catch (Exception e) {
         }
         try {
+            shopIdTemp = Integer.parseInt(shopId);
+        } catch (Exception e) {
+        }
+        try {
 
-            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopId, status);
+            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopIdTemp, status);
 
             String json = new Gson().toJson(brandlist);
             if (json != null) {
@@ -114,11 +119,16 @@ public class ProductController {
 
         int idTemp = 0;
         int brandIdTemp = 0;
+        int shopIdTemp = 0;
         int categoryIdTemp = 0;
         float priceTemp = 0;
 
         try {
             idTemp = Integer.parseInt(id);
+        } catch (Exception e) {
+        }
+        try {
+            shopIdTemp = Integer.parseInt(shopId);
         } catch (Exception e) {
         }
         try {
@@ -135,7 +145,7 @@ public class ProductController {
         }
 
         try {
-            if (ProductDao.insert(idTemp, name, priceTemp, shopId, quantity, categoryIdTemp,
+            if (ProductDao.insert(idTemp, name, priceTemp, shopIdTemp, quantity, categoryIdTemp,
                     brandIdTemp, outOfStock, description, image, status, property)) {
                 jsonOB.put("message", "success_ok");
             } else {
