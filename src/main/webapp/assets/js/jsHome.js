@@ -2,7 +2,7 @@ function jshome() {
     $('#SearchItem').bind('click', function () {
         loadingForm(true);
         setTimeout(function () {
-            var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val()+'&shopId=&status=1';
+            var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val() + '&shopId=&status=1';
             var datajson = getDataJson(url);
             loadingForm(false);
             if (datajson == null)
@@ -74,6 +74,7 @@ function addCategoryProduct(data) {
             number++;
             var bestItemImage = "";
             var bestItemId = "";
+            var status = false;
 
             Stringsadsa = ',' + item.id + ',';
             findCategoryChild(datajson, ',' + item.id + ',');
@@ -84,6 +85,7 @@ function addCategoryProduct(data) {
             $.each(data, function (index) {
                 var item = data[index];
                 if (Stringsadsa.indexOf(',' + item.categoryId + ',') != -1) {
+                    status = true;
                     if (bestItemImage == '') {
                         bestItemImage = item.image;
                         bestItemId = item.id;
@@ -118,29 +120,29 @@ function addCategoryProduct(data) {
                 }
             });
             StringProduct += '</ul>'
-
-            String += '<div class="category-featured">' +
-                    '<nav class="navbar nav-menu nav-menu-red show-brand">' +
-                    '<div class="container">' +
-                    '<!-- Brand and toggle get grouped for better mobile display -->' +
-                    '<div class="navbar-brand"><a href="' + urlForm + /category/ + item.id + '"><img alt="' + item.name + '" src="' + item.icon + '" />' + item.name + '</a></div>' +
-                    '<span class="toggle-menu"></span>' +
-                    '<!-- Collect the nav links, forms, and other content for toggling -->' +
-                    '<div class="collapse navbar-collapse">' +
-                    '<ul class="nav navbar-nav">' +
-                    '<li class="active"><a data-toggle="tab" href="#tab-4">Best Seller</a></li>' +
-                    '<li><a href="#">Women</a></li>' +
-                    '<li><a href="#">Men</a></li>' +
-                    '<li><a href="#">Kids</a></li>' +
-                    '<li><a href="#">Accessories</a></li>' +
-                    '</ul>' +
-                    '</div><!-- /.navbar-collapse -->' +
-                    '</div><!-- /.container-fluid -->' +
-                    '<div id="elevator-' + number + '" class="floor-elevator">' +
-                    '<a href="#elevator-' + (number - 1) + '" class="btn-elevator up fa fa-angle-up"></a>' +
-                    '<a href="#elevator-' + (number + 1) + '" class="btn-elevator down fa fa-angle-down"></a>' +
-                    '</div>' +
-                    '</nav>' +
+            if (status) {
+                String += '<div class="category-featured">' +
+                        '<nav class="navbar nav-menu nav-menu-red show-brand">' +
+                        '<div class="container">' +
+                        '<!-- Brand and toggle get grouped for better mobile display -->' +
+                        '<div class="navbar-brand"><a href="' + urlForm + /category/ + item.id + '"><img alt="' + item.name + '" src="' + item.icon + '" />' + item.name + '</a></div>' +
+                        '<span class="toggle-menu"></span>' +
+                        '<!-- Collect the nav links, forms, and other content for toggling -->' +
+                        '<div class="collapse navbar-collapse">' +
+                        '<ul class="nav navbar-nav">' +
+                        '<li class="active"><a data-toggle="tab" href="#tab-4">Best Seller</a></li>' +
+                        '<li><a href="#">Women</a></li>' +
+                        '<li><a href="#">Men</a></li>' +
+                        '<li><a href="#">Kids</a></li>' +
+                        '<li><a href="#">Accessories</a></li>' +
+                        '</ul>' +
+                        '</div><!-- /.navbar-collapse -->' +
+                        '</div><!-- /.container-fluid -->' +
+                        '<div id="elevator-' + number + '" class="floor-elevator">' +
+                        '<a href="#elevator-' + (number - 1) + '" class="btn-elevator up fa fa-angle-up"></a>' +
+                        '<a href="#elevator-' + (number + 1) + '" class="btn-elevator down fa fa-angle-down"></a>' +
+                        '</div>' +
+                        '</nav>' +
 //                    '<div class="category-banner">' +
 //                    '<div class="col-sm-6 banner">' +
 //                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads6.jpg" /></a>' +
@@ -149,25 +151,26 @@ function addCategoryProduct(data) {
 //                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads7.jpg" /></a>' +
 //                    '</div>' +
 //                    '</div>' +
-                    '<div class="product-featured clearfix">' +
-                    '<div class="banner-featured">' +
-                    '<div class="featured-text"><span>featured</span></div>' +
-                    '<div class="banner-img">' +
-                    '<a href="' + urlForm + '/product/' + bestItemId + '"><img style="min-height: 350px; min-width: 234px;max-height: 350px; max-width: 234px; " alt="Featurered 1" src="' + bestItemImage + '" /></a>' +
-                    '</div>' +
-                    '</div>' +
-                    '<div class="product-featured-content">' +
-                    '<div class="product-featured-list">' +
-                    '<div class="tab-container">' +
-                    '<!-- tab product -->' +
-                    '<div class="tab-panel active" id="tab-4">' +
-                    StringProduct +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
+                        '<div class="product-featured clearfix">' +
+                        '<div class="banner-featured">' +
+                        '<div class="featured-text"><span>featured</span></div>' +
+                        '<div class="banner-img">' +
+                        '<a href="' + urlForm + '/product/' + bestItemId + '"><img style="min-height: 350px; min-width: 234px;max-height: 350px; max-width: 234px; " alt="Featurered 1" src="' + bestItemImage + '" /></a>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="product-featured-content">' +
+                        '<div class="product-featured-list">' +
+                        '<div class="tab-container">' +
+                        '<!-- tab product -->' +
+                        '<div class="tab-panel active" id="tab-4">' +
+                        StringProduct +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>';
+            }
         }
     });
 
