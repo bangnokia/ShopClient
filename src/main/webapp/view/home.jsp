@@ -14,14 +14,17 @@
                 <div class="homeslider">
                     <div class="content-slide">
                         <ul id="contenhomeslider">
-                            <li style="height: 400px"><img alt="Funky roots" src="http://media.vietq.vn/thumb_x600x314/upload/2014/03/15/the-body-shop.jpg" title="Funky roots" /></li>
-                            <li style="height: 400px"><img alt="Funky roots" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTMbtde6azl4yoGw1O8L26Dq1Oyu_HkLxVSi84yYzTselisI8INHg" title="Funky roots" /></li>
+                            <li style="height: 350px"><img alt="Funky roots" src="http://play.vidyard.com/YdK3eJpxUo8f3E3Dxf4bVV.jpg" title="Funky roots" /></li>
+                            <li style="height: 350px"><img alt="Funky roots" src="http://tours.360wichita.com/185319/slideshow40292/dsc_8173.jpg" title="Funky roots" /></li>
+                            <li style="height: 350px"><img alt="Funky roots" src="http://samsunggalaxys7.com.vn/wp-content/uploads/2016/07/Samsung-Galaxy-S7-water-resistance-DSC01927.jpg" title="Funky roots" /></li>
+                        
                         </ul>
                     </div>
                 </div>
                 
                 <div class="header-banner banner-opacity">
-                    <a href="#"><img alt="Funky roots" src="http://media.vietq.vn/thumb_x600x314/upload/2014/03/15/the-body-shop.jpg" /></a>
+                    <a href="#"><img alt="Funky roots" src="http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/samsung-galaxy-s7-edge/silver-titanium/stills/carousel-samsung-galaxy-s7-edge-silver-titanium-380x380-1.jpg" /></a>
+                     
                 </div>
                 
             </div>

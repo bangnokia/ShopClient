@@ -6,7 +6,7 @@ var jsonProduct;
 function CategoryHome() {
     var categoryId = $('#idCategoryDetail').val();
 
-    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category='+categoryId+'&shopId=&status=1';
+    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=' + categoryId + '&shopId=&status=1';
     jsonProduct = getDataJson(url);
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';
@@ -112,6 +112,8 @@ function loadingProduct() {
     $.each(datajson, function (index) {
         var item = datajson[index];
         if (Stringsadsa.indexOf(',' + item.categoryId + ',') != -1) {
+            var url = urlForm + '/product/shop/getdetail?1=1&shopId=' + item.shopId;
+            var jsonShop = getDataJson(url);
             String += '<li class="col-sx-12 col-sm-4">' +
                     '<div class="product-container">' +
                     '<div class="left-block">' +
@@ -136,7 +138,11 @@ function loadingProduct() {
                     '<p>Item Code: #' + item.id + '</p>' +
                     '<p class="availability">Availability: <span>In stock</span></p>' +
                     '<div class="product-desc">' +
-                    'Vestibulum eu odio. Suspendisse potenti. Morbi mollis tellus ac sapien. Praesent egestas tristique nibh. Nullam dictum felis eu pede mollis pretium. Fusce egestas elit eget lorem. In auctor lobortis lacus. Suspendisse faucibus, nunc et pellentesque egestas, lacus ante convallis tellus, vitae iaculis lacus elit id tortor.' +
+                    '<div class="product-desc"><h3 style="font-weight: bold;">Shop: ' + jsonShop[0].name + '</h3>' +
+                    'Phone: ' + jsonShop[0].phone +
+                    '</br>Address: ' + jsonShop[0].address +
+                    '</br>Email: ' + jsonShop[0].email +
+                    '</div>' +
                     '</div>' +
                     '</div>' +
                     '<div class="add-to-cart">' +
