@@ -5,7 +5,7 @@ function product() {
         $('#form_product_status').val('1');
         do_save_form(urlForm + '/product/create/save', 'form_product', 'getlistproduct();');
     });
-    
+
     $('#hideForm').bind('click', function () {
         $('#form_product_status').val('0');
         do_save_form(urlForm + '/product/create/save', 'form_product', 'getlistproduct();');
@@ -45,6 +45,7 @@ function getlistproduct() {
                     {name: 'brandId', type: 'string'},
                     {name: 'status', type: 'string'},
                     {name: 'categoryId', type: 'string'},
+                    {name: 'property', type: 'string'},
                     {name: 'image', type: 'string'},
                     {name: 'shopId', type: 'string'},
                     {name: 'description', type: 'string'}
@@ -71,6 +72,7 @@ function getlistproduct() {
             {text: 'status', datafield: 'status', width: 70},
             {text: 'categoryId', datafield: 'categoryId', width: 70},
             {text: 'image', datafield: 'image', width: 200},
+            {text: 'property', datafield: 'property', width: 100, hidden: 'hidden'},
             {text: 'id', datafield: 'id', width: 100, hidden: 'hidden'},
             {text: 'description', datafield: 'description', width: 100, hidden: 'hidden'}
         ]
