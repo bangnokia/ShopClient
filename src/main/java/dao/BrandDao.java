@@ -7,6 +7,8 @@ package dao;
 
 import entity.Brand;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Query;

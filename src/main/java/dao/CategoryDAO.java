@@ -6,8 +6,14 @@
 package dao;
 
 import entity.Category;
+import entity.CategoryProperty;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import model.HibernateUtil;
+import model.MySQLConnUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -113,18 +119,25 @@ public class CategoryDAO {
         }
     }
 
-    public boolean deleteCat(Integer id) {
+    public boolean deleteCat(Integer id) throws SQLException {
+        Connection connection = null;
+
         try {
-            session.getCurrentSession().beginTransaction();
+            connection = MySQLConnUtils.getMySQLConnection();
 
-            Category cat = new Category();
+            Statement statement = connection.createStatement();
+            String sql = "delete from categoryproperty where catId=" + id;
+            statement.execute(sql);
 
-            cat.setId(id);
-            session.getCurrentSession().delete(cat);
-            session.getCurrentSession().getTransaction().commit();
+            Statement statement1 = connection.createStatement();
+            String sql1 = "delete from category where id=" + id;
+            statement1.execute(sql1);
+
+            connection.close();
             return true;
         } catch (Exception e) {
-            session.getCurrentSession().getTransaction().rollback();
+            connection.rollback();
+            connection.close();
             return false;
         }
     }

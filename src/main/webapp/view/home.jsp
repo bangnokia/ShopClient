@@ -17,16 +17,16 @@
                             <li style="height: 350px"><img alt="Funky roots" src="http://play.vidyard.com/YdK3eJpxUo8f3E3Dxf4bVV.jpg" title="Funky roots" /></li>
                             <li style="height: 350px"><img alt="Funky roots" src="http://tours.360wichita.com/185319/slideshow40292/dsc_8173.jpg" title="Funky roots" /></li>
                             <li style="height: 350px"><img alt="Funky roots" src="http://samsunggalaxys7.com.vn/wp-content/uploads/2016/07/Samsung-Galaxy-S7-water-resistance-DSC01927.jpg" title="Funky roots" /></li>
-                        
+
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="header-banner banner-opacity">
                     <a href="#"><img alt="Funky roots" src="http://s.tmocache.com/content/dam/tmo/en-p/cell-phones/samsung-galaxy-s7-edge/silver-titanium/stills/carousel-samsung-galaxy-s7-edge-silver-titanium-380x380-1.jpg" /></a>
-                     
+
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -34,14 +34,14 @@
 <!-- END Home slideder-->
 <!-- servives -->
 <div class="container">
-    <div class="service ">
+    <div class="service " style="margin-top: 0px">
         <div class="col-xs-6 col-sm-3 service-item">
             <div class="icon">
                 <img alt="services" src="${root}/assets/data/s1.png" />
             </div>
             <div class="info">
                 <a href="#"><h3>Free Shipping</h3></a>
-                <span>On order over $200</span>
+                <span>On order over 20.000 VND</span>
             </div>
         </div>
         <div class="col-xs-6 col-sm-3 service-item">
@@ -323,72 +323,30 @@
                     <h2 class="latest-deal-title">latest deals</h2>
                     <div class="latest-deal-content">
                         <ul class="product-list owl-carousel" data-dots="false" data-loop="true" data-nav = "true" data-autoplayTimeout="1000" data-autoplayHoverPause = "true" data-responsive='{"0":{"items":1},"600":{"items":3},"1000":{"items":1}}'>
-                            <li>
-                                <div class="count-down-time" data-countdown="2015/06/27"></div>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld1.jpg" /></a>
-                                    <div class="quick-view">
-                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                        <a title="Add to compare" class="compare" href="#"></a>
-                                        <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="Add to Cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                        <span class="price old-price">$52,00</span>
-                                        <span class="colreduce-percentage">(-10%)</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="count-down-time" data-countdown="2015/06/27 9:20:00"></div>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld2.jpg" /></a>
-                                    <div class="quick-view">
-                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                        <a title="Add to compare" class="compare" href="#"></a>
-                                        <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="Add to Cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                        <span class="price old-price">$52,00</span>
-                                        <span class="colreduce-percentage">(-90%)</span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="count-down-time" data-countdown="2015/06/27 9:20:00"></div>
-                                <div class="left-block">
-                                    <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld3.jpg" /></a>
-                                    <div class="quick-view">
-                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                        <a title="Add to compare" class="compare" href="#"></a>
-                                        <a title="Quick view" class="search" href="#"></a>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <a title="Add to Cart" href="#">Add to Cart</a>
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
-                                    <div class="content_price">
-                                        <span class="price product-price">$38,95</span>
-                                        <span class="price old-price">$52,00</span>
-                                        <span class="colreduce-percentage">(-20%)</span>
-                                    </div>
-                                </div>
-                            </li>
+                            <!--
+                             <li>
+                                 <div class="count-down-time" data-countdown="2015/06/27"></div>
+                                 <div class="left-block">
+                                     <a href="#"><img class="img-responsive" alt="product" src="${root}/assets/data/ld1.jpg" /></a>
+                                     <div class="quick-view">
+                                         <a title="Add to my wishlist" class="heart" href="#"></a>
+                                         <a title="Add to compare" class="compare" href="#"></a>
+                                         <a title="Quick view" class="search" href="#"></a>
+                                     </div>
+                                     <div class="add-to-cart">
+                                         <a title="Add to Cart" href="#">Add to Cart</a>
+                                     </div>
+                                 </div>
+                                 <div class="right-block">
+                                     <h5 class="product-name"><a href="#">Maecenas consequat mauris</a></h5>
+                                     <div class="content_price">
+                                         <span class="price product-price">$38,95</span>
+                                         <span class="price old-price">$52,00</span>
+                                         <span class="colreduce-percentage">(-10%)</span>
+                                     </div>
+                                 </div>
+                             </li>
+                            -->
                         </ul>
                     </div>
                 </div>
@@ -397,7 +355,7 @@
     </div>
 </div>
 <!---->
-<div class="content-page">
+<div class="content-page" style='margin-top: 0px;'>
     <div id="containerHome" class="container">
         <!-- featured category fashion -->
         <div class="category-featured">

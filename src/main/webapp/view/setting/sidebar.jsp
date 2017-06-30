@@ -15,10 +15,12 @@
                         </li>
                         <li><span style="float: left;"></span>
                             <form action="${root}/product/shop" method="post">
-                                <button type="submit" id="ShopManagerBtn" name="abbbbb" value="<%=currentUser.getId()%>">Shop manager</button>
+                                <button type="submit" id="ShopManagerBtn" name="abbbbb" value="">Shop manager</button>
                             </form>
                         </li>
-                        <li><span style="float: left;"></span><a href="${root}/product/create">Manage Product</a></li>                     
+                        <li class="btnShopOrder"><span style="float: left;"></span><a href="${root}/shoporder">Shop Order</a></li> 
+                        <li class="btnManageProduct"><span style="float: left;"></span><a href="${root}/product/create">Manage Product</a></li>    
+                        <li><span style="float: left;"></span><a href="${root}/myorder">My Order</a></li> 
                     </ul>
                 </div>
             </div>

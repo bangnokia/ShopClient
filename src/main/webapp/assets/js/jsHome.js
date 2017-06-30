@@ -2,7 +2,7 @@ function jshome() {
     $('#SearchItem').bind('click', function () {
         loadingForm(true);
         setTimeout(function () {
-            var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val() + '&shopId=&status=1';
+            var url = urlForm + '/product/create/getlist?1=1&outofstock=1&Text=' + $('#keywordSearch').val() + '&Price=&category=' + $('#categorySearch').val() + '&shopId=&status=1';
             var datajson = getDataJson(url);
             loadingForm(false);
             if (datajson == null)
@@ -38,7 +38,7 @@ function bindingItemBest(parentId, data) {
                 '<a title="Quick view" class="search" href="#"></a>' +
                 '</div>' +
                 '<div class="add-to-cart">' +
-                '<a title="Add to Cart" href="#">Add to Cart</a>' +
+                '<a title="Add to Cart" style="cursor: pointer;" onclick="addCartProduct(this);" accesskey="' + item.id + '">Add to Cart</a>' +
                 '</div>' +
                 '<div class="group-price">' +
                 // '<span class="product-new">NEW</span>' +
@@ -100,7 +100,7 @@ function addCategoryProduct(data) {
                             '<a title="Quick view" class="search" href="#"></a>' +
                             '</div>' +
                             '<div class="add-to-cart">' +
-                            '<a title="Add to Cart" href="#">Add to Cart</a>' +
+                            '<a title="Add to Cart" style="cursor: pointer;" onclick="addCartProduct(this);" accesskey="' + item.id + '">Add to Cart</a>' +
                             '</div>' +
                             '<div class="group-price">' +
                             //  '<span class="product-new">NEW</span>' +
@@ -120,6 +120,14 @@ function addCategoryProduct(data) {
                 }
             });
             StringProduct += '</ul>'
+
+            var childString = '';
+            $.each(datajson, function (index) {
+                var item12 = datajson[index];
+                if (item12.parentId == item.id)
+                    childString += '<li><a href="#">' + item12.name + '</a></li>';
+            });
+
             if (status) {
                 String += '<div class="category-featured">' +
                         '<nav class="navbar nav-menu nav-menu-red show-brand">' +
@@ -131,10 +139,7 @@ function addCategoryProduct(data) {
                         '<div class="collapse navbar-collapse">' +
                         '<ul class="nav navbar-nav">' +
                         '<li class="active"><a data-toggle="tab" href="#tab-4">Best Seller</a></li>' +
-                        '<li><a href="#">Women</a></li>' +
-                        '<li><a href="#">Men</a></li>' +
-                        '<li><a href="#">Kids</a></li>' +
-                        '<li><a href="#">Accessories</a></li>' +
+                        childString +
                         '</ul>' +
                         '</div><!-- /.navbar-collapse -->' +
                         '</div><!-- /.container-fluid -->' +
@@ -151,7 +156,7 @@ function addCategoryProduct(data) {
 //                    '<a href="#"><img alt="ads2" class="img-responsive" src="' + urlForm + '/assets/data/ads7.jpg" /></a>' +
 //                    '</div>' +
 //                    '</div>' +
-                        '<div class="product-featured clearfix">' +
+                        '<div class="product-featured clearfix" style="margin-top: 0px;">' +
                         '<div class="banner-featured">' +
                         '<div class="featured-text"><span>featured</span></div>' +
                         '<div class="banner-img">' +

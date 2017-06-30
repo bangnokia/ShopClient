@@ -1,6 +1,6 @@
 var timeout = 500;
 
-function getDataJson(p_url) {
+function getDataJson(p_url, showmess) {
     var dataJson = '';
     var source = {
         datatype: "json",
@@ -13,10 +13,14 @@ function getDataJson(p_url) {
                 dataJson = eval(data.map.result);
             } else {
                 dataJson = null;
-                if (message != 'success_fail') {
-                    showNotification('error', message);
+                if (!showmess) {
+
                 } else {
-                    showNotification('error', 'Fail get data!');
+                    if (message != 'success_fail') {
+                        showNotification('error', message);
+                    } else {
+                        showNotification('error', 'Fail get data!');
+                    }
                 }
             }
         }
@@ -130,7 +134,7 @@ function do_save_form(p_url, p_formName, p_function_run) {
         }
 
         if (this.id.indexOf(p_formName + '_') != -1)
-            dataSent += '&' + input.attr('name') + '=' + input.val();
+            dataSent += '&' + input.attr('name') + '=' + input.val().replace(/&/g, '');
     });
 
     if (!checkform) {
@@ -170,7 +174,7 @@ function do_save_form(p_url, p_formName, p_function_run) {
     return loi;
 }
 
-function do_delete_form(p_url, p_function_run) {
+function do_delete_form(p_url, p_function_run, p_function_runfail) {
     var dataSent = '1=1';
     var loi = false;
 
@@ -192,7 +196,11 @@ function do_delete_form(p_url, p_function_run) {
                 showNotification('success', 'Delete success');
             } else {
                 dataJson = null;
-                showNotification('error', 'Fail to delete!');
+                if (message == 'success_fail')
+                    showNotification('error', 'Fail to delete!');
+                else
+                    showNotification('error', message);
+                eval(p_function_runfail);
                 loi = false;
             }
         },
@@ -255,7 +263,7 @@ function showNotification(template, message) {
         opacity: 0.9,
         autoOpen: true,
         autoClose: true,
-        autoCloseDelay: 500,
+        autoCloseDelay: 800,
         template: template
     });
 }

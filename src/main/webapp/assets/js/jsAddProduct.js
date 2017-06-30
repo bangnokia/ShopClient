@@ -1,8 +1,12 @@
 /* global urlForm */
 var property;
 var shopIdproduct;
+var categoryData;
+var brandData;
 function addproduct() {
+    var url = urlForm + '/admin/brand/getlist?1=1';
 
+    brandData = getDataJson(url);
     var url = urlForm + '/product/shop/getlist?1=1&userId=' + $('#dsaccsacsagsagsdwefe').val();
     var datajsonShop = getDataJson(url);
 
@@ -56,7 +60,7 @@ function addproduct() {
         });
         $('#frm_addproduct_property').val(JSON.stringify(propObj));
 
-        do_save_form(urlForm + '/product/create/save', 'frm_addproduct', 'getlistProduct();$("#clearForm").click();');
+        do_save_form(urlForm + '/product/create/save', 'frm_addproduct', 'doSuccess();');
     });
 
     $('#clearForm').bind('click', function () {
@@ -76,7 +80,7 @@ function addproduct() {
             alert('select product to delete');
             return;
         }
-        do_delete_form(urlForm + '/product/create/delete?id=' + $('#frm_addproduct_id').val(), 'getlistProduct();$("#clearForm").click();');
+        do_delete_form(urlForm + '/product/create/delete?id=' + $('#frm_addproduct_id').val(), 'doSuccess();');
     });
 
     var url = urlForm + '/admin/brand/getlist?1=1';
@@ -87,14 +91,24 @@ function addproduct() {
     getlistProduct();
 }
 
+function doSuccess() {
+    getlistProduct();
+    $("#clearForm").click();
+    var index = $('#gridProduct').jqxGrid('getrowboundindex', 1);
+    $('#gridProduct').jqxGrid('unselectrow', index);
+    $('.img-preview img').attr('src', '');
+}
+
 function getCatProp(idcat) {
     var url = urlForm + '/category/getCatProp?1=1&idcat=' + idcat;
     var datajsonShop = getDataJson(url);
     $('#prop-list').html('');
     var html = '';
     $.each(datajsonShop, function (index, item) {
-        html += '<label>' + item.name + '</label>';
-        html += '<input data-name="' + item.name + '" type="text" name="prop_' + item.id + '" class="form-control prod-prop"  />';
+        if (item.status != '2') {
+            html += '<label>' + item.name + '</label>';
+            html += '<input data-name="' + item.name + '" type="text" name="prop_' + item.id + '" class="form-control prod-prop"  />';
+        }
     });
     $('#prop-list').append(html); //apend new value
 
@@ -116,7 +130,7 @@ function getCatProp(idcat) {
 }
 
 function getTreeCate() {
-    $("#dropDownButton").jqxDropDownButton({width: 200, height: 25, theme: 'bootstrap'});
+    $("#dropDownButton").jqxDropDownButton({width: 230, height: 20, theme: 'bootstrap'});
     $('#jqxTreeCategory').on('select', function (event) {
         var args = event.args;
         var item = $('#jqxTreeCategory').jqxTree('getItem', args.element);
@@ -129,15 +143,15 @@ function getTreeCate() {
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';
 
-    var datajson = getDataJson(url);
+    categoryData = getDataJson(url);
 
-    if (datajson == null)
+    if (categoryData == null)
         return;
 
     var arr = new Array();
-    if (datajson != null) {
-        $.each(datajson, function (index) {
-            var item = datajson[index];
+    if (categoryData != null) {
+        $.each(categoryData, function (index) {
+            var item = categoryData[index];
             var object = new Object();
             object.id = item.id;
             object.parentId = item.parentId;
@@ -168,11 +182,48 @@ function getTreeCate() {
 }
 
 function getlistProduct() {
-    var url = urlForm + '/product/create/getlist?1=1&Text=' + $('#searchvalue').val() + '&Price=&category=&status=&shopId=' + shopIdproduct;
+    var url = urlForm + '/product/create/getlist?1=1&outofstock=2&Text=' + $('#searchvalue').val() + '&Price=&category=&status=&shopId=' + shopIdproduct;
     var datajson = getDataJson(url);
 
     if (datajson == null)
         return;
+
+    var array = new Array();
+    $.each(datajson, function (index) {
+        var item = datajson[index];
+
+        $.each(categoryData, function (index1) {
+            var item1 = categoryData[index1];
+            if (item.categoryId == item1.id) {
+                item.cateName = item1.name;
+            }
+        });
+
+        $.each(brandData, function (index2) {
+            var item2 = brandData[index2];
+            if (item.brandId == item2.id) {
+                item.brandName = item2.name;
+            }
+        });
+
+        if (item.status == '1') {
+            item.statusName = 'Approved';
+        } else {
+            item.statusName = 'Pending';
+        }
+
+        if (item.outOfStock) {
+            item.outOfStock = '0';
+            item.outOfStockName = 'YES';
+        } else {
+            item.outOfStock = '1';
+            item.outOfStockName = 'NO';
+        }
+
+        array.push(item);
+    });
+
+    datajson = JSON.parse(JSON.stringify(array));
 
     var source =
             {
@@ -184,8 +235,13 @@ function getlistProduct() {
                     {name: 'price', type: 'string'},
                     {name: 'createdAt', type: 'string'},
                     {name: 'brandId', type: 'string'},
+                    {name: 'brandName', type: 'string'},
                     {name: 'status', type: 'string'},
+                    {name: 'statusName', type: 'string'},
+                    {name: 'outOfStock', type: 'string'},
+                    {name: 'outOfStockName', type: 'string'},
                     {name: 'categoryId', type: 'string'},
+                    {name: 'cateName', type: 'string'},
                     {name: 'image', type: 'string'},
                     {name: 'shopId', type: 'string'},
                     {name: 'property', type: 'string'},
@@ -201,21 +257,29 @@ function getlistProduct() {
         autoheight: true,
         sortable: true,
         altrows: true,
+        showfilterrow: true,
+        theme: 'bootstrap',
+        filterable: true,
         enabletooltips: true,
         // editable: true,
         selectionmode: 'singlerow',
         columns: [
             {text: 'shopId', datafield: 'shopId', width: 70, hidden: 'hidden'},
-            {text: 'name', datafield: 'name', width: 150},
-            {text: 'price', filtertype: 'number', datafield: 'price', width: 100},
-            {text: 'createdAt', filtertype: 'date', datafield: 'createdAt', width: 150},
-            {text: 'brandId', datafield: 'brandId', width: 70},
-            {text: 'status', datafield: 'status', width: 70},
-            {text: 'categoryId', datafield: 'categoryId', width: 70},
-            {text: 'image', datafield: 'image', width: 200},
+            {text: 'Name', datafield: 'name', width: 220},
+            {text: 'Price', filtertype: 'number', datafield: 'price', width: 100},
+            {text: 'Date Create', filtertype: 'date', datafield: 'createdAt', width: 170},
+            {text: 'Brand', datafield: 'brandId', width: 70, hidden: 'hidden'},
+            {text: 'Brand', datafield: 'brandName', width: 70},
+            {text: 'Out of stock', datafield: 'outOfStock', width: 70, hidden: 'hidden'},
+            {text: 'Out of stock', datafield: 'outOfStockName', width: 70},
+            {text: 'Status', datafield: 'status', width: 120, hidden: 'hidden'},
+            {text: 'Status', datafield: 'statusName', width: 80},
+            {text: 'Category', datafield: 'categoryId', width: 70, hidden: 'hidden'},
+            {text: 'Category', datafield: 'cateName', width: 80},
+            {text: 'Image', datafield: 'image', width: 125, hidden: 'hidden'},
             {text: 'id', datafield: 'id', width: 100, hidden: 'hidden'},
-            {text: 'property', datafield: 'property', width: 100, hidden: 'hidden'},
-            {text: 'description', datafield: 'description', width: 100, hidden: 'hidden'}
+            {text: 'Property', datafield: 'property', width: 100, hidden: 'hidden'},
+            {text: 'Description', datafield: 'description', width: 100, hidden: 'hidden'}
         ]
     });
 
@@ -229,6 +293,8 @@ function getlistProduct() {
         bindItemDetailGrid(rowData, 'frm_addproduct');
         $('#frm_addproduct_shopId').val(shopIdproduct);
         getCatProp(rowData.categoryId);
+
+        $('#dropDownButton').jqxDropDownButton('setContent', rowData.cateName);
 
         if (rowData.property != null && rowData.property != '') {
             property = JSON.parse(rowData.property);

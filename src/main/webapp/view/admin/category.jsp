@@ -17,7 +17,7 @@
         <div class="modal-body"> Widget settings form goes here </div>
     </div>
     <div class="clearfix"></div>
-    <div class="content sm-gutter">
+    <div class="content sm-gutter" style="padding-top: 20px;">
         <div class="page-title">
             ADD category 
         </div>
@@ -30,8 +30,7 @@
         <div class="col-md-6">
             <div class="grid simple" style="">
                 <div class="grid-title no-border">
-                    <h4>Icon <span class="semi-bold">Validation</span></h4>
-                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                    <h4>Manage <span class="semi-bold">Category</span></h4>
                 </div>
                 <div class="grid-body no-border"> <br>
                     <form id="form_category" action="${adminRoot}/admin/category/save" method="post" name="" novalidate="novalidate">

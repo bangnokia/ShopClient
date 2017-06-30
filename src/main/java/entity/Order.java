@@ -1,5 +1,5 @@
 package entity;
-// Generated Nov 5, 2016 3:03:54 PM by Hibernate Tools 4.3.1
+// Generated Jun 14, 2017 2:13:46 PM by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -15,15 +15,25 @@ public class Order  implements java.io.Serializable {
      private Date createdAt;
      private Date updatedAt;
      private String status;
+     private String address;
+     private String name;
+     private String phone;
+     private String email;
+     private String type;
 
     public Order() {
     }
 
-    public Order(Integer userId, Date createdAt, Date updatedAt, String status) {
+    public Order(Integer userId, Date createdAt, Date updatedAt, String status, String address, String name, String phone, String email, String type) {
        this.userId = userId;
        this.createdAt = createdAt;
        this.updatedAt = updatedAt;
        this.status = status;
+       this.address = address;
+       this.name = name;
+       this.phone = phone;
+       this.email = email;
+       this.type = type;
     }
    
     public Integer getId() {
@@ -60,6 +70,41 @@ public class Order  implements java.io.Serializable {
     
     public void setStatus(String status) {
         this.status = status;
+    }
+    public String getAddress() {
+        return this.address;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public String getName() {
+        return this.name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getPhone() {
+        return this.phone;
+    }
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getType() {
+        return this.type;
+    }
+    
+    public void setType(String type) {
+        this.type = type;
     }
 
 

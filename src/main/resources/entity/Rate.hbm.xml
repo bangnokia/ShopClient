@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 5, 2016 3:03:56 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 14, 2017 2:13:48 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="entity.Rate" table="rate" catalog="hnashop">
+    <class name="entity.Rate" table="rate" catalog="hnashop" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
             <column name="id" />
-            <generator class="identity"></generator>
+            <generator class="identity" />
         </id>
         <property name="productId" type="java.lang.Integer">
-            <column name="productId" />
+            <column name="ProductId" />
         </property>
         <property name="rate" type="java.lang.Integer">
-            <column name="rate" />
+            <column name="Rate" />
         </property>
         <property name="content" type="string">
             <column name="content" length="65535" />

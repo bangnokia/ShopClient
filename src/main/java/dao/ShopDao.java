@@ -6,10 +6,16 @@
 package dao;
 
 import entity.Shop;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 import model.HibernateUtil;
+import model.MySQLConnUtils;
 import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
@@ -43,8 +49,34 @@ public class ShopDao {
             return false;
         }
     }
+    
+     public boolean checkShopLock(int idTemp) throws ClassNotFoundException {
+        try {
+            Connection connection = MySQLConnUtils.getMySQLConnection();
 
-    public boolean checkShopEmail(Integer id,String email) {
+            Statement statement = connection.createStatement();
+            String sql = "";
+
+            sql = "select * FROM shop where status = 0 and id=" + idTemp;
+
+            ResultSet rs = statement.executeQuery(sql);
+
+            int count = 0;
+            while (rs.next()) {
+                ++count;
+            }
+
+            if (count != 0) {
+                return false;
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+
+    public boolean checkShopEmail(Integer id, String email) {
         try {
             session.getCurrentSession().beginTransaction();
 
@@ -88,6 +120,14 @@ public class ShopDao {
             }
 
             session.getCurrentSession().getTransaction().commit();
+
+            if (id != 0 && status.equals("2")) {
+                Connection connection = MySQLConnUtils.getMySQLConnection();
+                Statement statement = connection.createStatement();
+                String sql1 = "update product set status = 0 where shopid=" + id;
+                statement.execute(sql1);
+            }
+
             return true;
         } catch (Exception e) {
             session.getCurrentSession().getTransaction().rollback();
@@ -101,6 +141,20 @@ public class ShopDao {
 
             Criteria cr = session.getCurrentSession().createCriteria(Shop.class);
             cr.add(Restrictions.eq("userId", id));
+            List results = cr.list();
+            session.getCurrentSession().getTransaction().commit();
+            return results;
+        } catch (Exception e) {
+            session.getCurrentSession().getTransaction().rollback();
+            return null;
+        }
+    }
+    
+    public List<Shop> getAll() {
+        try {
+            session.getCurrentSession().beginTransaction();
+
+            Criteria cr = session.getCurrentSession().createCriteria(Shop.class);
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();
             return results;

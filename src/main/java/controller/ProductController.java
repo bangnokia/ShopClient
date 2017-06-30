@@ -7,12 +7,19 @@ package controller;
 
 import com.google.gson.Gson;
 import dao.ProductDao;
+import dao.ShopDao;
 import entity.Product;
 import entity.Rate;
 import entity.User;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import model.MySQLConnUtils;
 import org.json.JSONObject;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,10 +34,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ProductController {
 
+    HttpHeaders responseHeaders = new HttpHeaders();
+    private ShopDao ShopDao = new ShopDao();
     private ProductDao ProductDao = new ProductDao();
-    HttpSession session;
 
-    public String index(ModelMap mm) {
+    public String index(ModelMap mm, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+
+        if (session.getAttribute("user") == null) {
+            return "setting/product_add";
+        }
+
         mm.addAttribute("title", "Add product");
         return "setting/product_add";
     }
@@ -39,6 +53,7 @@ public class ProductController {
             @RequestParam("Price") String Price,
             @RequestParam("category") String category,
             @RequestParam("shopId") String shopId,
+            @RequestParam("outofstock") String outofstock,
             @RequestParam("status") String status) {
         JSONObject jsonOB = new JSONObject();
 
@@ -55,7 +70,7 @@ public class ProductController {
         }
         try {
 
-            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopIdTemp, status);
+            List<Product> brandlist = ProductDao.getlist(Text, Price, idTemp, shopIdTemp, status, outofstock);
 
             String json = new Gson().toJson(brandlist);
             if (json != null) {
@@ -69,7 +84,8 @@ public class ProductController {
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> getlistRate(@RequestParam("id") String id) {
@@ -96,10 +112,11 @@ public class ProductController {
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> insertProduct(
+    public ResponseEntity<String> insertProduct(HttpServletRequest req,
             @RequestParam("id") String id,
             @RequestParam("name") String name,
             @RequestParam("price") String price,
@@ -115,8 +132,11 @@ public class ProductController {
             @RequestParam("property") String property,
             ModelMap cate) {
 
+        HttpSession SESSION = req.getSession();
+
         JSONObject jsonOB = new JSONObject();
 
+        int idShopTemp = 0;
         int idTemp = 0;
         int brandIdTemp = 0;
         int shopIdTemp = 0;
@@ -143,28 +163,45 @@ public class ProductController {
             priceTemp = Float.parseFloat(price);
         } catch (Exception e) {
         }
-
         try {
-            if (ProductDao.insert(idTemp, name, priceTemp, shopIdTemp, quantity, categoryIdTemp,
-                    brandIdTemp, outOfStock, description, image, status, property)) {
-                jsonOB.put("message", "success_ok");
-            } else {
+            idShopTemp = Integer.parseInt(shopId);
+        } catch (Exception e) {
+        }
+
+        if (SESSION.getAttribute("user") == null) {
+            jsonOB.put("message", "Out of session!");
+        } else {
+
+            try {
+                User user = (User) SESSION.getAttribute("user");
+
+                if (!ShopDao.checkShopLock(idShopTemp) && user.getUserGroup() != 0) {
+                    jsonOB.put("message", "Shop locked!");
+                } else if (ProductDao.insert(idTemp, name, priceTemp, idShopTemp, quantity, categoryIdTemp,
+                        brandIdTemp, outOfStock, description, image, status, property)) {
+                    jsonOB.put("message", "success_ok");
+                } else {
+                    jsonOB.put("message", "success_fail");
+                }
+
+            } catch (Exception e) {
                 jsonOB.put("message", "success_fail");
             }
-        } catch (Exception e) {
-            jsonOB.put("message", "success_fail");
         }
 
         String json = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> rating(
+    public ResponseEntity<String> rating(HttpServletRequest req,
             @RequestParam("id") String id,
             @RequestParam("userId") String userId,
             @RequestParam("rate") String rate,
             @RequestParam("content") String content,
             ModelMap cate) {
+
+        HttpSession SESSION = req.getSession();
 
         JSONObject jsonOB = new JSONObject();
 
@@ -185,22 +222,29 @@ public class ProductController {
         } catch (Exception e) {
         }
 
-        try {
-            if (ProductDao.rating(idTemp, userIdTemp, rateTemp, content)) {
-                jsonOB.put("message", "success_ok");
-            } else {
-                jsonOB.put("message", "Ban da rate product nay roi!");
+        if (SESSION.getAttribute("user") == null) {
+            jsonOB.put("message", "Out of session!");
+        } else {
+            try {
+                if (ProductDao.rating(idTemp, userIdTemp, rateTemp, content)) {
+                    jsonOB.put("message", "success_ok");
+                } else {
+                    jsonOB.put("message", "Ban da rate product nay roi!");
+                }
+            } catch (Exception e) {
+                jsonOB.put("message", "success_fail");
             }
-        } catch (Exception e) {
-            jsonOB.put("message", "success_fail");
         }
 
         String json = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> delete(
+    public ResponseEntity<String> delete(HttpServletRequest req,
             @RequestParam("id") String id) {
+
+        HttpSession SESSION = req.getSession();
 
         JSONObject jsonOB = new JSONObject();
 
@@ -212,18 +256,40 @@ public class ProductController {
 
         }
 
-        try {
-            if (ProductDao.delete(idTemp)) {
-                jsonOB.put("message", "success_ok");
-            } else {
+        if (SESSION.getAttribute("user") == null) {
+            jsonOB.put("message", "Out of session!");
+        } else {
+            try {
+                Connection connection = MySQLConnUtils.getMySQLConnection();
+
+                Statement statement = connection.createStatement();
+                String sql = "";
+
+                sql = "select * FROM orderdetail where productId=" + idTemp;
+
+                ResultSet rs = statement.executeQuery(sql);
+
+                int count = 0;
+                while (rs.next()) {
+                    ++count;
+                }
+
+                if (count != 0) {
+                    jsonOB.put("message", "Product already in the order!");
+                } else if (ProductDao.delete(idTemp)) {
+                    jsonOB.put("message", "success_ok");
+                } else {
+                    jsonOB.put("message", "success_fail");
+                }
+
+            } catch (Exception e) {
                 jsonOB.put("message", "success_fail");
             }
-        } catch (Exception e) {
-            jsonOB.put("message", "success_fail");
         }
 
         String json = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
     }
 
     public String detail(@PathVariable("id") String id, ModelMap mm) {
@@ -257,7 +323,8 @@ public class ProductController {
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> getitemdetail(@RequestParam("id") String ID) {
@@ -285,6 +352,7 @@ public class ProductController {
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 }

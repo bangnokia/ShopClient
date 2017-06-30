@@ -6,7 +6,7 @@ var jsonProduct;
 function CategoryHome() {
     var categoryId = $('#idCategoryDetail').val();
 
-    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=&shopId=&status=1';
+    var url = urlForm + '/product/create/getlist?1=1&outofstock=1&Text=&Price=&category=&shopId=&status=1';
     jsonProduct = getDataJson(url);
 
     var url = urlForm + '/admin/category/getlistCAT?1=1';

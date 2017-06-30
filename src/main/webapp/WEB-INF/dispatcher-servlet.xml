@@ -14,7 +14,7 @@
     </bean>
     
     <mvc:resources mapping="/assets/**" location="/assets/" />
-
+    
     <bean id="handlerMapping"
           class="org.resthub.web.springmvc.router.RouterHandlerMapping">
             <property name="routeFiles">

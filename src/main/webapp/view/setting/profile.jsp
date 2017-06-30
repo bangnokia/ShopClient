@@ -27,22 +27,24 @@
                 <!-- Content page -->
                 <div class="content-text clearfix">
                     <div class="box-authentication">                                           
-                        <form action="${root}/setting/profile" method="post" name="profile_setting">
+                        <form action="${root}/setting/profile/save" method="post" name="profile_setting">
+                            <input type="hidden" name="username" value="${user.getUsername()}" >
+                            <p class="text-danger">${registerNotice}</p>
                             <label for="fullname_register">Full name</label>
                             <input value="${user.getName()}" id="fullname_register" type="text" class="form-control" required name="name">    
 
                             <label for="emmail_register">Email address</label>
                             <input value="${user.getEmail()}" id="emmail_register" type="text" class="form-control" type="email" required name="email">
-                            
+
                             <label for="address_register">Address</label>
                             <input value="${user.getAddress()}" id="address_resgister" type="text" class="form-control" required name="address">
-                            
+
                             <label for="address_register">Phone</label>
                             <input value="${user.getPhone()}" id="address_resgister" type="text" class="form-control" required name="phone">
-                            
+
                             <label for="old_password">Old password</label>
                             <input type="password" class="form-control" name="oldPassword" />
-                            
+
                             <label for="new_password">New password</label>                            
                             <input type="password" class="form-control" name="newPassword" id="new_password" />
                             <div class="text-info">Enter both old and new password to change password</div>

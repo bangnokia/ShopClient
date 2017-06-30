@@ -8,13 +8,18 @@ package dao;
 import entity.Product;
 import entity.Rate;
 import entity.User;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 import model.HibernateUtil;
+import model.MySQLConnUtils;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -41,7 +46,11 @@ public class ProductDao {
             Product.setQuantity(id);
             Product.setCreatedAt(new Date());
             Product.setCategoryId(categoryId);
-            // Product.setOutOfStock(outOfStock);
+            if (outOfStock.equals("1")) {
+                Product.setOutOfStock(false);
+            } else {
+                Product.setOutOfStock(true);
+            }
             Product.setDescription(description);
             Product.setImage(image);
             Product.setBrandId(BrandId);
@@ -108,7 +117,7 @@ public class ProductDao {
         }
     }
 
-    public List<Product> getlist(String text, String price, Integer category, Integer shopId, String status) {
+    public List<Product> getlist(String text, String price, Integer category, Integer shopId, String status, String outofstock) {
         try {
             session.getCurrentSession().beginTransaction();
 
@@ -124,6 +133,14 @@ public class ProductDao {
             if (status != null && status != "") {
                 cr.add(Restrictions.eq("status", status));
             }
+
+            if (outofstock.equals("1")) {
+                cr.add(Restrictions.eq("outOfStock", false));
+            } else if (outofstock.equals("0")) {
+                cr.add(Restrictions.eq("outOfStock", true));
+            }
+
+            cr.addOrder(Order.desc("id"));
 
             List results = cr.list();
             session.getCurrentSession().getTransaction().commit();

@@ -12,12 +12,12 @@ function brand() {
     $('#deleteFORM').bind('click', function () {
         if (!confirm('Are you sure?'))
             return;
-        
+
         if ($('#form_brand_idCat').val() == '') {
             alert('select brand to delete');
             return;
         }
-        
+
         do_delete_form(urlForm + '/admin/brand/delete?id=' + $('#form_brand_id').val(), 'getlistbrand();$("#clearForm").click();');
     });
 
@@ -45,6 +45,21 @@ function getlistbrand() {
     if (datajson == null)
         return;
 
+    var array = new Array();
+    $.each(datajson, function (index) {
+        var item = datajson[index];
+
+        if (item.status == '1') {
+            item.statusName = 'Show';
+        } else {
+            item.statusName = 'Hide';
+        }
+
+        array.push(item);
+    });
+
+    datajson = JSON.parse(JSON.stringify(array));
+
     var source =
             {
                 localdata: datajson,
@@ -52,25 +67,30 @@ function getlistbrand() {
                 datafields: [
                     {name: 'id', type: 'string'},
                     {name: 'name', type: 'string'},
+                    {name: 'statusName', type: 'string'},
                     {name: 'status', type: 'string'}
                 ],
                 id: 'id'
             };
     var dataAdapter = new $.jqx.dataAdapter(source);
     $("#gridBrand").jqxGrid({
-        width: 400,
+        width: 320,
         source: dataAdapter,
         pageable: true,
         autoheight: true,
         sortable: true,
         altrows: true,
+        showfilterrow: true,
+        theme: 'bootstrap',
+        filterable: true,
         enabletooltips: true,
         // editable: true,
         selectionmode: 'singlerow',
         columns: [
-            {text: 'id brand', datafield: 'id', width: 100},
-            {text: 'name', datafield: 'name', width: 200},
-            {text: 'status', datafield: 'status', width: 100}
+            {text: 'id brand', datafield: 'id', width: 100, hidden: 'hidden'},
+            {text: 'Name', datafield: 'name', width: 200},
+            {text: 'Status', datafield: 'statusName', width: 100},
+            {text: 'status', datafield: 'status', width: 100, hidden: 'hidden'}
         ]
     });
 

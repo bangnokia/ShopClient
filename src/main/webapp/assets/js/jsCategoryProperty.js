@@ -40,9 +40,9 @@ function bindingItem(id) {
 function getlistcategoryproperty() {
     var url = urlForm + '/admin/category/getlistCAT?1=1';
 
-    var datajson = getDataJson(url);
+    var datajsonCate = getDataJson(url);
 
-    bindingcombo('form_categoryproperty_catId', '', datajson, 'id,name');
+    bindingcombo('form_categoryproperty_catId', '', datajsonCate, 'id,name');
 
     var url = urlForm + '/admin/categoryproperty/getlist?1=1';
 
@@ -51,6 +51,28 @@ function getlistcategoryproperty() {
     if (datajson == null)
         return;
 
+    var array = new Array();
+    $.each(datajson, function (index) {
+        var item = datajson[index];
+
+        if (item.status == '1') {
+            item.statusName = 'Show';
+        } else {
+            item.statusName = 'Hide';
+        }
+
+        $.each(datajsonCate, function (index2) {
+            var item2 = datajsonCate[index2];
+            if (item.catId == item2.id) {
+                item.catName = item2.name;
+            }
+        });
+
+        array.push(item);
+    });
+
+    datajson = JSON.parse(JSON.stringify(array));
+
     var source =
             {
                 localdata: datajson,
@@ -58,6 +80,8 @@ function getlistcategoryproperty() {
                 datafields: [
                     {name: 'id', type: 'string'},
                     {name: 'catId', type: 'string'},
+                    {name: 'catName', type: 'string'},
+                    {name: 'statusName', type: 'string'},
                     {name: 'name', type: 'string'},
                     {name: 'status', type: 'string'}
                 ],
@@ -65,20 +89,25 @@ function getlistcategoryproperty() {
             };
     var dataAdapter = new $.jqx.dataAdapter(source);
     $("#gridBrand").jqxGrid({
-        width: 500,
+        width: 420,
         source: dataAdapter,
         pageable: true,
         autoheight: true,
         sortable: true,
         altrows: true,
+          showfilterrow: true,
+        theme: 'bootstrap',
+        filterable: true,
         enabletooltips: true,
         // editable: true,
         selectionmode: 'singlerow',
         columns: [
-            {text: 'id property', datafield: 'id', width: 100},
-            {text: 'id category', datafield: 'catId', width: 100},
-            {text: 'name', datafield: 'name', width: 200},
-            {text: 'status', datafield: 'status', width: 100}
+            {text: 'id property', datafield: 'id', width: 100, hidden: 'hidden'},
+            {text: 'Category', datafield: 'catName', width: 100},
+            {text: 'id category', datafield: 'catId', width: 100, hidden: 'hidden'},
+            {text: 'Name', datafield: 'name', width: 200},
+            {text: 'status', datafield: 'statusName', width: 100},
+            {text: 'status', datafield: 'status', width: 100, hidden: 'hidden'}
         ]
     });
 

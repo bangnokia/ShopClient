@@ -10,9 +10,18 @@ import dao.ShopDao;
 import entity.Product;
 import entity.Shop;
 import entity.User;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import model.MySQLConnUtils;
 import org.json.JSONObject;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -27,23 +36,42 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ShopController {
 
+    HttpHeaders responseHeaders = new HttpHeaders();
+
     private ShopDao ShopDao = new ShopDao();
     private AuthController AuthController = new AuthController();
     // HttpSession session;
 
-    public String index(@ModelAttribute("abbbbb") String id, ModelMap mm) {
-        mm.addAttribute("title", "Add shop");
-        // int idTemp = 0;
+    public String index(@ModelAttribute("abbbbb") String id, ModelMap mm, HttpServletRequest req) {
+        HttpSession session = req.getSession();
+        if (session.getAttribute("user") == null) {
+            return "redirect:/";
+        }
 
-        // try {
-        //     idTemp = Integer.parseInt(id);
-        // } catch (Exception e) {
-        // }
-        // if (ShopDao.checkShop(idTemp)) {
         return "setting/shop";
-        //  } else {
-        //     return "setting/shopRegister";
-        // }
+    }
+
+    public ResponseEntity<String> getAll() {
+        JSONObject jsonOB = new JSONObject();
+        try {
+            String json;
+
+            List<Shop> shoplist = ShopDao.getAll();
+            json = new Gson().toJson(shoplist);
+
+            if (json != null) {
+                jsonOB.put("result", json);
+                jsonOB.put("message", "success_ok");
+            } else {
+                jsonOB.put("message", "success_fail");
+            }
+        } catch (Exception e) {
+            jsonOB.put("message", "success_fail");
+        }
+
+        String json1 = new Gson().toJson(jsonOB);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> getlist(@RequestParam("userId") String id) {
@@ -72,8 +100,10 @@ public class ShopController {
             jsonOB.put("message", "success_fail");
         }
 
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> getdetail(@RequestParam("shopId") String id) {
@@ -100,10 +130,11 @@ public class ShopController {
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 
-    public ResponseEntity<String> insertShop(
+    public ResponseEntity<String> insertShop(HttpServletRequest req,
             @RequestParam("id") String id,
             @RequestParam("userId") String userId,
             @RequestParam("name") String name,
@@ -113,6 +144,8 @@ public class ShopController {
             @RequestParam("facebook") String facebook,
             @RequestParam("status") String status,
             ModelMap cate) {
+
+        HttpSession SESSION = req.getSession();
 
         JSONObject jsonOB = new JSONObject();
 
@@ -127,12 +160,15 @@ public class ShopController {
         } catch (Exception e) {
         }
 
-        if (ShopDao.checkShopEmail(idTemp,email)) {
+        if (SESSION.getAttribute("user") == null) {
+            jsonOB.put("message", "Out of session!");
+        } else if (ShopDao.checkShopEmail(idTemp, email)) {
             jsonOB.put("message", "This email  has been used!");
         } else {
-
             try {
-                if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, facebook, status)) {
+                if (!ShopDao.checkShopLock(idTemp)) {
+                    jsonOB.put("message", "Shop locked!");
+                } else if (ShopDao.insert(idTemp, userIdTemp, name, address, phone, email, facebook, status)) {
                     jsonOB.put("message", "success_ok");
                 } else {
                     jsonOB.put("message", "success_fail");
@@ -143,7 +179,8 @@ public class ShopController {
         }
 
         String json = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
     }
 
     public ResponseEntity<String> delete(
@@ -170,6 +207,7 @@ public class ShopController {
         }
 
         String json = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json, responseHeaders, HttpStatus.CREATED);
     }
 }

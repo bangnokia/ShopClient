@@ -14,7 +14,7 @@ function productdetail() {
     Stringsadsa = ',' + datajson[0].categoryId + ',';
     findCategoryChild(catJson, ',' + datajson[0].categoryId + ',');
 
-    var url = urlForm + '/product/create/getlist?1=1&Text=&Price=&category=&shopId=&status=1';
+    var url = urlForm + '/product/create/getlist?1=1&outofstock=1&Text=&Price=&category=&shopId=&status=1';
     jsonProduct = getDataJson(url);
     jsonProduct = addRateDataProduct(jsonProduct);
 
@@ -84,7 +84,7 @@ function productdetail() {
             'Phone: ' + jsonShop[0].phone +
             '</br>Address: ' + jsonShop[0].address +
             '</br>Email: ' + jsonShop[0].email +
-            '</br><button id="btn-prod-buy-fb" class="btn btn-danger btn-block">Buy this<button> ' + 
+            '</br><button id="btn-prod-buy-fb" class="btn btn-info btn-block">Contact us<button> ' + 
             '</div>' +
             '<div class="form-option">' +
             '<p class="form-option-title">Available Options:</p>' +
@@ -129,18 +129,20 @@ function productdetail() {
             '</div>' +
             '</div>' +
             '</div>' +
-//            '<div class="form-action">' +
-//            '<div class="button-group">' +
-//            '<a class="btn-add-cart" href="#">Add to cart</a>' +
-//            '</div>' +
-//            '<div class="button-group">' +
-//            '<a class="wishlist" href="#"><i class="fa fa-heart-o"></i>' +
-//            '<br>Wishlist</a>' +
-//            '<a class="compare" href="#"><i class="fa fa-signal"></i>' +
-//            '<br>        ' +
-//            'Compare</a>' +
-//            '</div>' +
-//            '</div>' +
+
+            '<div class="form-action">' +
+            '<div class="button-group">' +
+            '<a class="btn-add-cart" style="cursor: pointer;" onclick="addCartProduct(this);" accesskey="'+datajson[0].id+'">Add to cart</a>' +
+            '</div>' +
+            '<div class="button-group">' +
+            '<a class="wishlist" href="#"><i class="fa fa-heart-o"></i>' +
+            '<br>Wishlist</a>' +
+            '<a class="compare" href="#"><i class="fa fa-signal"></i>' +
+            '<br>        ' +
+            'Compare</a>' +
+            '</div>' +
+            '</div>' +
+
             '<div class="form-share">' +
             '<div class="sendtofriend-print">' +
             '<a href="javascript:print();"><i class="fa fa-print"></i> Print</a>' +

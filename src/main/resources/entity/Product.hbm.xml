@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Nov 5, 2016 3:03:56 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Jun 14, 2017 2:13:48 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="entity.Product" table="product" catalog="hnashop" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -24,25 +24,25 @@
             <column name="createdAt" length="19" />
         </property>
         <property name="brandId" type="java.lang.Integer">
-            <column name="brandId" />
+            <column name="BrandId" />
         </property>
         <property name="status" type="string">
             <column name="status" length="10" />
         </property>
         <property name="categoryId" type="java.lang.Integer">
-            <column name="categoryId" />
+            <column name="CategoryId" />
         </property>
         <property name="outOfStock" type="java.lang.Boolean">
             <column name="outOfStock" />
         </property>
         <property name="description" type="string">
-            <column name="description" length="65535" />
+            <column name="description" length="16777215" />
         </property>
         <property name="image" type="string">
-            <column name="image" length="250" />
+            <column name="Image" length="250" />
         </property>
         <property name="property" type="string">
-            <column name="property" length="65535" />
+            <column name="property" length="16777215" />
         </property>
     </class>
 </hibernate-mapping>

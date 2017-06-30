@@ -29,7 +29,13 @@
             <li class="start "> <a href="${adminRoot}/admin/categoryproperty" > <i class="icon-custom-home"></i> <span class="title">Category Property</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
 
             </li>
+            <li class="start "> <a href="${adminRoot}/admin/user" > <i class="icon-custom-home"></i> <span class="title">Manager User / Shop</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
+
+            </li>
             <li class="start "> <a href="${adminRoot}/admin/productadmin" > <i class="icon-custom-home"></i> <span class="title">Manager Product</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
+
+            </li>
+            <li class="start "> <a href="${adminRoot}/admin/information" > <i class="icon-custom-home"></i> <span class="title">Informations</span> <span class="selected"></span> <span class="arrow open"></span> </a> 
 
             </li>
         </ul>
@@ -53,13 +59,5 @@
         <div class="clearfix"></div>
         <!-- END SIDEBAR MENU -->
     </div>
-</div>
-<div class="footer-widget">
-    <div class="progress transparent progress-small no-radius no-margin">
-        <div data-percentage="79%" class="progress-bar progress-bar-success animate-progress-bar" ></div>
-    </div>
-    <div class="pull-right">
-        <div class="details-status"> <span data-animation-duration="560" data-value="86" class="animate-number"></span>% </div>
-        <a href="lockscreen.html"><i class="fa fa-power-off"></i></a></div>
 </div>
 <!-- END SIDEBAR -->

@@ -10,7 +10,10 @@ import dao.CategoryPropertyDAO;
 import entity.Category;
 import entity.CategoryProperty;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.json.JSONObject;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,29 +28,40 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class CategoryController {
 
+    HttpHeaders responseHeaders = new HttpHeaders();
+
     // public @ResponseBody List<CategoryProperty> getCatProp(@PathVariable("id") int catId) {
     //   CategoryPropertyDAO cp = new CategoryPropertyDAO();
     //   List<CategoryProperty> list = cp.getByCatId(catId);
     //   return list;
     // }
-    public ResponseEntity<String> getCatProp(@RequestParam("idcat") int catId) {
-        JSONObject jsonOB = new JSONObject();
-        try {
-            CategoryPropertyDAO cp = new CategoryPropertyDAO();
-            List<CategoryProperty> catlist = cp.getByCatId(catId);
+    public ResponseEntity<String> getCatProp(HttpServletRequest req, @RequestParam("idcat") int catId) {
 
-            String json = new Gson().toJson(catlist);
-            if (json != null) {
-                jsonOB.put("result", json);
-                jsonOB.put("message", "success_ok");
-            } else {
+        HttpSession SESSION = req.getSession();
+
+        JSONObject jsonOB = new JSONObject();
+
+        if (SESSION.getAttribute("user") == null) {
+            jsonOB.put("message", "Out of session!");
+        } else {
+            try {
+                CategoryPropertyDAO cp = new CategoryPropertyDAO();
+                List<CategoryProperty> catlist = cp.getByCatId(catId);
+
+                String json = new Gson().toJson(catlist);
+                if (json != null) {
+                    jsonOB.put("result", json);
+                    jsonOB.put("message", "success_ok");
+                } else {
+                    jsonOB.put("message", "success_fail");
+                }
+            } catch (Exception e) {
                 jsonOB.put("message", "success_fail");
             }
-        } catch (Exception e) {
-            jsonOB.put("message", "success_fail");
         }
 
         String json1 = new Gson().toJson(jsonOB);
-        return new ResponseEntity<String>(json1, HttpStatus.CREATED);
+        responseHeaders.add("Content-Type", "text/html; charset=utf-8");
+        return new ResponseEntity<String>(json1, responseHeaders, HttpStatus.CREATED);
     }
 }

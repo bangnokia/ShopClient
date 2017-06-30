@@ -78,8 +78,12 @@
                             <c:set var="currentUser" value="${currentUser}" scope="session" />
                             <input type="hidden" id="dsaccsacsagsagsdwefe" value="<%=currentUser.getId()%>">
                             <input type="hidden" id="bgfsbafdsafdsafd" value="<%=currentUser.getUsername()%>">
+                            <input type="hidden" id="cdavassacsc" value="<%=currentUser.getAddress()%>">
+                            <input type="hidden" id="vsavsadadeadsa" value="<%=currentUser.getEmail()%>">
+                            <input type="hidden" id="vsavscssaadadeadsa" value="<%=currentUser.getName()%>">
+                            <input type="hidden" id="cscacsasadsad" value="<%=currentUser.getPhone()%>">
                             <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
-                                <span><%=currentUser.getUsername()%></span>
+                                <span><%=currentUser.getName()%></span>
                             </a>
                             <ul class="dropdown-menu mega_dropdown" role="menu">
                                 <li><a href="${root}/setting/profile">Profile Setting</a></li>
@@ -88,16 +92,16 @@
                                         <button type="submit" id="" name="abbbbb" value="<%=currentUser.getId()%>">Shop manager</button>
                                     </form>
                                 </li>
-                                <li><a href="${root}/product/create">Manage Product</a></li>
+                                <li class="btnShopOrder"><a href="${root}/shoporder">Shop Order</a></li>
+                                <li class="btnManageProduct"><a href="${root}/product/create">Manage Product</a></li>
+                                <li><a href="${root}/myorder">My Order</a></li>
                                 <li><a href="${root}/auth/logout">Logout</a></li>
                             </ul>
 
                             <% } else { %>
                             <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span></a>
                             <ul class="dropdown-menu mega_dropdown" role="menu">
-                                <li><a href="${root}/auth/login">Login</a></li>
-                                <li><a href="#">Compare</a></li>
-                                <li><a href="#">Wishlists</a></li>
+                                <li><a href="${root}/auth/login?backurl=">Login/Register</a></li>
                             </ul>
                             <% }
                             %>
@@ -124,11 +128,11 @@
                             <button type="button" id="SearchItem" class="pull-right btn-search"></button>
                         </form>
                     </div>
-                    <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box">
-                        <a class="cart-link" href="order.html">
-                            <span class="title">Shopping cart</span>
-                            <span class="total">0 items - 0 VND</span>
-                            <span class="notify notify-left">0</span>
+                    <div id="cart-block" class="col-xs-5 col-sm-2 shopping-cart-box" style="display: inherit">
+                        <!--<a class="cart-link" href="order.html">
+                            <span class="title">Shopping cart1  </span>
+                            <span class="total">1 items - 0 VND</span>
+                            <span class="notify notify-left">1</span>
                         </a>
                         <div class="cart-block">
                             <div class="cart-block-content">
@@ -139,7 +143,7 @@
                                             <div class="p-left">
                                                 <a href="#" class="remove_link"></a>
                                                 <a href="#">
-                                                    <img class="img-responsive" src="${root}/assets/data/product-100x122.jpg" alt="p10">
+                                                    <img width="100" height="150" src="${root}/assets/data/product-100x122.jpg" alt="p10">
                                                 </a>
                                             </div>
                                             <div class="p-right">
@@ -158,6 +162,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
                     </div>                     
                 </div>
             </div>

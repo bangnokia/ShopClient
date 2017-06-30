@@ -10,6 +10,14 @@ function shopmanage() {
     });
 }
 
+function bindingInformation(id) {
+    var url = urlForm + '/Home/information?1=1&shopId=' + id;
+    var datajson = getDataJson(url);
+    if (datajson != null) {
+        bindItemDetail(datajson, 'frm_information');
+    }
+}
+
 function checkShopId() {
     var url = urlForm + '/product/shop/getlist?1=1&userId=' + $('#dsaccsacsagsagsdwefe').val();
     var datajson = getDataJson(url);
@@ -23,5 +31,7 @@ function checkShopId() {
         $('#saveForm').html('Update');
         bindItemDetail(datajson, 'frm_addshop');
         console.log(datajson[0]);
+
+        bindingInformation(datajson[0].id);
     }
 }

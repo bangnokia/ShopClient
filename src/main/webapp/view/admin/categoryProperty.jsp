@@ -17,25 +17,24 @@
         <div class="modal-body"> Widget settings form goes here </div>
     </div>
     <div class="clearfix"></div>
-    <div class="content sm-gutter">
+    <div class="content sm-gutter" style="padding-top: 20px;">
         <div class="page-title">
             ADD category property
         </div>
-        <div class="col-md-6" style="width: 510px">
+        <div class="col-md-6" style="width: 440px">
             <div class="grid simple" style="height: 500px">
                 <div id="gridBrand">
                 </div>
             </div>
         </div>
-        <div class="col-md-6" style="width: 350px">
+        <div class="col-md-6" style="width: 450px">
             <div class="grid simple" style="">
                 <div class="grid-title no-border">
-                    <h4>Icon <span class="semi-bold">Validation</span></h4>
-                    <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
+                    <h4>Manage <span class="semi-bold">Category propety</span></h4>
                 </div>
                 <div class="grid-body no-border"> <br>
                     <form id="form_categoryproperty" action="${adminRoot}/admin/categoryproperty/save" method="post" name="" novalidate="novalidate">
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label class="form-label">id categoryproperty</label>
                             <span class="help">id categoryproperty</span>
                             <div class="input-with-icon  right">                                       
@@ -43,9 +42,8 @@
                                 <input type="text" name="id" id="form_categoryproperty_id" disabled="disabled" class="form-control">                                 
                             </div>
                         </div>
-                         <div class="form-group">
-                            <label class="form-label">id category</label>
-                            <span class="help">id category</span>
+                        <div class="form-group">
+                            <label class="form-label">Category</label>
                             <div class="input-with-icon  right">                                       
                                 <i class=""></i>
                                 <select name="catId" id="form_categoryproperty_catId">

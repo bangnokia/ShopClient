@@ -305,6 +305,9 @@
 <script src="${adminRoot}/assets/js/jqwidgets/jqxlistbox.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxcheckbox.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.filter.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxcalendar.js" type="text/javascript"></script>
+<script src="${adminRoot}/assets/js/jqwidgets/jqxdatetimeinput.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.sort.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.pager.js" type="text/javascript"></script>
 <script src="${adminRoot}/assets/js/jqwidgets/jqxgrid.selection.js" type="text/javascript"></script>
